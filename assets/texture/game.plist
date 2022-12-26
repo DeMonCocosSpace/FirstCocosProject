@@ -4,33 +4,78 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>load.png</key>
+            <key>box.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{0,1}</string>
                 <key>spriteSize</key>
-                <string>{52,32}</string>
+                <string>{38,40}</string>
                 <key>spriteSourceSize</key>
-                <string>{52,32}</string>
+                <string>{40,42}</string>
                 <key>textureRect</key>
-                <string>{{0,0},{52,32}}</string>
+                <string>{{1,67},{38,40}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>btn.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-2,-2}</string>
+                <key>spriteSize</key>
+                <string>{132,50}</string>
+                <key>spriteSourceSize</key>
+                <string>{142,66}</string>
+                <key>textureRect</key>
+                <string>{{67,53},{132,50}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>loadbg.png</key>
+            <key>close.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{312,38}</string>
+                <string>{64,64}</string>
                 <key>spriteSourceSize</key>
-                <string>{312,38}</string>
+                <string>{64,64}</string>
                 <key>textureRect</key>
-                <string>{{52,0},{312,38}}</string>
+                <string>{{1,1},{64,64}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>loadingbar.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{59,17}</string>
+                <key>spriteSourceSize</key>
+                <string>{59,17}</string>
+                <key>textureRect</key>
+                <string>{{203,1},{59,17}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>loadingbox.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-1,0}</string>
+                <key>spriteSize</key>
+                <string>{134,50}</string>
+                <key>spriteSourceSize</key>
+                <string>{136,50}</string>
+                <key>textureRect</key>
+                <string>{{67,1},{134,50}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -46,9 +91,9 @@
             <key>realTextureFileName</key>
             <string>game.png</string>
             <key>size</key>
-            <string>{364,38}</string>
+            <string>{221,106}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:c3a1d2ad9d012464a44702ece1bf0e83:8e8db508a3beb4fd76fd4fa53b34d3cb:b2cae276934292945ac49b6ea6cfb4fe$</string>
+            <string>$TexturePacker:SmartUpdate:cbcb13550aa936794d6928bf18c4f054:45bb8d576dbb81ef7fe66a54369e4953:b2cae276934292945ac49b6ea6cfb4fe$</string>
             <key>textureFileName</key>
             <string>game.png</string>
         </dict>

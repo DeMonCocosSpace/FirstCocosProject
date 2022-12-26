@@ -1,6 +1,5 @@
 export default class Utils {
 
-
     public static showAlert(parent: cc.Node) {
         cc.loader.loadRes('alert/alert', function (err, prefab) {
             var node = cc.instantiate(prefab);

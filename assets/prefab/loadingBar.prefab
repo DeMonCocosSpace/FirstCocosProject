@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "loading",
+    "_name": "loadingBar",
     "_objFlags": 0,
     "_parent": null,
     "_children": [
@@ -109,7 +109,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 600,
-      "height": 38
+      "height": 60
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -172,8 +172,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 590,
-      "height": 32
+      "width": 580,
+      "height": 40
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -184,8 +184,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -295.519,
-        0,
+        -286.842,
+        2,
         0,
         0,
         0,
@@ -225,9 +225,9 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "aa12a0e6-a578-4d67-af68-c0b08ed65673"
+      "__uuid__": "62cfe15f-062f-4e68-9057-b6e9e9e9d1d2"
     },
-    "_type": 0,
+    "_type": 1,
     "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
@@ -239,7 +239,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": {
-      "__uuid__": "a7b8fcb4-0c6c-4f97-9f18-d5026fce2dd3"
+      "__uuid__": "42475cbd-5fc7-4bdd-b1a9-ed4061135cd5"
     },
     "_id": ""
   },
@@ -270,9 +270,9 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "f24e292e-34d2-4958-8032-b7cdbce6a60f"
+      "__uuid__": "714a2cba-d3f6-4bd1-ae33-0a6edcaa88cd"
     },
-    "_type": 0,
+    "_type": 1,
     "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
@@ -284,7 +284,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": {
-      "__uuid__": "a7b8fcb4-0c6c-4f97-9f18-d5026fce2dd3"
+      "__uuid__": "42475cbd-5fc7-4bdd-b1a9-ed4061135cd5"
     },
     "_id": ""
   },
@@ -310,8 +310,8 @@
     "load": {
       "__id__": 3
     },
-    "maxPro": 590,
-    "loadSpeed": 100,
+    "maxPro": 580,
+    "loadSpeed": 300,
     "_id": ""
   },
   {

@@ -16,7 +16,7 @@ export default class NewClass extends cc.Component {
         type: cc.Integer,
         slide: true,
         min: 0,
-        max: 590,
+        max: 580,
         step: 1,
     })
     maxPro: number = 0
@@ -24,10 +24,15 @@ export default class NewClass extends cc.Component {
     loadSpeed: number = 0
 
 
-    private setWidth = 0
+    private setWidth = 0;
+    private isNeedLoad = false;
+
+    finishCallback: () => void;
+
 
     onLoad() {
         this.load.width = 0;
+        this.isNeedLoad = false;
     }
 
     start() {
@@ -36,13 +41,24 @@ export default class NewClass extends cc.Component {
 
     setProgress(pro: number) {
         if (pro > 1 || pro < 0) { return; }
-        this.setWidth = this.maxPro * pro;
+        let width = this.maxPro * pro;
+        if (width > this.setWidth) {
+            this.setWidth = width;
+            this.isNeedLoad = true;
+        }
     }
 
     update(dt) {
 
-        if (this.load.width < this.setWidth) {
-            this.load.width += dt * this.loadSpeed;
+        if (this.isNeedLoad) {
+            if (this.load.width < this.setWidth) {
+                this.load.width += dt * this.loadSpeed;
+            }
+
+            if (this.load.width >= this.maxPro) {
+                this.isNeedLoad = false;
+                this.finishCallback();
+            }
         }
 
     }
