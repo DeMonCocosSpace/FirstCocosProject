@@ -12,9 +12,6 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class NewClass extends cc.Component {
 
-    @property(cc.Button)
-    btn: cc.Button = null;
-
     @property(cc.Prefab)
     mAlert: cc.Prefab = null;
     // LIFE-CYCLE CALLBACKS:
@@ -26,6 +23,7 @@ export default class NewClass extends cc.Component {
     }
 
     clickBtn() {
+        // 预制体addChild
         // var node = cc.instantiate(this.mAlert);
 
         // this.node.addChild(node);
@@ -39,7 +37,8 @@ export default class NewClass extends cc.Component {
         //     function () { cc.log('用户点击了ok'); })
 
 
-        // cc.loader.loadRes('alert/alert', function (err, prefab) {
+        // resources
+        // cc.resources.load('alert/alert', function (err, prefab) {
         //     var node = cc.instantiate(prefab);
         //     this.node.addChild(node);
         //     var alert = node.getComponent('alert')
@@ -51,6 +50,7 @@ export default class NewClass extends cc.Component {
         //         function () { cc.log('用户点击了ok'); })
         // }.bind(this));
 
+        // 静态方法全局调用
         Utils.showAlert(this.node);
 
     }

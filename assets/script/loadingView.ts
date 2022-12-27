@@ -24,13 +24,13 @@ export default class LoadingView extends cc.Component {
     loginBtn = null;
     @property(cc.ProgressBar)
     progressBar = null;
-
     @property(cc.Prefab)
     registerView: cc.Prefab = null;
 
     private registerNode = null;
     private loginViewNode = null;
 
+    // 静态变量模拟js全局变量调用
     static g_loading: LoadingView;
 
     onLoad() {
@@ -70,12 +70,14 @@ export default class LoadingView extends cc.Component {
         this.loginViewNode.show();
     }
     onClickGuest() {
-
+        cc.log('onClickWechat')
+        this.showRegister();
     }
     onClickWechat() {
-
+        cc.log('onClickWechat')
     }
 
+    //模拟全局调用
     showRegister() {
         if (this.registerNode == null) {
             this.registerNode = cc.instantiate(this.registerView);
@@ -84,6 +86,7 @@ export default class LoadingView extends cc.Component {
         }
         this.registerNode.show();
     }
+
     update(dt) {
 
         if (this.progressBar.progress < 1) {

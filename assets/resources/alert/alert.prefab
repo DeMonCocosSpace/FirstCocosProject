@@ -1031,9 +1031,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 230,
+      "g": 230,
+      "b": 230,
       "a": 255
     },
     "_contentSize": {
@@ -1091,7 +1091,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "a77f0704-666f-4c0e-8001-1c0f979ad139"
+      "__uuid__": "f4ad0cc9-1b3e-4936-9c72-d5a81b5af377"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -1104,7 +1104,9 @@
     "_fillStart": 0,
     "_fillRange": 0,
     "_isTrimmedMode": true,
-    "_atlas": null,
+    "_atlas": {
+      "__uuid__": "42475cbd-5fc7-4bdd-b1a9-ed4061135cd5"
+    },
     "_id": ""
   },
   {
@@ -1164,8 +1166,8 @@
     ],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
-    "_N$transition": 2,
-    "transition": 2,
+    "_N$transition": 1,
+    "transition": 1,
     "_N$normalColor": {
       "__type__": "cc.Color",
       "r": 230,
@@ -1208,9 +1210,7 @@
       "b": 120,
       "a": 200
     },
-    "_N$normalSprite": {
-      "__uuid__": "a77f0704-666f-4c0e-8001-1c0f979ad139"
-    },
+    "_N$normalSprite": null,
     "_N$pressedSprite": {
       "__uuid__": "e9ec654c-97a2-4787-9325-e6a10375219a"
     },

@@ -12,9 +12,14 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class NewClass extends cc.Component {
 
-    // LIFE-CYCLE CALLBACKS:
+    @property(cc.EditBox)
+    etAccount: cc.EditBox = null;
+    @property(cc.EditBox)
+    etPassword: cc.EditBox = null;
+    @property(cc.Toggle)
+    cbSave: cc.Toggle = null;
 
-    // onLoad () {}
+    onLoad() { }
 
     start() {
 
@@ -27,14 +32,20 @@ export default class NewClass extends cc.Component {
         this.node.active = false;
     }
     onClickLogin() {
+        cc.log('Account:' + this.etAccount.string);
+        cc.log('Password:' + this.etPassword.string);
+        cc.log('AutoSave:' + this.cbSave.isChecked);
 
+        //切换场景
+        cc.director.loadScene('gameView');
     }
     onClickRegister() {
-        LoadingView.g_loading.showRegister()
+        // 静态变量的全局调用
+        LoadingView.g_loading.showRegister();
         this.hide();
     }
     onClickClose() {
-        this.node.active = false;
+        this.hide();
     }
 
     // update (dt) {}
