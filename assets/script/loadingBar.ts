@@ -9,38 +9,35 @@ const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class NewClass extends cc.Component {
-
     @property(cc.Node)
-    load: cc.Node = null
+    load: cc.Node = null;
     @property({
         type: cc.Integer,
         slide: true,
         min: 0,
-        max: 580,
+        max: 656,
         step: 1,
     })
-    maxPro: number = 0
+    maxPro: number = 0;
     @property(cc.Integer)
-    loadSpeed: number = 0
-
+    loadSpeed: number = 0;
 
     private setWidth = 0;
     private isNeedLoad = false;
 
     finishCallback: () => void;
 
-
     onLoad() {
         this.load.width = 0;
         this.isNeedLoad = false;
     }
 
-    start() {
-
-    }
+    start() {}
 
     setProgress(pro: number) {
-        if (pro > 1 || pro < 0) { return; }
+        if (pro > 1 || pro < 0) {
+            return;
+        }
         let width = this.maxPro * pro;
         if (width > this.setWidth) {
             this.setWidth = width;
@@ -49,7 +46,6 @@ export default class NewClass extends cc.Component {
     }
 
     update(dt) {
-
         if (this.isNeedLoad) {
             if (this.load.width < this.setWidth) {
                 this.load.width += dt * this.loadSpeed;
@@ -60,6 +56,5 @@ export default class NewClass extends cc.Component {
                 this.finishCallback();
             }
         }
-
     }
 }

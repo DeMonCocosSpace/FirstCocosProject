@@ -5,13 +5,10 @@
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 
-
 const { ccclass, property } = cc._decorator;
-
 
 @ccclass
 export default class LoadingView extends cc.Component {
-
     @property(cc.Prefab)
     loadingbar = null;
     @property(cc.Prefab)
@@ -22,8 +19,6 @@ export default class LoadingView extends cc.Component {
     bg = null;
     @property(cc.Node)
     loginBtn = null;
-    @property(cc.ProgressBar)
-    progressBar = null;
     @property(cc.Prefab)
     registerView: cc.Prefab = null;
 
@@ -34,47 +29,39 @@ export default class LoadingView extends cc.Component {
     static g_loading: LoadingView;
 
     onLoad() {
-
         LoadingView.g_loading = this;
 
         let loadingNode = cc.instantiate(this.loadingbar);
-        loadingNode.y = -200;
+        loadingNode.y = -150;
         this.bg.addChild(loadingNode);
 
-        var c = loadingNode.getComponent('loadingBar');
+        var c = loadingNode.getComponent("loadingBar");
         c.setProgress(1);
         c.finishCallback = function () {
-            cc.log('finishCallback');
+            cc.log("finishCallback");
             loadingNode.active = false;
             // 隐藏非Node组件需要调用.node
-            this.progressBar.node.active = false;
             this.loginBtn.active = true;
         }.bind(this);
-
-        this.progressBar.progress = 0;
-
     }
 
-    start() {
-
-    }
+    start() {}
 
     onClickLogin() {
         if (this.loginViewNode == null) {
             this.loginViewNode = cc.instantiate(this.loginView);
             this.node.addChild(this.loginViewNode);
 
-            this.loginViewNode = this.loginViewNode.getComponent('loginView');
-
+            this.loginViewNode = this.loginViewNode.getComponent("loginView");
         }
         this.loginViewNode.show();
     }
     onClickGuest() {
-        cc.log('onClickWechat')
+        cc.log("onClickWechat");
         this.showRegister();
     }
     onClickWechat() {
-        cc.log('onClickWechat')
+        cc.log("onClickWechat");
     }
 
     //模拟全局调用
@@ -82,15 +69,10 @@ export default class LoadingView extends cc.Component {
         if (this.registerNode == null) {
             this.registerNode = cc.instantiate(this.registerView);
             this.node.addChild(this.registerNode);
-            this.registerNode = this.registerNode.getComponent('registerView');
+            this.registerNode = this.registerNode.getComponent("registerView");
         }
         this.registerNode.show();
     }
 
-    update(dt) {
-
-        if (this.progressBar.progress < 1) {
-            this.progressBar.progress += dt / 5;
-        }
-    }
+    update(dt) {}
 }

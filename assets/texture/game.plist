@@ -9,28 +9,58 @@
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,1}</string>
+                <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{38,40}</string>
+                <string>{94,90}</string>
                 <key>spriteSourceSize</key>
-                <string>{40,42}</string>
+                <string>{98,94}</string>
                 <key>textureRect</key>
-                <string>{{1,67},{38,40}}</string>
+                <string>{{293,663},{94,90}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
-            <key>btn.png</key>
+            <key>button.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{-2,-2}</string>
+                <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{132,50}</string>
+                <string>{156,70}</string>
                 <key>spriteSourceSize</key>
-                <string>{142,66}</string>
+                <string>{160,80}</string>
                 <key>textureRect</key>
-                <string>{{67,53},{132,50}}</string>
+                <string>{{293,591},{156,70}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>check_off.tga</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{34,34}</string>
+                <key>spriteSourceSize</key>
+                <string>{34,34}</string>
+                <key>textureRect</key>
+                <string>{{293,771},{34,34}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>check_on.tga</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{34,34}</string>
+                <key>spriteSourceSize</key>
+                <string>{34,34}</string>
+                <key>textureRect</key>
+                <string>{{389,663},{34,34}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -41,41 +71,86 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{64,64}</string>
+                <string>{65,65}</string>
                 <key>spriteSourceSize</key>
-                <string>{64,64}</string>
+                <string>{65,65}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{64,64}}</string>
+                <string>{{451,591},{65,65}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>loadingbar.png</key>
+            <key>logo.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-7,40}</string>
+                <key>spriteSize</key>
+                <string>{224,290}</string>
+                <key>spriteSourceSize</key>
+                <string>{500,386}</string>
+                <key>textureRect</key>
+                <string>{{1,591},{224,290}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>panel.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{59,17}</string>
+                <string>{878,588}</string>
                 <key>spriteSourceSize</key>
-                <string>{59,17}</string>
+                <string>{884,592}</string>
                 <key>textureRect</key>
-                <string>{{203,1},{59,17}}</string>
+                <string>{{1,1},{878,588}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
-            <key>loadingbox.png</key>
+            <key>progress.tga</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{-1,0}</string>
+                <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{134,50}</string>
+                <string>{698,32}</string>
                 <key>spriteSourceSize</key>
-                <string>{136,50}</string>
+                <string>{698,32}</string>
                 <key>textureRect</key>
-                <string>{{67,1},{134,50}}</string>
+                <string>{{881,1},{698,32}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>progress_box.tga</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{698,32}</string>
+                <key>spriteSourceSize</key>
+                <string>{698,32}</string>
+                <key>textureRect</key>
+                <string>{{915,1},{698,32}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>progress_item.tga</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{656,14}</string>
+                <key>spriteSourceSize</key>
+                <string>{656,14}</string>
+                <key>textureRect</key>
+                <string>{{293,755},{656,14}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -91,9 +166,9 @@
             <key>realTextureFileName</key>
             <string>game.png</string>
             <key>size</key>
-            <string>{221,106}</string>
+            <string>{950,816}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:cbcb13550aa936794d6928bf18c4f054:45bb8d576dbb81ef7fe66a54369e4953:b2cae276934292945ac49b6ea6cfb4fe$</string>
+            <string>$TexturePacker:SmartUpdate:e203b2f6b7799c56bd91e2e7e93f5b5e:a28876cc2fbf12dfb02e961c50e810fe:b2cae276934292945ac49b6ea6cfb4fe$</string>
             <key>textureFileName</key>
             <string>game.png</string>
         </dict>

@@ -11,16 +11,17 @@ const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class NewClass extends cc.Component {
-
     @property(cc.Prefab)
     mAlert: cc.Prefab = null;
+    @property(cc.ProgressBar)
+    progressBar = null;
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {}
-
-    start() {
-
+    onLoad() {
+        this.progressBar.progress = 0;
     }
+
+    start() {}
 
     clickBtn() {
         // 预制体addChild
@@ -35,7 +36,6 @@ export default class NewClass extends cc.Component {
         //     },
         //     function () { cc.log('用户点击了cancel'); },
         //     function () { cc.log('用户点击了ok'); })
-
 
         // resources
         // cc.resources.load('alert/alert', function (err, prefab) {
@@ -52,8 +52,11 @@ export default class NewClass extends cc.Component {
 
         // 静态方法全局调用
         Utils.showAlert(this.node);
-
     }
 
-    // update (dt) {}
+    update(dt) {
+        if (this.progressBar.progress < 1) {
+            this.progressBar.progress += dt / 5;
+        }
+    }
 }
