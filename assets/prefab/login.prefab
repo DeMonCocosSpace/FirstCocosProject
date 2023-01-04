@@ -58,10 +58,13 @@
       },
       {
         "__id__": 102
+      },
+      {
+        "__id__": 103
       }
     ],
     "_prefab": {
-      "__id__": 103
+      "__id__": 104
     },
     "_opacity": 255,
     "_color": {
@@ -3915,6 +3918,16 @@
     "cbSave": {
       "__id__": 77
     },
+    "_id": ""
+  },
+  {
+    "__type__": "cc.BlockInputEvents",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
     "_id": ""
   },
   {
