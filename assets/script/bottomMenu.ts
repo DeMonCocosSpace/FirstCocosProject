@@ -9,7 +9,6 @@ const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class NewClass extends cc.Component {
-
     @property(cc.Node)
     btnExpand: cc.Node = null;
     @property(cc.Node)
@@ -20,14 +19,17 @@ export default class NewClass extends cc.Component {
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {}
-
-    start() {
-
+    private widget: cc.Widget = null;
+    onLoad() {
+        this.widget = this.node.getComponent(cc.Widget);
     }
 
+    start() {}
+
     onclickExpand() {
-        if (this.mExpand || this.mClose) { return; }
+        if (this.mExpand || this.mClose) {
+            return;
+        }
         this.mExpand = true;
         this.mClose = false;
         this.btnExpand.active = false;
@@ -35,7 +37,9 @@ export default class NewClass extends cc.Component {
     }
 
     onclickClose() {
-        if (this.mExpand || this.mClose) { return; }
+        if (this.mExpand || this.mClose) {
+            return;
+        }
         this.mExpand = false;
         this.mClose = true;
         this.btnExpand.active = true;
@@ -43,20 +47,19 @@ export default class NewClass extends cc.Component {
     }
 
     update(dt) {
-
         if (this.mExpand || this.mClose) {
             var posx = dt * 500;
             if (this.mExpand) {
                 this.node.x -= posx;
-                if (this.node.x < 150) {
-                    this.node.x = 150;
+                if (this.node.x < 300) {
+                    this.node.x = 300;
                     this.mExpand = false;
                 }
             }
             if (this.mClose) {
                 this.node.x += posx;
-                if (this.node.x > 480) {
-                    this.node.x = 480;
+                if (this.node.x > 640) {
+                    this.node.x = 640;
                     this.mClose = false;
                 }
             }
