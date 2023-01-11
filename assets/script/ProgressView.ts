@@ -8,7 +8,7 @@
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class NewClass extends cc.Component {
+export default class ProgressView extends cc.Component {
     @property(cc.Node)
     load: cc.Node = null;
     @property({

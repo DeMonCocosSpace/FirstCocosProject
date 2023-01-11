@@ -5,13 +5,11 @@
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 
-import LoadingView from "./loadingView";
-
+import Loading from "./Loading";
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class NewClass extends cc.Component {
-
+export default class LoginView extends cc.Component {
     @property(cc.EditBox)
     etAccount: cc.EditBox = null;
     @property(cc.EditBox)
@@ -19,11 +17,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Toggle)
     cbSave: cc.Toggle = null;
 
-    onLoad() { }
+    onLoad() {}
 
-    start() {
-
-    }
+    start() {}
 
     show() {
         this.node.active = true;
@@ -32,16 +28,18 @@ export default class NewClass extends cc.Component {
         this.node.active = false;
     }
     onClickLogin() {
-        cc.log('Account:' + this.etAccount.string);
-        cc.log('Password:' + this.etPassword.string);
-        cc.log('AutoSave:' + this.cbSave.isChecked);
+        cc.log("Account:" + this.etAccount.string);
+        cc.log("Password:" + this.etPassword.string);
+        cc.log("AutoSave:" + this.cbSave.isChecked);
 
         //切换场景
-        cc.director.loadScene('gameView');
+        cc.director.loadScene("Plaza");
     }
     onClickRegister() {
-        // 静态变量的全局调用
-        LoadingView.g_loading.showRegister();
+        const load = this.node.parent.getComponent(Loading);
+        if (load != null) {
+            load.showRegister();
+        }
         this.hide();
     }
     onClickClose() {

@@ -8,22 +8,17 @@
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class NewClass extends cc.Component {
-
+export default class RegisterView extends cc.Component {
     // LIFE-CYCLE CALLBACKS:
 
     // onLoad () {}
 
-    start() {
-
-    }
+    start() {}
 
     show() {
         this.node.active = true;
     }
-    onClickOk() {
-
-    }
+    onClickOk() {}
     onClickClose() {
         this.node.active = false;
     }

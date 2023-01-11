@@ -8,8 +8,7 @@
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class NewClass extends cc.Component {
-
+export default class AlertView extends cc.Component {
     @property(cc.Label)
     label: cc.Label = null;
     @property(cc.Button)
@@ -26,9 +25,7 @@ export default class NewClass extends cc.Component {
     private cancelcallback: () => void;
     private closecallback: () => void;
 
-    start() {
-
-    }
+    start() {}
 
     show(tip: string, okcallback, cancelcallback, closecallback) {
         this.setTips(tip);
@@ -38,17 +35,17 @@ export default class NewClass extends cc.Component {
     }
 
     okFun() {
-        cc.log('okFun');
+        cc.log("okFun");
         this.okcallback();
     }
 
     cancelFun() {
-        cc.log('cancelFun');
+        cc.log("cancelFun");
         this.cancelcallback();
     }
 
     closeFun() {
-        cc.log('closeFun');
+        cc.log("closeFun");
         this.node.active = false;
         this.closecallback();
     }

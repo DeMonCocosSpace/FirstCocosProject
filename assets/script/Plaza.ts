@@ -10,7 +10,7 @@ import Utils from "./Utils";
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class NewClass extends cc.Component {
+export default class Plaza extends cc.Component {
     @property(cc.Prefab)
     mAlert: cc.Prefab = null;
     @property(cc.ProgressBar)
@@ -36,19 +36,6 @@ export default class NewClass extends cc.Component {
         //     },
         //     function () { cc.log('用户点击了cancel'); },
         //     function () { cc.log('用户点击了ok'); })
-
-        // resources
-        // cc.resources.load('alert/alert', function (err, prefab) {
-        //     var node = cc.instantiate(prefab);
-        //     this.node.addChild(node);
-        //     var alert = node.getComponent('alert')
-        //     alert.show('Hello prefab~',
-        //         function () {
-        //             cc.log('用户点击了ok');
-        //         },
-        //         function () { cc.log('用户点击了cancel'); },
-        //         function () { cc.log('用户点击了ok'); })
-        // }.bind(this));
 
         // 静态方法全局调用
         Utils.showAlert(this.node);

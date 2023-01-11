@@ -5,10 +5,14 @@
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 
+import LoginView from "./LoginView";
+import ProgressView from "./ProgressView";
+import RegisterView from "./RegisterView";
+
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class LoadingView extends cc.Component {
+export default class Loading extends cc.Component {
     @property(cc.Prefab)
     loadingbar = null;
     @property(cc.Prefab)
@@ -25,51 +29,47 @@ export default class LoadingView extends cc.Component {
     private registerNode = null;
     private loginViewNode = null;
 
-    // 静态变量模拟js全局变量调用
-    static g_loading: LoadingView;
-
     onLoad() {
-        LoadingView.g_loading = this;
-
         let loadingNode = cc.instantiate(this.loadingbar);
         loadingNode.y = -150;
         this.bg.addChild(loadingNode);
 
-        var c = loadingNode.getComponent("loadingBar");
+        const c: ProgressView = loadingNode.getComponent(ProgressView);
         c.setProgress(1);
-        c.finishCallback = function () {
+        c.finishCallback = () => {
             cc.log("finishCallback");
             loadingNode.active = false;
             // 隐藏非Node组件需要调用.node
             this.loginBtn.active = true;
-        }.bind(this);
+        };
     }
 
     start() {}
 
-    onClickLogin() {
+    onClickAccount() {
         if (this.loginViewNode == null) {
             this.loginViewNode = cc.instantiate(this.loginView);
             this.node.addChild(this.loginViewNode);
 
-            this.loginViewNode = this.loginViewNode.getComponent("loginView");
+            this.loginViewNode = this.loginViewNode.getComponent(LoginView);
         }
         this.loginViewNode.show();
     }
     onClickGuest() {
         cc.log("onClickWechat");
+        //切换场景
+        cc.director.loadScene("Plaza");
+    }
+    onClickRegister() {
+        cc.log("onClickRegister");
         this.showRegister();
     }
-    onClickWechat() {
-        cc.log("onClickWechat");
-    }
 
-    //模拟全局调用
     showRegister() {
         if (this.registerNode == null) {
             this.registerNode = cc.instantiate(this.registerView);
             this.node.addChild(this.registerNode);
-            this.registerNode = this.registerNode.getComponent("registerView");
+            this.registerNode = this.registerNode.getComponent(RegisterView);
         }
         this.registerNode.show();
     }
