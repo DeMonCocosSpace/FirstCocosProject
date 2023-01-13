@@ -1,6 +1,6 @@
 import { BundleName } from "../../conf/BundleName";
 import { SkinType } from "../../conf/SkinType";
-import BundleSkinCenter from "../BundleSkinCenter";
+import BundleSkinCenter from "./BundleSkinCenter";
 
 export default abstract class BaseBundleSkin<T extends IBundleResInfo>
     implements BdSkin.IBundleSkin
@@ -19,9 +19,10 @@ export default abstract class BaseBundleSkin<T extends IBundleResInfo>
     }
 
     /**
-     *
+     * 代理
+     * 对皮肤进行bundleName赋值
      */
-    public skinProxy<K extends IResDescribe>(array: K): IResDescribe {
+    public skinProxy<K extends { [i: string]: any }>(array: K): K {
         if (array === undefined) {
             return {} as any;
         }
@@ -41,7 +42,7 @@ export default abstract class BaseBundleSkin<T extends IBundleResInfo>
         };
 
         return new Proxy(array, {
-            get: (targt: K, p: string, r: any): IResDescribe => {
+            get: (targt: K, p: string, r: any): IBundleDesc => {
                 const result = targt[p];
                 if (result.resPath && result.type) {
                     setBundleName(result);
@@ -51,5 +52,21 @@ export default abstract class BaseBundleSkin<T extends IBundleResInfo>
                 return result;
             },
         });
+    }
+
+    public get Priorty() {
+        return this.skinProxy(this.getCurSkin().priority);
+    }
+
+    public get UnPriority() {
+        return this.skinProxy(this.getCurSkin().unpriority);
+    }
+
+    public get LoadOnDemand() {
+        return this.skinProxy(this.getCurSkin().loadOnDemand);
+    }
+
+    public get Config() {
+        return this.skinProxy(this.getCurSkin().config);
     }
 }

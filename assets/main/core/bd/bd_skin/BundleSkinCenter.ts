@@ -1,4 +1,4 @@
-import { BundleName } from "../conf/BundleName";
+import { BundleName } from "../../conf/BundleName";
 
 export default class BundleSkinCenter {
     private constructor() {}
@@ -8,8 +8,8 @@ export default class BundleSkinCenter {
     public static getInstance(): BundleSkinCenter {
         if (!this._instance) {
             this._instance = new BundleSkinCenter();
-            return this._instance;
         }
+        return this._instance;
     }
 
     private skinMap: Map<BundleName, BdSkin.IBundleSkin> = new Map();

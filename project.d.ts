@@ -26,3 +26,7 @@ type TIResDescribe =
     | IResDescribe
     | IResDescribe[]
     | { [index: string]: IResDescribe | TIResDescribe };
+
+type TProgressCallback = (total: number, current: number) => void;
+
+type TFailed = () => void;
