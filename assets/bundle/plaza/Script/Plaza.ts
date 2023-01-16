@@ -11,12 +11,15 @@ export default class Plaza extends cc.Component {
     @property(cc.Layout)
     layout: cc.Layout = null;
 
-    private bgLayout: cc.Sprite = null;
+    @property(cc.ScrollView)
+    scrollView: cc.ScrollView = null;
+
+    private bgScrollView: cc.Sprite = null;
 
     onLoad() {
-        this.bgLayout = this.layout.getComponent(cc.Sprite);
+        this.bgScrollView = this.scrollView.getComponent(cc.Sprite);
 
-        this.bgLayout.spriteFrame = ResLoader.getInstance().getSpriteFrame(
+        this.bgScrollView.spriteFrame = ResLoader.getInstance().getSpriteFrame(
             CommonSkin.Priorty.bgSkin
         );
 
@@ -26,7 +29,7 @@ export default class Plaza extends cc.Component {
             );
             const ctrl = pf.getComponent(PlazaBtnView);
             ctrl.init(value);
-            this.bgLayout.node.addChild(pf);
+            this.layout.node.addChild(pf);
         });
     }
 
