@@ -133,6 +133,10 @@ export default class ResLoader {
         return this.getResFromBundle(resObj);
     }
 
+    public getSpriteFrame(resObj: IResDescribe): cc.SpriteFrame {
+        return this.getResFromBundle(resObj);
+    }
+
     /**
      * 从bundle中获取单个资源 bundle以及bundle中的资源必须已经提前载入了以后才能正确获取到
      * @param resDesObj 资源描述对象

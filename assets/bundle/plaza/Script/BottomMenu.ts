@@ -1,10 +1,3 @@
-// Learn TypeScript:
-//  - https://docs.cocos.com/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
-
 const { ccclass, property } = cc._decorator;
 
 @ccclass
@@ -17,14 +10,7 @@ export default class BottomMenu extends cc.Component {
     private mExpand = false;
     private mClose = false;
 
-    // LIFE-CYCLE CALLBACKS:
-
-    private widget: cc.Widget = null;
-    onLoad() {
-        this.widget = this.node.getComponent(cc.Widget);
-    }
-
-    start() {}
+    onLoad() {}
 
     onclickExpand() {
         if (this.mExpand || this.mClose) {

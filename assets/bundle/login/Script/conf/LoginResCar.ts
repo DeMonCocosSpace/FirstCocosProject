@@ -2,15 +2,15 @@ export let LoginResCar = {
     launchScene: "Login",
     priority: {
         LoginView: <IResDescribe>{
-            resPath: "skin/cartoon/prefab/LoginView",
+            resPath: "skin/car/prefab/LoginView",
             type: cc.Prefab,
         },
         LoginDialogView: <IResDescribe>{
-            resPath: "skin/cartoon/prefab/LoginDialogView",
+            resPath: "skin/car/prefab/LoginDialogView",
             type: cc.Prefab,
         },
         RegisterDialogView: <IResDescribe>{
-            resPath: "skin/cartoon/prefab/RegisterDialogView",
+            resPath: "skin/car/prefab/RegisterDialogView",
             type: cc.Prefab,
         },
     },

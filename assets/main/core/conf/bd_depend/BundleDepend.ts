@@ -13,6 +13,7 @@ export namespace BundleDepend {
         [BundleName.COMMON]: [],
         [BundleName.LOGIN]: [BundleName.COMMON],
         [BundleName.PLAZA]: [BundleName.COMMON],
+        [BundleName.ANIM]: [BundleName.COMMON],
     };
 
     export function getDepend(bundleName: BundleName) {
