@@ -1,16 +1,16 @@
-export let LoginResAnt = {
+export let LoginResCar = {
     launchScene: "Login",
     priority: {
         LoginView: <IResDescribe>{
-            resPath: "skin/ant/prefab/LoginView",
+            resPath: "skin/cartoon/prefab/LoginView",
             type: cc.Prefab,
         },
         LoginDialogView: <IResDescribe>{
-            resPath: "skin/ant/prefab/LoginDialogView",
+            resPath: "skin/cartoon/prefab/LoginDialogView",
             type: cc.Prefab,
         },
         RegisterDialogView: <IResDescribe>{
-            resPath: "skin/ant/prefab/RegisterDialogView",
+            resPath: "skin/cartoon/prefab/RegisterDialogView",
             type: cc.Prefab,
         },
     },

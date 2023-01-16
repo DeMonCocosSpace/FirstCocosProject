@@ -5,11 +5,10 @@
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 
-import Loading from "./Loading";
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class LoginView extends cc.Component {
+export default class LoginDialogView extends cc.Component {
     @property(cc.EditBox)
     etAccount: cc.EditBox = null;
     @property(cc.EditBox)
@@ -36,10 +35,7 @@ export default class LoginView extends cc.Component {
         cc.director.loadScene("Plaza");
     }
     onClickRegister() {
-        const load = this.node.parent.getComponent(Loading);
-        if (load != null) {
-            load.showRegister();
-        }
+        window["LoginView"].showRegister();
         this.hide();
     }
     onClickClose() {
