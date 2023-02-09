@@ -25,6 +25,6 @@ export default class PlazaBtnView extends cc.Component {
     }
 
     onClick() {
-        //BundleCenter.getInstance().launchSence(this.bundleName);
+        BundleCenter.getInstance().launchSence(this.value.bundle);
     }
 }

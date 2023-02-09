@@ -89,6 +89,7 @@ export default class ResLoader {
         return new Promise((resolve) => {
             this.loadOneResFromBundle(resObj.bundleName, resObj, (res) => {
                 resolve(res);
+                callback?.(res);
             });
         });
     }
@@ -131,6 +132,22 @@ export default class ResLoader {
 
     public getPrefab(resObj: IResDescribe): cc.Prefab {
         return this.getResFromBundle(resObj);
+    }
+
+    public loadPrefab(
+        resObj: IResDescribe,
+        successCallback?: (res: any) => void,
+        failCallback?: () => void
+    ) {
+        this.loadResFromBundle(resObj, (prefab: cc.Prefab) => {
+            if (prefab) {
+                cc.log("loadPrefab succeed");
+                successCallback?.(prefab);
+            } else {
+                cc.log("loadPrefab fail");
+                failCallback?.();
+            }
+        });
     }
 
     public getSpriteFrame(resObj: IResDescribe): cc.SpriteFrame {

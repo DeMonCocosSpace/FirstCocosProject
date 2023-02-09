@@ -48,10 +48,10 @@
       "height": 30,
       "rawWidth": 511,
       "rawHeight": 30,
-      "borderTop": 0,
-      "borderBottom": 0,
-      "borderLeft": 0,
-      "borderRight": 0,
+      "borderTop": 4,
+      "borderBottom": 5,
+      "borderLeft": 12,
+      "borderRight": 12,
       "spriteType": "normal",
       "subMetas": {}
     }

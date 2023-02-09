@@ -1,10 +1,3 @@
-// Learn TypeScript:
-//  - https://docs.cocos.com/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
-
 const { ccclass, property } = cc._decorator;
 
 @ccclass
@@ -15,8 +8,6 @@ export default class AlertView extends cc.Component {
     ok: cc.Button = null;
     @property(cc.Button)
     cancel: cc.Button = null;
-    @property(cc.Button)
-    close: cc.Button = null;
     // LIFE-CYCLE CALLBACKS:
 
     // onLoad () {}
@@ -27,32 +18,37 @@ export default class AlertView extends cc.Component {
 
     start() {}
 
-    show(tip: string, okcallback, cancelcallback, closecallback) {
+    build(tip: string, okcallback, cancelcallback, closecallback) {
         this.setTips(tip);
         this.okcallback = okcallback;
         this.cancelcallback = cancelcallback;
         this.closecallback = closecallback;
+        return this;
+    }
+
+    show() {
+        this.node.active = true;
+        this.enabled = true;
+    }
+    dismiss() {
+        this.node.active = false;
+        this.enabled = false;
     }
 
     okFun() {
         cc.log("okFun");
         this.okcallback();
+
+        this.dismiss();
     }
 
     cancelFun() {
         cc.log("cancelFun");
         this.cancelcallback();
-    }
-
-    closeFun() {
-        cc.log("closeFun");
-        this.node.active = false;
-        this.closecallback();
+        this.dismiss();
     }
 
     setTips(tips: string) {
         this.label.string = tips;
     }
-
-    // update (dt) {}
 }
