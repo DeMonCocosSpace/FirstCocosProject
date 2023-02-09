@@ -5,6 +5,10 @@ export let CustomResAnt = {
             resPath: "skin/ant/prefab/CustomView",
             type: cc.Prefab,
         },
+        BottomMenuView: <IResDescribe>{
+            resPath: "skin/ant/prefab/BottomMenuView",
+            type: cc.Prefab,
+        },
     },
     unpriority: {
         ProgressVew: <IResDescribe>{

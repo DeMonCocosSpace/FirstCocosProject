@@ -11,6 +11,13 @@ export default class CustomView extends cc.Component {
 
     start() {}
 
+    protected onLoad(): void {
+        const node = cc.instantiate(
+            ResLoader.getInstance().getPrefab(CustomSkin.Priorty.BottomMenuView)
+        );
+        this.node.addChild(node);
+    }
+
     showAlert() {
         AlertUtils.showAlert("Hello Cocos~");
     }
