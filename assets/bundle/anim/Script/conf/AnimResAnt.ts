@@ -1,10 +1,15 @@
 export let AnimResAnt = {
     launchScene: "Anim",
     priority: {
-        AnimView: <IResDescribe>{
-            resPath: "skin/ant/prefab/AnimView",
+        AnimBtnView: <IResDescribe>{
+            resPath: "skin/ant/prefab/AnimBtnView",
             type: cc.Prefab,
         },
     },
-    unpriority: {},
+    unpriority: {
+        AnimDialogView: <IResDescribe>{
+            resPath: "skin/ant/prefab/AnimDialogView",
+            type: cc.Prefab,
+        },
+    },
 };

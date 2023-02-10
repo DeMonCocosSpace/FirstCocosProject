@@ -4,11 +4,11 @@ import { SkinType } from "../../../../main/core/conf/SkinType";
 import { AnimResAnt } from "./AnimResAnt";
 import { AnimResCar } from "./AnimResCar";
 
-type TBundleInfo = typeof AnimResAnt & typeof AnimResAnt;
+type TBundleInfo = typeof AnimResAnt & typeof AnimResCar;
 class AnimSkin extends BaseBundleSkin<TBundleInfo> {
     protected skin: BdSkin.TSkinInfo = {
         [SkinType.ANT]: AnimResAnt,
-        [SkinType.CAR]: AnimResAnt,
+        [SkinType.CAR]: AnimResCar,
     };
 
     constructor() {

@@ -71,7 +71,7 @@ export default class ResLoader {
             callback && callback(null);
             return;
         }
-
+        cc.log("loadBundleRes resPath=" + resPath);
         bundle.load(resPath, type, (error, res: any) => {
             if (error) {
                 cc.error("[ResLoader loadBunleRes]:load Res " + resPath + " error: ", error);
