@@ -34,7 +34,7 @@ export default class Anim extends cc.Component {
                 title: "帧动画",
             },
             {
-                prefab: AnimSkin.UnPriority.AnimDialogView,
+                prefab: AnimSkin.UnPriority.MonsterView,
                 title: "动作系统",
             },
         ];

@@ -1,14 +1,9 @@
-// Learn TypeScript:
-//  - https://docs.cocos.com/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
+import BasePrefabView from "../../../main/core/widget/BasePrefabView";
 
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class NewClass extends cc.Component {
+export default class MonsterView extends BasePrefabView {
     @property(cc.Node)
     monster: cc.Node = null;
 
@@ -22,12 +17,9 @@ export default class NewClass extends cc.Component {
     private tweenAction: cc.Tween = null;
 
     onLoad() {
+        this.hide();
         this.anim = this.monster.getComponent(cc.Animation);
         this.node.on(cc.Node.EventType.TOUCH_START, this.getPos, this);
-    }
-
-    goback() {
-        cc.director.loadScene("Start");
     }
 
     getPos(event: cc.Touch) {
@@ -90,7 +82,12 @@ export default class NewClass extends cc.Component {
             this.anim.stop();
         }, this);
         //模拟队列:放大，移动，缩小，结束回调
-        this.runaction = cc.sequence(cc.scaleTo(1, 1.2, 1.2), cc.moveTo(time, end), cc.scaleTo(1, 1, 1), actionFinish);
+        this.runaction = cc.sequence(
+            cc.scaleTo(1, 1.2, 1.2),
+            cc.moveTo(time, end),
+            cc.scaleTo(1, 1, 1),
+            actionFinish
+        );
         this.monster.runAction(this.runaction);
     }
 
@@ -128,7 +125,6 @@ export default class NewClass extends cc.Component {
 
         return -degree;
     }
-    start() {}
 
     // update (dt) {}
 }

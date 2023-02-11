@@ -1,9 +1,10 @@
 import CocosUtils from "../../../main/core/CocosUtils";
+import BasePrefabView from "../../../main/core/widget/BasePrefabView";
 
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class FrameView extends cc.Component {
+export default class FrameView extends BasePrefabView {
     // LIFE-CYCLE CALLBACKS:
     @property(cc.Node)
     effect: cc.Node = null;
@@ -13,20 +14,12 @@ export default class FrameView extends cc.Component {
     private anim: cc.Animation = null;
 
     onLoad() {
-        this.node.active = true;
-        this.enabled = true;
+        this.hide();
 
         CocosUtils.getInstance().setBtn(this.play);
         CocosUtils.getInstance().setBg(this.node.getComponent(cc.Sprite));
 
         this.anim = this.effect.getComponent(cc.Animation);
-    }
-
-    start() {}
-
-    goback() {
-        this.node.active = false;
-        this.enabled = false;
     }
 
     playEffect() {

@@ -19,5 +19,9 @@ export let AnimResCar = {
             resPath: "skin/final/prefab/FrameView",
             type: cc.Prefab,
         },
+        MonsterView: <IResDescribe>{
+            resPath: "skin/final/prefab/MonsterView",
+            type: cc.Prefab,
+        },
     },
 };

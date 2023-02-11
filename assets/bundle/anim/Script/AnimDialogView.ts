@@ -1,14 +1,9 @@
-// Learn TypeScript:
-//  - https://docs.cocos.com/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
+import BasePrefabView from "../../../main/core/widget/BasePrefabView";
 
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class AnimDialogView extends cc.Component {
+export default class AnimDialogView extends BasePrefabView {
     // LIFE-CYCLE CALLBACKS:
 
     @property(cc.Node)
@@ -20,18 +15,6 @@ export default class AnimDialogView extends cc.Component {
 
     private isShow = false;
 
-    onLoad() {
-        //enable组件可以控制BlockInputEvents是否生效
-        this.enabled = false;
-        ////active = false时BlockInputEvents仍然生效
-        this.node.active = false;
-
-        this.anim = this.bg.getComponent(cc.Animation);
-        //on注册可以解决子节点的帧事件函数无法在父节点被找到的问题
-        //相对来说又不够灵活
-        this.anim.on(cc.Animation.EventType.FINISHED, this.playFinish, this);
-    }
-
     playFinish(type: string, state: cc.AnimationState) {
         cc.log("playFinish: " + type + ",name=" + state.name);
     }
@@ -39,11 +22,16 @@ export default class AnimDialogView extends cc.Component {
     hidePlayEnd() {
         cc.log("Dialog hidePlayEnd");
         this.isShow = false;
-        this.node.active = false;
-        this.enabled = false;
+        this.hide();
     }
 
-    start() {}
+    onLoad() {
+        this.hide();
+        this.anim = this.bg.getComponent(cc.Animation);
+        //on注册可以解决子节点的帧事件函数无法在父节点被找到的问题
+        //相对来说又不够灵活
+        this.anim.on(cc.Animation.EventType.FINISHED, this.playFinish, this);
+    }
 
     // update (dt) {}
 
@@ -51,27 +39,27 @@ export default class AnimDialogView extends cc.Component {
         this.content.string = content;
         return this;
     }
-    show() {
+
+    showView() {
         if (this.isShow) {
             return;
         }
         cc.log("Doalog Show~");
         this.isShow = true;
-        this.enabled = true;
-        this.node.active = true;
+        this.show();
         this.anim.play("ScaleToShow");
+    }
+
+    hideView() {
+        this.anim.play("ScaleToHide");
     }
 
     agree() {
         cc.log("同意");
-        this.hide();
+        this.hideView();
     }
     disAgree() {
         cc.log("不同意");
-        this.hide();
-    }
-
-    hide() {
-        this.anim.play("ScaleToHide");
+        this.hideView();
     }
 }

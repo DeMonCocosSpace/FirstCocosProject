@@ -18,27 +18,42 @@ export default class AnimView extends cc.Component {
 
     protected onLoad(): void {}
 
-    private prefab: cc.Prefab = null;
+    private value: any = null;
+
+    public static map: Map<string, cc.Node> = new Map();
 
     init(value: any) {
-        ResLoader.getInstance().loadPrefab(value.prefab, (prefab: cc.Prefab) => {
-            this.prefab = prefab;
-        });
+        this.value = value;
+
         this.label.string = value.title;
     }
 
     onClick() {
-        const node = cc.instantiate(this.prefab);
-        CocosUtils.getInstance().getSceneCanvas().addChild(node);
+        const path: string = this.value.prefab.resPath;
+        const index = path.lastIndexOf("/") + 1;
+        const name: string = path.substring(index, path.length);
+        cc.log("prefab.name=" + name);
+        let node: cc.Node = AnimView.map.get(name);
+        if (node == undefined) {
+            ResLoader.getInstance().loadPrefab(this.value.prefab, (prefab: cc.Prefab) => {
+                node = cc.instantiate(prefab);
+                CocosUtils.getInstance().getSceneCanvas().addChild(node);
+                AnimView.map.set(name, node);
+                this.show(node, name);
+            });
+        } else {
+            this.show(node, name);
+        }
+    }
 
-        cc.log("prefab.name=" + this.prefab.name);
-
-        switch (this.prefab.name) {
+    private show(node: cc.Node, name: string) {
+        const ctrl = node.getComponent(name);
+        switch (name) {
             case "AnimDialogView":
-                const ctrl: AnimDialogView = node.getComponent(AnimDialogView);
-                ctrl.setConetnt("Hello Cocos~").show();
+                ctrl.setConetnt("Hello Cocos~").showView();
                 break;
             default:
+                ctrl.show();
                 break;
         }
     }
