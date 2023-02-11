@@ -13,6 +13,8 @@ export default class AnimDialogView extends cc.Component {
 
     @property(cc.Node)
     bg: cc.Node = null;
+    @property(cc.Label)
+    content: cc.Label = null;
 
     private anim: cc.Animation = null;
 
@@ -45,6 +47,10 @@ export default class AnimDialogView extends cc.Component {
 
     // update (dt) {}
 
+    setConetnt(content: string): AnimDialogView {
+        this.content.string = content;
+        return this;
+    }
     show() {
         if (this.isShow) {
             return;
@@ -54,6 +60,15 @@ export default class AnimDialogView extends cc.Component {
         this.enabled = true;
         this.node.active = true;
         this.anim.play("ScaleToShow");
+    }
+
+    agree() {
+        cc.log("同意");
+        this.hide();
+    }
+    disAgree() {
+        cc.log("不同意");
+        this.hide();
     }
 
     hide() {

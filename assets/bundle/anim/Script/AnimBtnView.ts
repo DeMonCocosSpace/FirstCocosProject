@@ -29,10 +29,17 @@ export default class AnimView extends cc.Component {
 
     onClick() {
         const node = cc.instantiate(this.prefab);
-
         CocosUtils.getInstance().getSceneCanvas().addChild(node);
 
-        const ctrl: AnimDialogView = node.getComponent(AnimDialogView);
-        ctrl.show();
+        cc.log("prefab.name=" + this.prefab.name);
+
+        switch (this.prefab.name) {
+            case "AnimDialogView":
+                const ctrl: AnimDialogView = node.getComponent(AnimDialogView);
+                ctrl.setConetnt("Hello Cocos~").show();
+                break;
+            default:
+                break;
+        }
     }
 }

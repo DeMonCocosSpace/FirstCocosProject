@@ -1,7 +1,6 @@
 import ResLoader from "../../../main/core/bd/ResLoader";
 import CommonSkin from "../../common/Script/conf/CommonSkin";
 import AnimBtnView from "./AnimBtnView";
-import { AnimConf } from "./conf/AnimConf";
 import AnimSkin from "./conf/AnimSkin";
 
 const { ccclass, property } = cc._decorator;
@@ -17,12 +16,30 @@ export default class Anim extends cc.Component {
     @property(cc.Sprite)
     bg: cc.Sprite = null;
 
-    private bgScrollView: cc.Sprite = null;
+    private AnimConf = null;
 
     onLoad() {
+        this.AnimConf = [
+            {
+                prefab: AnimSkin.UnPriority.AnimDialogView,
+                title: "缩放",
+            },
+            {
+                prefab: AnimSkin.UnPriority.AnimDialogView,
+                title: "大厅效果",
+            },
+            {
+                prefab: AnimSkin.UnPriority.AnimDialogView,
+                title: "帧动画",
+            },
+            {
+                prefab: AnimSkin.UnPriority.AnimDialogView,
+                title: "动作系统",
+            },
+        ];
         this.bg.spriteFrame = ResLoader.getInstance().getSpriteFrame(CommonSkin.Priorty.bgSkin);
 
-        AnimConf.forEach((value, i, _) => {
+        this.AnimConf.forEach((value, i, _) => {
             const pf = cc.instantiate(
                 ResLoader.getInstance().getPrefab(AnimSkin.Priorty.AnimBtnView)
             );
