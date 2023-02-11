@@ -12,7 +12,7 @@ export let AnimResCar = {
             type: cc.Prefab,
         },
         PlazaView: <IResDescribe>{
-            resPath: "skin/final/prefab/PlazaView",
+            resPath: "skin/car/prefab/PlazaView",
             type: cc.Prefab,
         },
         FrameView: <IResDescribe>{

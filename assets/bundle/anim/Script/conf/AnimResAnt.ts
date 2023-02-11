@@ -12,7 +12,7 @@ export let AnimResAnt = {
             type: cc.Prefab,
         },
         PlazaView: <IResDescribe>{
-            resPath: "skin/final/prefab/PlazaView",
+            resPath: "skin/ant/prefab/PlazaView",
             type: cc.Prefab,
         },
         FrameView: <IResDescribe>{
