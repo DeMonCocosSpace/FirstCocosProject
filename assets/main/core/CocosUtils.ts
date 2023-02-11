@@ -1,3 +1,6 @@
+import CommonSkin from "../../bundle/common/Script/conf/CommonSkin";
+import ResLoader from "./bd/ResLoader";
+
 export default class CocosUtils {
     private constructor() {}
 
@@ -8,6 +11,18 @@ export default class CocosUtils {
             this._instance = new CocosUtils();
         }
         return this._instance;
+    }
+
+    public static currentSence = null;
+    public static lastSence = null;
+
+    public setBtn(btn: cc.Button) {
+        const bg = btn.getComponent(cc.Sprite);
+        bg.spriteFrame = ResLoader.getInstance().getSpriteFrame(CommonSkin.Priorty.btnSkin);
+    }
+
+    public setBg(bg: cc.Sprite) {
+        bg.spriteFrame = ResLoader.getInstance().getSpriteFrame(CommonSkin.Priorty.bgSkin);
     }
 
     //获取当前的Canvas
@@ -26,5 +41,13 @@ export default class CocosUtils {
             }
         }
         return null;
+    }
+
+    public goBack() {
+        CocosUtils.lastSence && cc.director.loadScene(CocosUtils.lastSence);
+    }
+
+    public goPlaza() {
+        cc.director.loadScene("Plaza");
     }
 }

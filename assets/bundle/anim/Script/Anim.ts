@@ -1,4 +1,5 @@
 import ResLoader from "../../../main/core/bd/ResLoader";
+import CocosUtils from "../../../main/core/CocosUtils";
 import CommonSkin from "../../common/Script/conf/CommonSkin";
 import AnimBtnView from "./AnimBtnView";
 import AnimSkin from "./conf/AnimSkin";
@@ -25,11 +26,11 @@ export default class Anim extends cc.Component {
                 title: "缩放",
             },
             {
-                prefab: AnimSkin.UnPriority.AnimDialogView,
+                prefab: AnimSkin.UnPriority.PlazaView,
                 title: "大厅效果",
             },
             {
-                prefab: AnimSkin.UnPriority.AnimDialogView,
+                prefab: AnimSkin.UnPriority.FrameView,
                 title: "帧动画",
             },
             {
@@ -37,7 +38,7 @@ export default class Anim extends cc.Component {
                 title: "动作系统",
             },
         ];
-        this.bg.spriteFrame = ResLoader.getInstance().getSpriteFrame(CommonSkin.Priorty.bgSkin);
+        CocosUtils.getInstance().setBg(this.bg);
 
         this.AnimConf.forEach((value, i, _) => {
             const pf = cc.instantiate(

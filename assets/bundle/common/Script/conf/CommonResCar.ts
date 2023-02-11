@@ -4,6 +4,10 @@ export let CommonResCar = {
             resPath: "skin/car/texture/bg",
             type: cc.SpriteFrame,
         },
+        btnSkin: <IResDescribe>{
+            resPath: "skin/car/texture/button",
+            type: cc.SpriteFrame,
+        },
         AlertView: <IResDescribe>{
             resPath: "skin/car/prefab/AlertView",
             type: cc.Prefab,

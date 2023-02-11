@@ -55,6 +55,12 @@ export default class BundleCenter {
                             this.removeReference(this.currentBundle);
                             this.currentBundle = bundle;
                             onSuccess?.();
+
+                            /**
+                             * 场景加载成功保存上次场景，并记录当前场景
+                             */
+                            CocosUtils.lastSence = CocosUtils.currentSence;
+                            CocosUtils.currentSence = sceneName;
                         }
                     });
                 } else {
