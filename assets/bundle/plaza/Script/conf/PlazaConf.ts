@@ -9,4 +9,8 @@ export let PlazaConf = [
         bundle: BundleName.ANIM,
         title: "Anim",
     },
+    {
+        bundle: BundleName.HALL,
+        title: "Hall",
+    },
 ];

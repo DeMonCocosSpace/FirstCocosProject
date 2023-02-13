@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "41f38827-7952-4723-8843-4c31c119510e",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 230,
+  "height": 200,
+  "platformSettings": {},
+  "subMetas": {
+    "tk_hall_game_btn_wolfgold": {
+      "ver": "1.0.6",
+      "uuid": "75c1ea59-883f-49ba-b867-5ad4fc20953b",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "41f38827-7952-4723-8843-4c31c119510e",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 1.5,
+      "offsetY": -3.5,
+      "trimX": 9,
+      "trimY": 14,
+      "width": 215,
+      "height": 179,
+      "rawWidth": 230,
+      "rawHeight": 200,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,6 +1,5 @@
 import ResLoader from "../../../main/core/bd/ResLoader";
-import CocosUtils from "../../../main/core/CocosUtils";
-import CommonSkin from "../../common/Script/conf/CommonSkin";
+import CocosUtils from "../../../main/core/utils/CocosUtils";
 import AnimBtnView from "./AnimBtnView";
 import AnimSkin from "./conf/AnimSkin";
 
@@ -26,10 +25,6 @@ export default class Anim extends cc.Component {
                 title: "缩放",
             },
             {
-                prefab: AnimSkin.UnPriority.PlazaView,
-                title: "大厅效果",
-            },
-            {
                 prefab: AnimSkin.UnPriority.FrameView,
                 title: "帧动画",
             },
@@ -42,7 +37,7 @@ export default class Anim extends cc.Component {
 
         this.AnimConf.forEach((value, i, _) => {
             const pf = cc.instantiate(
-                ResLoader.getInstance().getPrefab(AnimSkin.Priorty.AnimBtnView)
+                ResLoader.getInstance().getPrefab(AnimSkin.Priority.AnimBtnView)
             );
             const ctrl = pf.getComponent(AnimBtnView);
             ctrl.init(value);

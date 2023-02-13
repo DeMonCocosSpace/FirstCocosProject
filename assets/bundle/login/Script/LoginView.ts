@@ -19,7 +19,7 @@ export default class LoginView extends cc.Component {
 
     onClickLogin() {
         const pf = cc.instantiate(
-            ResLoader.getInstance().getPrefab(LoginSkin.Priorty.LoginDialogView)
+            ResLoader.getInstance().getPrefab(LoginSkin.Priority.LoginDialogView)
         );
         this.node.addChild(pf);
     }
@@ -30,7 +30,7 @@ export default class LoginView extends cc.Component {
 
     showRegister() {
         const pf = cc.instantiate(
-            ResLoader.getInstance().getPrefab(LoginSkin.Priorty.RegisterDialogView)
+            ResLoader.getInstance().getPrefab(LoginSkin.Priority.RegisterDialogView)
         );
         this.node.addChild(pf);
     }

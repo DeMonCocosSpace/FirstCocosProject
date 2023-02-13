@@ -1,4 +1,4 @@
-import AlertUtils from "../../../main/core/AlertUtils";
+import AlertUtils from "../../../main/core/utils/AlertUtils";
 import ResLoader from "../../../main/core/bd/ResLoader";
 import CustomSkin from "./conf/CustomSkin";
 import ProgressView from "./ProgressView";
@@ -13,7 +13,7 @@ export default class CustomView extends cc.Component {
 
     protected onLoad(): void {
         const node = cc.instantiate(
-            ResLoader.getInstance().getPrefab(CustomSkin.Priorty.BottomMenuView)
+            ResLoader.getInstance().getPrefab(CustomSkin.Priority.BottomMenuView)
         );
         this.node.addChild(node);
     }

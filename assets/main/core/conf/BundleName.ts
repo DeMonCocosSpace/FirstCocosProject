@@ -3,5 +3,6 @@ export enum BundleName {
     PLAZA = "plaza",
     LOGIN = "login",
     ANIM = "anim",
+    HALL = "hall",
     CUSTOM = "custom",
 }

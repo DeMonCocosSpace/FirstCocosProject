@@ -6,7 +6,7 @@
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 
 import ResLoader from "../../../main/core/bd/ResLoader";
-import CocosUtils from "../../../main/core/CocosUtils";
+import CocosUtils from "../../../main/core/utils/CocosUtils";
 import AnimDialogView from "./AnimDialogView";
 
 const { ccclass, property } = cc._decorator;

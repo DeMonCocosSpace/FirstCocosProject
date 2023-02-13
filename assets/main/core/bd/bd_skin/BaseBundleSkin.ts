@@ -56,7 +56,7 @@ export default abstract class BaseBundleSkin<T extends IBundleResInfo>
         return proxy;
     }
 
-    public get Priorty() {
+    public get Priority() {
         return this.skinProxy(this.getCurSkin().priority);
     }
 

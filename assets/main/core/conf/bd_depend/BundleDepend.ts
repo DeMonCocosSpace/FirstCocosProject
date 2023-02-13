@@ -14,6 +14,7 @@ export namespace BundleDepend {
         [BundleName.LOGIN]: [BundleName.COMMON],
         [BundleName.PLAZA]: [BundleName.COMMON],
         [BundleName.ANIM]: [BundleName.COMMON],
+        [BundleName.HALL]: [BundleName.COMMON],
         [BundleName.CUSTOM]: [BundleName.COMMON],
     };
 

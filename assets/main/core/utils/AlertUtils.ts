@@ -1,12 +1,12 @@
-import AlertView from "../../bundle/common/Script/AlertView";
-import CommonSkin from "../../bundle/common/Script/conf/CommonSkin";
-import ResLoader from "./bd/ResLoader";
+import AlertView from "../../../bundle/common/Script/AlertView";
+import CommonSkin from "../../../bundle/common/Script/conf/CommonSkin";
+import ResLoader from "../bd/ResLoader";
 import CocosUtils from "./CocosUtils";
 
 export default class AlertUtils {
     //静态方法显示预制体
     public static showAlert(content: string) {
-        const pf = cc.instantiate(ResLoader.getInstance().getPrefab(CommonSkin.Priorty.AlertView));
+        const pf = cc.instantiate(ResLoader.getInstance().getPrefab(CommonSkin.Priority.AlertView));
         var alert = pf.getComponent(AlertView);
         alert
             .build(

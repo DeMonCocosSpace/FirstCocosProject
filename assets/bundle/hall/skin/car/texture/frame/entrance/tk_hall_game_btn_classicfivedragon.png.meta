@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "8bea40ce-02f7-44f3-93eb-a10efd1a5657",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 230,
+  "height": 200,
+  "platformSettings": {},
+  "subMetas": {
+    "tk_hall_game_btn_classicfivedragon": {
+      "ver": "1.0.6",
+      "uuid": "d5b32acc-df85-4fa7-904e-6868dfaef4b4",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "8bea40ce-02f7-44f3-93eb-a10efd1a5657",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 1,
+      "offsetY": -3,
+      "trimX": 17,
+      "trimY": 11,
+      "width": 198,
+      "height": 184,
+      "rawWidth": 230,
+      "rawHeight": 200,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

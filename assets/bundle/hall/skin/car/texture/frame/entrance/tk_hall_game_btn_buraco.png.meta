@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "65e8a5d6-1048-42de-ac87-4b14061f0308",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 230,
+  "height": 200,
+  "platformSettings": {},
+  "subMetas": {
+    "tk_hall_game_btn_buraco": {
+      "ver": "1.0.6",
+      "uuid": "137ec702-cf25-4371-af6a-bf28335f3cac",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "65e8a5d6-1048-42de-ac87-4b14061f0308",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 1,
+      "offsetY": -0.5,
+      "trimX": 26,
+      "trimY": 8,
+      "width": 180,
+      "height": 185,
+      "rawWidth": 230,
+      "rawHeight": 200,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

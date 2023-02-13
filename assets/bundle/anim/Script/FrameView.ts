@@ -1,4 +1,4 @@
-import CocosUtils from "../../../main/core/CocosUtils";
+import CocosUtils from "../../../main/core/utils/CocosUtils";
 import BasePrefabView from "../../../main/core/widget/BasePrefabView";
 
 const { ccclass, property } = cc._decorator;

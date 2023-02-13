@@ -1,0 +1,41 @@
+
+tk_common_newcomer_guide.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/effect_circle_01
+  rotate: false
+  xy: 2, 222
+  size: 272, 274
+  orig: 272, 274
+  offset: 0, 0
+  index: -1
+images/effect_grow_01
+  rotate: false
+  xy: 276, 395
+  size: 101, 101
+  orig: 101, 101
+  offset: 0, 0
+  index: -1
+images/effect_particle
+  rotate: false
+  xy: 179, 156
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+images/finger
+  rotate: false
+  xy: 2, 45
+  size: 175, 175
+  orig: 175, 175
+  offset: 0, 0
+  index: -1
+images/finger_one
+  rotate: true
+  xy: 2, 2
+  size: 41, 61
+  orig: 41, 61
+  offset: 0, 0
+  index: -1

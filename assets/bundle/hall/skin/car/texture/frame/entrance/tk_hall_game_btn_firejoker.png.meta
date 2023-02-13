@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "756ac21e-7e2d-44a5-91f8-0852662854ad",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 230,
+  "height": 200,
+  "platformSettings": {},
+  "subMetas": {
+    "tk_hall_game_btn_firejoker": {
+      "ver": "1.0.6",
+      "uuid": "61ae3865-a1ec-4bf7-9ded-0737195cf8d5",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "756ac21e-7e2d-44a5-91f8-0852662854ad",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 1.5,
+      "offsetY": 2.5,
+      "trimX": 27,
+      "trimY": 2,
+      "width": 179,
+      "height": 191,
+      "rawWidth": 230,
+      "rawHeight": 200,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

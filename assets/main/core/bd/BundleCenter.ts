@@ -1,6 +1,6 @@
 import lodash = require("lodash");
 import { resolve } from "path";
-import CocosUtils from "../CocosUtils";
+import CocosUtils from "../utils/CocosUtils";
 import { BundleDepend } from "../conf/bd_depend/BundleDepend";
 import { BundleName } from "../conf/BundleName";
 import BundleSkinCenter from "./bd_skin/BundleSkinCenter";

@@ -2,6 +2,7 @@ import BundleCenter from "../core/bd/BundleCenter";
 import { BundleName } from "../core/conf/BundleName";
 import Flavor from "../core/conf/Flavor";
 import { SkinType } from "../core/conf/SkinType";
+import CacheUtils from "../core/utils/CacheUtils";
 
 const { ccclass, property } = cc._decorator;
 
@@ -26,6 +27,8 @@ export default class Launcher extends cc.Component {
         this.progress.progress = 0;
 
         this.schedule(this.toLogin, 1);
+
+        CacheUtils.getInstance().initDataCache();
     }
 
     toLogin() {

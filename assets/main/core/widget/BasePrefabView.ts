@@ -1,5 +1,3 @@
-import Login from "../../../bundle/login/Script/Login";
-
 /**
  * 自定义预制体View，
  * 添加到节点后不显示

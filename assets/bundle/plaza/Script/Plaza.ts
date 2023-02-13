@@ -20,12 +20,12 @@ export default class Plaza extends cc.Component {
         this.bgScrollView = this.scrollView.getComponent(cc.Sprite);
 
         this.bgScrollView.spriteFrame = ResLoader.getInstance().getSpriteFrame(
-            CommonSkin.Priorty.bgSkin
+            CommonSkin.Priority.bgSkin
         );
 
         PlazaConf.forEach((value, i, _) => {
             const pf = cc.instantiate(
-                ResLoader.getInstance().getPrefab(PlazaSkin.Priorty.PlazaBtnView)
+                ResLoader.getInstance().getPrefab(PlazaSkin.Priority.PlazaBtnView)
             );
             const ctrl = pf.getComponent(PlazaBtnView);
             ctrl.init(value);

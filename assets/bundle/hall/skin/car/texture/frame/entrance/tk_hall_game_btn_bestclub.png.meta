@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "99d85fc5-62de-4a6a-ab28-86e50d1ee3d1",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 230,
+  "height": 200,
+  "platformSettings": {},
+  "subMetas": {
+    "tk_hall_game_btn_bestclub": {
+      "ver": "1.0.6",
+      "uuid": "43c4f11a-e004-4773-9fb0-7ad591b39459",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "99d85fc5-62de-4a6a-ab28-86e50d1ee3d1",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 1.5,
+      "offsetY": 2.5,
+      "trimX": 10,
+      "trimY": 3,
+      "width": 213,
+      "height": 189,
+      "rawWidth": 230,
+      "rawHeight": 200,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

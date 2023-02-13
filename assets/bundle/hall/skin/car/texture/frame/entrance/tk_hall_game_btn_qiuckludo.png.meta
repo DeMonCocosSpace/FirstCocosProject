@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "76c8e1fe-a3c0-471d-b7f5-3bd777cf01c4",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 230,
+  "height": 200,
+  "platformSettings": {},
+  "subMetas": {
+    "tk_hall_game_btn_qiuckludo": {
+      "ver": "1.0.6",
+      "uuid": "2639ff34-16dd-413f-9414-947a6b6ed551",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "76c8e1fe-a3c0-471d-b7f5-3bd777cf01c4",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": -3,
+      "trimX": 0,
+      "trimY": 14,
+      "width": 230,
+      "height": 178,
+      "rawWidth": 230,
+      "rawHeight": 200,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

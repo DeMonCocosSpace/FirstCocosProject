@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "65528027-4db3-4e9d-b773-e63d45b5ece4",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 230,
+  "height": 200,
+  "platformSettings": {},
+  "subMetas": {
+    "tk_hall_game_btn_truco": {
+      "ver": "1.0.6",
+      "uuid": "f8b851b3-1f8b-40f0-a911-49c23f7f6e57",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "65528027-4db3-4e9d-b773-e63d45b5ece4",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 1,
+      "offsetY": -2,
+      "trimX": 27,
+      "trimY": 11,
+      "width": 178,
+      "height": 182,
+      "rawWidth": 230,
+      "rawHeight": 200,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

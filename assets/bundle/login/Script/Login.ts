@@ -9,7 +9,7 @@ export default class Login extends cc.Component {
 
     protected onLoad(): void {
         const loginView = cc.instantiate(
-            ResLoader.getInstance().getPrefab(LoginSkin.Priorty.LoginView)
+            ResLoader.getInstance().getPrefab(LoginSkin.Priority.LoginView)
         );
         this.node.addChild(loginView);
     }

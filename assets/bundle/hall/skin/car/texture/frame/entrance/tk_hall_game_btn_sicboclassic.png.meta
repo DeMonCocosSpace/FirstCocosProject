@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "8432da4e-5f10-4c79-93f2-4dfb437bb529",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 230,
+  "height": 200,
+  "platformSettings": {},
+  "subMetas": {
+    "tk_hall_game_btn_sicboclassic": {
+      "ver": "1.0.6",
+      "uuid": "b3388b18-3b23-4e20-90a5-2af61958d9ff",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "8432da4e-5f10-4c79-93f2-4dfb437bb529",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0.5,
+      "offsetY": -2,
+      "trimX": 1,
+      "trimY": 14,
+      "width": 229,
+      "height": 176,
+      "rawWidth": 230,
+      "rawHeight": 200,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
