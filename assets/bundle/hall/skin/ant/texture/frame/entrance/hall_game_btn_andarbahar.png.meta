@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "9f2f4233-2e77-4cb9-8acf-4602bf7d176f",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 269,
+  "height": 224,
+  "platformSettings": {},
+  "subMetas": {
+    "hall_game_btn_andarbahar": {
+      "ver": "1.0.6",
+      "uuid": "3ab5db5b-291f-4dac-a808-88813d3171ba",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "9f2f4233-2e77-4cb9-8acf-4602bf7d176f",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": 4.5,
+      "trimX": 37,
+      "trimY": 9,
+      "width": 194,
+      "height": 197,
+      "rawWidth": 269,
+      "rawHeight": 224,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

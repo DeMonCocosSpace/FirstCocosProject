@@ -1,0 +1,41 @@
+
+lt_common_newcomer_guide.png
+size: 196,196
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/effect_circle_01
+  rotate: false
+  xy: 2, 57
+  size: 136, 137
+  orig: 136, 137
+  offset: 0, 0
+  index: -1
+images/effect_grow_01
+  rotate: false
+  xy: 140, 143
+  size: 51, 51
+  orig: 51, 51
+  offset: 0, 0
+  index: -1
+images/effect_particle
+  rotate: false
+  xy: 54, 27
+  size: 30, 28
+  orig: 32, 32
+  offset: 1, 2
+  index: -1
+images/finger
+  rotate: false
+  xy: 2, 2
+  size: 50, 53
+  orig: 50, 60
+  offset: 0, 0
+  index: -1
+images/finger_one
+  rotate: false
+  xy: 140, 114
+  size: 21, 27
+  orig: 21, 27
+  offset: 0, 0
+  index: -1

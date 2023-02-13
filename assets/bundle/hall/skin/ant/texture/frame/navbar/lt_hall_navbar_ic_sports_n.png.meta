@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "4d776abf-b379-4b8a-aaa0-2897cb24701a",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 32,
+  "height": 36,
+  "platformSettings": {},
+  "subMetas": {
+    "lt_hall_navbar_ic_sports_n": {
+      "ver": "1.0.6",
+      "uuid": "e4d85763-49ae-4aa4-9437-3c8b64f22442",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "4d776abf-b379-4b8a-aaa0-2897cb24701a",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": 1.5,
+      "trimX": 5,
+      "trimY": 6,
+      "width": 21,
+      "height": 21,
+      "rawWidth": 32,
+      "rawHeight": 36,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

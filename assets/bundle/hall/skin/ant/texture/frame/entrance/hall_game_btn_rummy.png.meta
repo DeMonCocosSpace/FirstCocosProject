@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "f2a44f16-681a-4912-8aca-1b974ba2354f",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 269,
+  "height": 224,
+  "platformSettings": {},
+  "subMetas": {
+    "hall_game_btn_rummy": {
+      "ver": "1.0.6",
+      "uuid": "f73bd235-75ad-485d-948c-36f7199b868d",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "f2a44f16-681a-4912-8aca-1b974ba2354f",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0.5,
+      "offsetY": 5.5,
+      "trimX": 19,
+      "trimY": 8,
+      "width": 232,
+      "height": 197,
+      "rawWidth": 269,
+      "rawHeight": 224,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

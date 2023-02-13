@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "687fc962-12a6-4282-ba9d-81fbdee2b4e9",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 269,
+  "height": 224,
+  "platformSettings": {},
+  "subMetas": {
+    "hall_game_btn_teenpatti": {
+      "ver": "1.0.6",
+      "uuid": "575809bf-ea5a-44bc-a060-df9d73fa718c",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "687fc962-12a6-4282-ba9d-81fbdee2b4e9",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -4,
+      "offsetY": 4,
+      "trimX": 29,
+      "trimY": 8,
+      "width": 203,
+      "height": 200,
+      "rawWidth": 269,
+      "rawHeight": 224,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

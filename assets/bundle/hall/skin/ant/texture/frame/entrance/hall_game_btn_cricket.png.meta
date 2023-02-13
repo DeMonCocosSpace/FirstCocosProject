@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "42cc3d01-5c0b-4e23-944b-2c03f2285d40",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 269,
+  "height": 224,
+  "platformSettings": {},
+  "subMetas": {
+    "hall_game_btn_cricket": {
+      "ver": "1.0.6",
+      "uuid": "94ff006e-ac33-4a59-a71f-a714e484c663",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "42cc3d01-5c0b-4e23-944b-2c03f2285d40",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 1,
+      "offsetY": 0,
+      "trimX": 34,
+      "trimY": 18,
+      "width": 203,
+      "height": 188,
+      "rawWidth": 269,
+      "rawHeight": 224,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

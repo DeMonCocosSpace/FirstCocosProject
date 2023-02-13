@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "7ead1011-9f19-4909-8356-7f9557de62f1",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 269,
+  "height": 224,
+  "platformSettings": {},
+  "subMetas": {
+    "hall_game_btn_judidadu": {
+      "ver": "1.0.6",
+      "uuid": "ce6346e0-0ed8-4f44-abce-4da33fc3031a",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "7ead1011-9f19-4909-8356-7f9557de62f1",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": 7.5,
+      "trimX": 37,
+      "trimY": 3,
+      "width": 194,
+      "height": 203,
+      "rawWidth": 269,
+      "rawHeight": 224,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

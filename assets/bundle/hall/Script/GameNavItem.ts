@@ -13,6 +13,9 @@ export default class GameNavItem extends cc.Component {
     @property(cc.Sprite)
     bg: cc.Sprite = null;
 
+    @property(cc.Sprite)
+    select: cc.Sprite = null;
+
     private _index: number;
 
     public get index(): number {
@@ -35,22 +38,24 @@ export default class GameNavItem extends cc.Component {
 
     public setSelectd(): void {
         if (HallSkin.Priority.hallNavSelectdBg) {
-            this.bg.spriteFrame = ResLoader.getInstance().getSpriteFrame(
+            this.select.spriteFrame = ResLoader.getInstance().getSpriteFrame(
                 HallSkin.Priority.hallNavSelectdBg
             );
         } else {
-            this.bg.spriteFrame = null;
+            this.select.spriteFrame = null;
         }
     }
 
     public setNormal(): void {
-        if (HallSkin.Priority.hallNavNormalBg) {
-            this.bg.spriteFrame = ResLoader.getInstance().getSpriteFrame(
-                HallSkin.Priority.hallNavNormalBg
-            );
-        } else {
-            this.bg.spriteFrame = null;
-        }
+        // if (HallSkin.Priority.hallNavNormalBg) {
+        //     this.bg.spriteFrame = ResLoader.getInstance().getSpriteFrame(
+        //         HallSkin.Priority.hallNavNormalBg
+        //     );
+        // } else {
+        //     this.bg.spriteFrame = null;
+        // }
+
+        this.select.spriteFrame = null;
     }
 
     public onClick() {

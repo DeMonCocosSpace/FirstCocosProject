@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "4eeddbc8-0364-43f3-9685-982132242745",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 269,
+  "height": 224,
+  "platformSettings": {},
+  "subMetas": {
+    "hall_game_btn_roulette": {
+      "ver": "1.0.6",
+      "uuid": "3748d40a-3e76-4304-aadf-a295692e142e",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "4eeddbc8-0364-43f3-9685-982132242745",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -6,
+      "offsetY": 2.5,
+      "trimX": 20,
+      "trimY": 13,
+      "width": 217,
+      "height": 193,
+      "rawWidth": 269,
+      "rawHeight": 224,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

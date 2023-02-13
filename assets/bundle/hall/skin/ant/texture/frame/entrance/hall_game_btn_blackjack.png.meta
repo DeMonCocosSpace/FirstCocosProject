@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "1d679fab-12a6-42b2-9db0-8ad6b78f5407",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 269,
+  "height": 224,
+  "platformSettings": {},
+  "subMetas": {
+    "hall_game_btn_blackjack": {
+      "ver": "1.0.6",
+      "uuid": "e8df2486-5694-4b00-86e0-6a0477b37445",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "1d679fab-12a6-42b2-9db0-8ad6b78f5407",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -11,
+      "offsetY": 8,
+      "trimX": 16,
+      "trimY": 3,
+      "width": 215,
+      "height": 202,
+      "rawWidth": 269,
+      "rawHeight": 224,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

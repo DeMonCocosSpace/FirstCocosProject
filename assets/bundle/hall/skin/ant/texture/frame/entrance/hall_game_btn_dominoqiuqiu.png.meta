@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "26504a27-7881-4d3a-8628-dfe28bfe3f8b",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 269,
+  "height": 224,
+  "platformSettings": {},
+  "subMetas": {
+    "hall_game_btn_dominoqiuqiu": {
+      "ver": "1.0.6",
+      "uuid": "7d34883e-2a7b-43a5-8904-cb1947c58a41",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "26504a27-7881-4d3a-8628-dfe28bfe3f8b",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -1.5,
+      "offsetY": 0.5,
+      "trimX": 35,
+      "trimY": 17,
+      "width": 196,
+      "height": 189,
+      "rawWidth": 269,
+      "rawHeight": 224,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

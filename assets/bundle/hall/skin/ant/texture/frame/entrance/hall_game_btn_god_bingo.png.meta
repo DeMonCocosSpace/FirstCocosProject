@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "a7db51a3-d190-44e8-8152-8ae7664fd593",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 269,
+  "height": 224,
+  "platformSettings": {},
+  "subMetas": {
+    "hall_game_btn_god_bingo": {
+      "ver": "1.0.6",
+      "uuid": "bfca7f07-6a9b-45d3-8d70-0a194b234744",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "a7db51a3-d190-44e8-8152-8ae7664fd593",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 7,
+      "offsetY": 5,
+      "trimX": 37,
+      "trimY": 8,
+      "width": 209,
+      "height": 198,
+      "rawWidth": 269,
+      "rawHeight": 224,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

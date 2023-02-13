@@ -162,7 +162,8 @@ export default class GameView extends cc.Component {
         /**
          * 模拟引导点击动画
          */
-        const needHand = RandomUtils.randomInt(0, game_ids.length);
+        const needHand = RandomUtils.randomInt(0, game_ids.length - 1);
+        cc.log("GameView game_ids.length=%s,needHand=%s", game_ids.length, needHand);
         game_ids.forEach((value: GameType, index: number) => {
             const node = cc.instantiate(pf);
             this.gameContent.addChild(node);

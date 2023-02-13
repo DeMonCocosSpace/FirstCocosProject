@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "f2fc1b86-68ef-4ead-9710-975250a4a8ca",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 269,
+  "height": 224,
+  "platformSettings": {},
+  "subMetas": {
+    "hall_game_btn_poolrummy": {
+      "ver": "1.0.6",
+      "uuid": "f6a7a343-c092-4a5c-ba94-e52dfb67e626",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "f2fc1b86-68ef-4ead-9710-975250a4a8ca",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": 6.5,
+      "trimX": 37,
+      "trimY": 5,
+      "width": 194,
+      "height": 201,
+      "rawWidth": 269,
+      "rawHeight": 224,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

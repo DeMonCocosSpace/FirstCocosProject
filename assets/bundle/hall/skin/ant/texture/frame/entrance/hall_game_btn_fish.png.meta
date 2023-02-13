@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "fd2d37c2-6a85-4f92-8c7b-354fc7f01309",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 269,
+  "height": 224,
+  "platformSettings": {},
+  "subMetas": {
+    "hall_game_btn_fish": {
+      "ver": "1.0.6",
+      "uuid": "ac6c7ac1-0ee3-427b-8ee8-c0762c2c758b",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "fd2d37c2-6a85-4f92-8c7b-354fc7f01309",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": -1,
+      "trimX": 37,
+      "trimY": 21,
+      "width": 194,
+      "height": 184,
+      "rawWidth": 269,
+      "rawHeight": 224,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

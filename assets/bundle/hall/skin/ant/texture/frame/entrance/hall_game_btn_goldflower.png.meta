@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "323de2f8-51a9-4847-bf62-6e884748b09e",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 269,
+  "height": 224,
+  "platformSettings": {},
+  "subMetas": {
+    "hall_game_btn_goldflower": {
+      "ver": "1.0.6",
+      "uuid": "dae84d38-ecd0-401f-8c14-3b7d103be09e",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "323de2f8-51a9-4847-bf62-6e884748b09e",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 3.5,
+      "offsetY": 1.5,
+      "trimX": 28,
+      "trimY": 15,
+      "width": 220,
+      "height": 191,
+      "rawWidth": 269,
+      "rawHeight": 224,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

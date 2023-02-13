@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "8a754653-dfbd-4254-b582-e22ab9faa48f",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 269,
+  "height": 224,
+  "platformSettings": {},
+  "subMetas": {
+    "hall_game_btn_ludo": {
+      "ver": "1.0.6",
+      "uuid": "f5edf4c3-e0cf-4ec8-b8d8-b71be4d4926e",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "8a754653-dfbd-4254-b582-e22ab9faa48f",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -18.5,
+      "offsetY": 3.5,
+      "trimX": 2,
+      "trimY": 12,
+      "width": 228,
+      "height": 193,
+      "rawWidth": 269,
+      "rawHeight": 224,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

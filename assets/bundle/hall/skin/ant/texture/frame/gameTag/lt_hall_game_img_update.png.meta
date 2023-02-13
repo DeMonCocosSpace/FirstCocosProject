@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "79d29edf-e12a-4a0c-a7cf-6658f0ecad2f",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 98,
+  "height": 54,
+  "platformSettings": {},
+  "subMetas": {
+    "lt_hall_game_img_update": {
+      "ver": "1.0.6",
+      "uuid": "9aec2c56-3307-4350-ac19-29da8a747d24",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "79d29edf-e12a-4a0c-a7cf-6658f0ecad2f",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0.5,
+      "offsetY": 0.5,
+      "trimX": 1,
+      "trimY": 0,
+      "width": 97,
+      "height": 53,
+      "rawWidth": 98,
+      "rawHeight": 54,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

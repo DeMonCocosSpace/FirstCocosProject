@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "0a89de50-5b94-4959-902f-d18d38ee91e7",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 269,
+  "height": 224,
+  "platformSettings": {},
+  "subMetas": {
+    "hall_game_btn_wealth": {
+      "ver": "1.0.6",
+      "uuid": "1e836892-0d7a-45a9-9b71-86e6eb4496ea",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "0a89de50-5b94-4959-902f-d18d38ee91e7",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 4,
+      "offsetY": 6,
+      "trimX": 37,
+      "trimY": 5,
+      "width": 203,
+      "height": 202,
+      "rawWidth": 269,
+      "rawHeight": 224,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

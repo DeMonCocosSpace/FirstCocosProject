@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "78ef267f-383c-46c5-83f2-93fe7d981ff1",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 269,
+  "height": 224,
+  "platformSettings": {},
+  "subMetas": {
+    "hall_game_btn_egypt": {
+      "ver": "1.0.6",
+      "uuid": "ef9c48c9-a991-467b-ba0c-1a914b75fd9e",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "78ef267f-383c-46c5-83f2-93fe7d981ff1",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": 7.5,
+      "trimX": 37,
+      "trimY": 3,
+      "width": 194,
+      "height": 203,
+      "rawWidth": 269,
+      "rawHeight": 224,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
