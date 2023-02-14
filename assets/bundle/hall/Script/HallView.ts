@@ -1,5 +1,5 @@
 import CocosUtils from "../../../main/core/utils/CocosUtils";
-import BasePrefabView from "../../../main/core/widget/BasePrefabView";
+import BasePrefabView from "../../../main/core/ui/BasePrefabView";
 
 const { ccclass, property } = cc._decorator;
 

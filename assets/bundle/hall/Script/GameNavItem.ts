@@ -1,5 +1,6 @@
 import ResLoader from "../../../main/core/bd/ResLoader";
 import Listener from "../../../main/core/Listener";
+import EnumController from "../../../main/core/ui/EnumController";
 import HallSkin from "./conf/HallSkin";
 import HallListenEvent from "./event/HallListenEvent";
 
@@ -12,9 +13,6 @@ export default class GameNavItem extends cc.Component {
 
     @property(cc.Sprite)
     bg: cc.Sprite = null;
-
-    @property(cc.Sprite)
-    select: cc.Sprite = null;
 
     private _index: number;
 
@@ -32,30 +30,41 @@ export default class GameNavItem extends cc.Component {
         this._index = index;
         this.game_ids = data.game_ids;
         this.label.string = data.name;
+
+        const ctrl = this.getComponentInChildren(EnumController);
+        ctrl?.show4Name(`${index}`);
     }
 
     onLoad() {}
 
     public setSelectd(): void {
-        if (HallSkin.Priority.hallNavSelectdBg) {
-            this.select.spriteFrame = ResLoader.getInstance().getSpriteFrame(
-                HallSkin.Priority.hallNavSelectdBg
-            );
+        const ctrl = this.getComponent(EnumController);
+        if (ctrl) {
+            ctrl.show4Name("select");
         } else {
-            this.select.spriteFrame = null;
+            if (HallSkin.Priority.hallNavSelectdBg) {
+                this.bg.spriteFrame = ResLoader.getInstance().getSpriteFrame(
+                    HallSkin.Priority.hallNavSelectdBg
+                );
+            } else {
+                this.bg.spriteFrame = null;
+            }
         }
     }
 
     public setNormal(): void {
-        // if (HallSkin.Priority.hallNavNormalBg) {
-        //     this.bg.spriteFrame = ResLoader.getInstance().getSpriteFrame(
-        //         HallSkin.Priority.hallNavNormalBg
-        //     );
-        // } else {
-        //     this.bg.spriteFrame = null;
-        // }
-
-        this.select.spriteFrame = null;
+        const ctrl = this.getComponent(EnumController);
+        if (ctrl) {
+            ctrl.show4Name("unselect");
+        } else {
+            if (HallSkin.Priority.hallNavNormalBg) {
+                this.bg.spriteFrame = ResLoader.getInstance().getSpriteFrame(
+                    HallSkin.Priority.hallNavNormalBg
+                );
+            } else {
+                this.bg.spriteFrame = null;
+            }
+        }
     }
 
     public onClick() {

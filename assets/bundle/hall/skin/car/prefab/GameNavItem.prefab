@@ -31,10 +31,13 @@
       },
       {
         "__id__": 8
+      },
+      {
+        "__id__": 9
       }
     ],
     "_prefab": {
-      "__id__": 9
+      "__id__": 10
     },
     "_opacity": 255,
     "_color": {
@@ -321,6 +324,20 @@
     "bg": {
       "__id__": 5
     },
+    "_id": ""
+  },
+  {
+    "__type__": "5e42awPRk1Jv7Mc/5XDow6Y",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "soundClip": {
+      "__uuid__": "94a94b44-36c0-496b-b692-a6ab0f103d34"
+    },
+    "isPlay": true,
     "_id": ""
   },
   {
