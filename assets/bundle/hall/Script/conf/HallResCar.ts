@@ -173,5 +173,22 @@ export let HallResCar = {
             },
         },
     },
-    unpriority: {},
+    unpriority: {
+        VolumeSettingView: <IResDescribe>{
+            resPath: "skin/car/prefab/VolumeSettingView",
+            type: cc.Prefab,
+        },
+        HallBgm: <IResDescribe>{
+            resPath: "skin/car/audio/hall_bg",
+            type: cc.AudioClip,
+        },
+        newbie_bonus: <IResDescribe>{
+            resPath: "skin/car/audio/newbie_bonus",
+            type: cc.AudioClip,
+        },
+        online_bonus: <IResDescribe>{
+            resPath: "skin/car/audio/online_bonus",
+            type: cc.AudioClip,
+        },
+    },
 };

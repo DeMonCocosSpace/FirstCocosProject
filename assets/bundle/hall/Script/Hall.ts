@@ -1,4 +1,5 @@
 import ResLoader from "../../../main/core/bd/ResLoader";
+import AudioManager from "../../../main/core/media/AudioManager";
 import HallSkin from "./conf/HallSkin";
 
 const { ccclass, property } = cc._decorator;
@@ -12,5 +13,11 @@ export default class Hall extends cc.Component {
         this.node.addChild(hallView);
     }
 
-    start() {}
+    start() {
+        AudioManager.getInstance().playMusic(HallSkin.UnPriority.HallBgm);
+    }
+
+    protected onDestroy(): void {
+        AudioManager.getInstance().stopMusic();
+    }
 }

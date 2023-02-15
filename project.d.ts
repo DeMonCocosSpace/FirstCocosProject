@@ -30,3 +30,18 @@ type TIResDescribe =
 type TProgressCallback = (total: number, current: number) => void;
 
 type TFailed = () => void;
+
+declare interface IAudio {
+    url: string;
+    id: number;
+    loop: boolean;
+    volume: number;
+    /** 持续时间，单位 秒 */
+    duration?: number;
+    /** 标签 */
+    tag?: string;
+    /** 播放状态 */
+    status?: number;
+    /** 停止播放 */
+    stop?: () => void;
+}

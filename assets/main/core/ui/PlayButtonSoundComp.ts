@@ -1,4 +1,5 @@
 import ResLoader from "../bd/ResLoader";
+import AudioManager from "../media/AudioManager";
 
 const { ccclass, executeInEditMode, menu, property } = cc._decorator;
 
@@ -37,8 +38,7 @@ export default class PlayButtonSoundComp extends cc.Component {
             this.node.on(
                 cc.Node.EventType.TOUCH_END,
                 () => {
-                    //AudioManager.getInstance().playEffectWithClip(this.soundClip);
-                    cc.audioEngine.playEffect(this.soundClip, false);
+                    AudioManager.getInstance().playEffectWithClip(this.soundClip);
                 },
                 this
             );
@@ -50,8 +50,7 @@ export default class PlayButtonSoundComp extends cc.Component {
                         this.node.on(
                             cc.Node.EventType.TOUCH_END,
                             () => {
-                                //AudioManager.getInstance().playEffectWithClip(res);
-                                cc.audioEngine.playEffect(res, false);
+                                AudioManager.getInstance().playEffectWithClip(res);
                             },
                             this
                         );

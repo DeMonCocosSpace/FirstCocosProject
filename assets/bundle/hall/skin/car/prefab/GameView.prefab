@@ -14,7 +14,7 @@
   {
     "__type__": "cc.Node",
     "_name": "GameView",
-    "_objFlags": 0,
+    "_objFlags": 512,
     "_parent": null,
     "_children": [
       {
@@ -120,7 +120,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1035,
+      "width": 1060,
       "height": 440
     },
     "_anchorPoint": {
@@ -132,7 +132,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        97.5,
+        110,
         -40,
         0,
         0,
@@ -191,7 +191,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1035,
+      "width": 1060,
       "height": 440
     },
     "_anchorPoint": {
@@ -435,7 +435,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        472.5,
+        485,
         0,
         0,
         0,
@@ -572,7 +572,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -293.5,
+        -306,
         0,
         0,
         0,
@@ -705,7 +705,7 @@
     "_target": null,
     "_alignFlags": 41,
     "_left": 220,
-    "_right": 25,
+    "_right": 0,
     "_top": 180,
     "_bottom": 0,
     "_verticalCenter": 0,

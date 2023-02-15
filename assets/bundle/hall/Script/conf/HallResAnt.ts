@@ -7,7 +7,6 @@ export let HallResAnt = {
             resPath: "skin/ant/prefab/HallView",
             type: cc.Prefab,
         },
-
         GameNavItem: <IResDescribe>{
             resPath: "skin/ant/prefab/GameNavItem",
             type: cc.Prefab,
@@ -199,5 +198,22 @@ export let HallResAnt = {
             },
         },
     },
-    unpriority: {},
+    unpriority: {
+        VolumeSettingView: <IResDescribe>{
+            resPath: "skin/ant/prefab/VolumeSettingView",
+            type: cc.Prefab,
+        },
+        HallBgm: <IResDescribe>{
+            resPath: "skin/ant/audio/hall_bg",
+            type: cc.AudioClip,
+        },
+        newbie_bonus: <IResDescribe>{
+            resPath: "skin/ant/audio/newbie_bonus",
+            type: cc.AudioClip,
+        },
+        online_bonus: <IResDescribe>{
+            resPath: "skin/ant/audio/online_bonus",
+            type: cc.AudioClip,
+        },
+    },
 };
