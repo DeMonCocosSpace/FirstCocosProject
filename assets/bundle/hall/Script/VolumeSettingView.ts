@@ -20,6 +20,8 @@ export default class VolumeSettingView extends BasePrefabView {
     onLoad() {
         this.show();
 
+        this.allToggle.isChecked =
+            AudioManager.getInstance().isMusicOpen() || AudioManager.getInstance().isEffectOpen();
         this.musicToggle.isChecked = AudioManager.getInstance().isMusicOpen();
         this.musicSlider.progress = AudioManager.getInstance().getMusicVolume();
 

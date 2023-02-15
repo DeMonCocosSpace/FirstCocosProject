@@ -1,6 +1,11 @@
 import ResLoader from "../bd/ResLoader";
 import { lodash } from "../NpmExport";
+import StorageManager from "../storage/StorageManager";
 
+/** 背景音乐音量存储键 */
+const MUSIC_VOLUME_STORAGE_KEY = "music_volume";
+/** 音效音量存储键 */
+const EFFECT_VOLUME_STORAGE_KEY = "effect_volume";
 /** 背景音乐基础音量倍数 */
 const MUSIC_VOLUME_RATIO = 0.5;
 /** 音效基础音量倍数 */
@@ -26,7 +31,10 @@ export default class AudioManager {
         return this._instance;
     }
 
-    public init(): void {}
+    public init(): void {
+        this.musicVolume = StorageManager.getInstance().getNumber(MUSIC_VOLUME_STORAGE_KEY, 1);
+        this.effectVolume = StorageManager.getInstance().getNumber(EFFECT_VOLUME_STORAGE_KEY, 1);
+    }
 
     private _currentMusic: IAudio = null;
 
@@ -171,9 +179,8 @@ export default class AudioManager {
 
         this.musicVolume = volume;
 
-        //保存数据
-        //save
-
+        //保存数据save
+        StorageManager.getInstance().setNumber(MUSIC_VOLUME_STORAGE_KEY, this.musicVolume);
         this.setMusicVolume(volume);
     }
 
@@ -424,8 +431,8 @@ export default class AudioManager {
 
         this.effectVolume = volume;
 
-        //保存数据
-        //save
+        //保存数据,save
+        StorageManager.getInstance().setNumber(EFFECT_VOLUME_STORAGE_KEY, this.effectVolume);
 
         this.setEffectsVolume(volume);
     }

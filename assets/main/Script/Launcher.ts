@@ -2,6 +2,8 @@ import BundleCenter from "../core/bd/BundleCenter";
 import { BundleName } from "../core/conf/BundleName";
 import Flavor from "../core/conf/Flavor";
 import { SkinType } from "../core/conf/SkinType";
+import AudioManager from "../core/media/AudioManager";
+import StorageManager from "../core/storage/StorageManager";
 import CacheUtils from "../core/utils/CacheUtils";
 
 const { ccclass, property } = cc._decorator;
@@ -29,6 +31,8 @@ export default class Launcher extends cc.Component {
         this.schedule(this.toLogin, 1);
 
         CacheUtils.getInstance().initDataCache();
+        StorageManager.getInstance().initPrefix("project_");
+        AudioManager.getInstance().init();
     }
 
     toLogin() {
