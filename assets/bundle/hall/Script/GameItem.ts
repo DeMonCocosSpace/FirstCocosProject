@@ -1,6 +1,6 @@
 import ResLoader from "../../../main/core/bd/ResLoader";
 import { GameType } from "../../../main/core/conf/GameType";
-import RandomUtils from "../../../main/core/utils/RandomUtils";
+import { Utils } from "../../../main/core/utils/Utils";
 import HallSkin from "./conf/HallSkin";
 
 const { ccclass, property } = cc._decorator;
@@ -30,7 +30,7 @@ export default class GameItem extends cc.Component {
         /**
          * 模拟tag
          */
-        const type = RandomUtils.randomInt(0, 4);
+        const type = Utils.randomInt(4);
         if (type == 4) {
             this.tag.spriteFrame = null;
         } else {

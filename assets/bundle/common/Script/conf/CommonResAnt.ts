@@ -12,6 +12,10 @@ export let CommonResAnt = {
             resPath: "skin/ant/prefab/AlertView",
             type: cc.Prefab,
         },
+        LoadingView: <IResDescribe>{
+            resPath: "skin/ant/prefab/LoadingView",
+            type: cc.Prefab,
+        },
     },
     unpriority: {},
 };

@@ -3,7 +3,7 @@ import GameConfig from "../../../main/core/conf/GameConfig";
 import { GameType } from "../../../main/core/conf/GameType";
 import Listener from "../../../main/core/Listener";
 import CacheUtils from "../../../main/core/utils/CacheUtils";
-import RandomUtils from "../../../main/core/utils/RandomUtils";
+import { Utils } from "../../../main/core/utils/Utils";
 import HallSkin from "./conf/HallSkin";
 import AnimSkin from "./conf/HallSkin";
 import HallListenEvent from "./event/HallListenEvent";
@@ -162,7 +162,7 @@ export default class GameView extends cc.Component {
         /**
          * 模拟引导点击动画
          */
-        const needHand = RandomUtils.randomInt(0, game_ids.length - 1);
+        const needHand = Utils.randomInt(game_ids.length - 1);
         cc.log("GameView game_ids.length=%s,needHand=%s", game_ids.length, needHand);
         game_ids.forEach((value: GameType, index: number) => {
             const node = cc.instantiate(pf);

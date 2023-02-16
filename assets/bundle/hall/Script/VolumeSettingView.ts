@@ -1,5 +1,7 @@
+import { log } from "console";
 import AudioManager from "../../../main/core/media/AudioManager";
 import BasePrefabView from "../../../main/core/ui/BasePrefabView";
+import { Utils } from "../../../main/core/utils/Utils";
 
 const { ccclass, property } = cc._decorator;
 

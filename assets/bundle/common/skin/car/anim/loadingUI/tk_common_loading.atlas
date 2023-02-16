@@ -1,0 +1,97 @@
+
+tk_common_loading.png
+size: 610,610
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+black_mask
+  rotate: false
+  xy: 310, 155
+  size: 221, 221
+  orig: 221, 221
+  offset: 0, 0
+  index: -1
+loading_bk_b
+  rotate: false
+  xy: 533, 302
+  size: 74, 74
+  orig: 100, 100
+  offset: 13, 13
+  index: -1
+loading_circle
+  rotate: false
+  xy: 2, 179
+  size: 147, 147
+  orig: 207, 207
+  offset: 30, 30
+  index: -1
+loading_circle_1
+  rotate: false
+  xy: 151, 179
+  size: 147, 147
+  orig: 207, 207
+  offset: 30, 30
+  index: -1
+loading_mask
+  rotate: true
+  xy: 358, 2
+  size: 151, 90
+  orig: 151, 90
+  offset: 0, 0
+  index: -1
+loading_mask_01
+  rotate: true
+  xy: 551, 583
+  size: 25, 29
+  orig: 85, 89
+  offset: 30, 30
+  index: -1
+loading_mask_02
+  rotate: false
+  xy: 551, 540
+  size: 11, 41
+  orig: 70, 101
+  offset: 30, 30
+  index: -1
+loading_mask_03
+  rotate: false
+  xy: 582, 579
+  size: 25, 29
+  orig: 85, 90
+  offset: 30, 31
+  index: -1
+loading_star
+  rotate: true
+  xy: 450, 52
+  size: 101, 92
+  orig: 161, 152
+  offset: 30, 30
+  index: -1
+loading_trailing
+  rotate: false
+  xy: 238, 35
+  size: 118, 118
+  orig: 176, 178
+  offset: 30, 30
+  index: -1
+s10_guang_01
+  rotate: false
+  xy: 2, 9
+  size: 234, 144
+  orig: 234, 144
+  offset: 0, 0
+  index: -1
+s10_guang_02
+  rotate: true
+  xy: 310, 378
+  size: 230, 239
+  orig: 230, 239
+  offset: 0, 0
+  index: -1
+sparkles
+  rotate: false
+  xy: 2, 328
+  size: 306, 280
+  orig: 306, 280
+  offset: 0, 0
+  index: -1

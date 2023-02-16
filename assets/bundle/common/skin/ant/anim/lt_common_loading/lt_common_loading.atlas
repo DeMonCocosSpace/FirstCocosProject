@@ -1,0 +1,20 @@
+
+lt_common_loading.png
+size: 136,136
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+chip
+  rotate: false
+  xy: 2, 48
+  size: 85, 86
+  orig: 85, 86
+  offset: 0, 0
+  index: -1
+spades
+  rotate: false
+  xy: 2, 2
+  size: 43, 44
+  orig: 43, 44
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,64 @@
+{
+"skeleton": { "hash": "NqX2DD6/mtccz1cYPtxsIgZLQFk", "spine": "3.7.94", "width": 0, "height": 0 },
+"bones": [
+	{ "name": "root" },
+	{ "name": "chip", "parent": "root" },
+	{ "name": "spades", "parent": "root" }
+],
+"slots": [
+	{ "name": "chip", "bone": "chip" },
+	{ "name": "spades", "bone": "spades" }
+],
+"skins": {
+	"default": {
+		"chip": {
+			"chip": { "width": 169, "height": 171 }
+		},
+		"spades": {
+			"spades": { "width": 86, "height": 87 }
+		}
+	}
+},
+"animations": {
+	"loading": {
+		"slots": {
+			"chip": {
+				"attachment": [
+					{ "time": 0, "name": "chip" }
+				]
+			},
+			"spades": {
+				"attachment": [
+					{ "time": 0, "name": "spades" }
+				]
+			}
+		},
+		"bones": {
+			"chip": {
+				"rotate": [
+					{ "time": 0, "angle": 0 },
+					{ "time": 1, "angle": 180 },
+					{ "time": 2, "angle": 0 }
+				]
+			},
+			"spades": {
+				"scale": [
+					{
+						"time": 0,
+						"x": 1,
+						"y": 1,
+						"curve": [ 0.25, 0, 0.75, 1 ]
+					},
+					{
+						"time": 1,
+						"x": -1,
+						"y": 1,
+						"curve": [ 0.25, 0, 0.75, 1 ]
+					},
+					{ "time": 2, "x": 1, "y": 1 }
+				]
+			}
+		}
+	}
+}
+}

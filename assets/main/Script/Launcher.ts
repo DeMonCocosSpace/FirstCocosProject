@@ -28,28 +28,20 @@ export default class Launcher extends cc.Component {
 
         this.progress.progress = 0;
 
-        this.schedule(this.toLogin, 1);
-
         CacheUtils.getInstance().initDataCache();
         StorageManager.getInstance().initPrefix("project_");
         AudioManager.getInstance().init();
+
+        this.toLogin();
     }
 
     toLogin() {
-        if (this.progress.progress >= 1) {
-            cc.log("Login");
-            //取消定时器
-            this.unschedule(this.toLogin);
-
-            BundleCenter.getInstance().launchSence(BundleName.LOGIN);
-        } else {
-            cc.log("Loading");
-        }
-    }
-
-    update(dt) {
-        if (this.progress.progress < 1) {
-            this.progress.progress += dt;
-        }
+        cc.log("Login");
+        BundleCenter.getInstance()
+            .launchSence(BundleName.LOGIN)
+            .onProgress((t, v) => {
+                cc.log("Launcher t=" + t + " ,v=" + v);
+                this.progress.progress = v / t;
+            });
     }
 }

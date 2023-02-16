@@ -12,6 +12,10 @@ export let CommonResCar = {
             resPath: "skin/car/prefab/AlertView",
             type: cc.Prefab,
         },
+        LoadingView: <IResDescribe>{
+            resPath: "skin/car/prefab/LoadingView",
+            type: cc.Prefab,
+        },
     },
     unpriority: {},
 };
