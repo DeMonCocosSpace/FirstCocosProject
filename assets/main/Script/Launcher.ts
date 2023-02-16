@@ -37,7 +37,7 @@ export default class Launcher extends cc.Component {
 
     toLogin() {
         cc.log("Login");
-        BundleCenter.getInstance()
+        const ss = BundleCenter.getInstance()
             .launchSence(BundleName.LOGIN)
             .onProgress((t, v) => {
                 cc.log("Launcher t=" + t + " ,v=" + v);

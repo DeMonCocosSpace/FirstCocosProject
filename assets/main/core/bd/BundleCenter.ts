@@ -5,6 +5,7 @@ import { BundleDepend } from "../conf/bd_depend/BundleDepend";
 import { BundleName } from "../conf/BundleName";
 import BundleSkinCenter from "./bd_skin/BundleSkinCenter";
 import ResLoader from "./ResLoader";
+import { Log } from "../Log";
 
 type TBundleName = string;
 
@@ -26,6 +27,7 @@ export default class BundleCenter {
 
     private bundleMap: Map<TBundleName, number> = new Map();
 
+    @Log.method
     public launchSence(bundle: TBundle, sceneName?: string) {
         let onProgress = null;
         let onSuccess = null;
@@ -34,7 +36,7 @@ export default class BundleCenter {
         const promise = this.load(
             bundle,
             (total, curNumer) => {
-                cc.log(`launchSence:${total},${curNumer}`);
+                //cc.log(`launchSence:${total},${curNumer}`);
                 onProgress?.(total, curNumer);
             },
             () => {

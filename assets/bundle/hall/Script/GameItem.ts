@@ -1,6 +1,7 @@
 import ResLoader from "../../../main/core/bd/ResLoader";
 import { GameType } from "../../../main/core/conf/GameType";
 import { Utils } from "../../../main/core/utils/Utils";
+import { Loading } from "../../common/Script/commpent/UIMgr";
 import HallSkin from "./conf/HallSkin";
 
 const { ccclass, property } = cc._decorator;
@@ -42,6 +43,6 @@ export default class GameItem extends cc.Component {
     }
 
     onGameClick() {
-        cc.log("GameItem gameId=" + this.gameId);
+        Loading.showLoading();
     }
 }
