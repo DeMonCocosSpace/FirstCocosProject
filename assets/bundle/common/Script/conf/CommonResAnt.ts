@@ -18,4 +18,10 @@ export let CommonResAnt = {
         },
     },
     unpriority: {},
+    loadOnDemand: {
+        btnEffect: <IResDescribe>{
+            resPath: "skin/final/audio/btn_click",
+            type: cc.AudioClip,
+        },
+    },
 };

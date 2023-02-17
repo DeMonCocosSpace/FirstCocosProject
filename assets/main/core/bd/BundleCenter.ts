@@ -6,6 +6,7 @@ import { BundleName } from "../conf/BundleName";
 import BundleSkinCenter from "./bd_skin/BundleSkinCenter";
 import ResLoader from "./ResLoader";
 import { Log } from "../Log";
+import { Loading } from "../../../bundle/common/Script/commpent/UIMgr";
 
 type TBundleName = string;
 
@@ -97,6 +98,9 @@ export default class BundleCenter {
                 onFailed?.();
             });
 
+        if (this.bundleMap.has(BundleName.COMMON)) {
+            Loading.applyLoading(promise);
+        }
         //感觉有点类似builder模式
         const result = {
             onFailed: (callback: Function) => {
@@ -113,6 +117,7 @@ export default class BundleCenter {
             },
             promise,
         };
+
         return result;
     }
 

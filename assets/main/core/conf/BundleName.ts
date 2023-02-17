@@ -4,5 +4,6 @@ export enum BundleName {
     LOGIN = "login",
     ANIM = "anim",
     HALL = "hall",
+    HTTP = "http",
     CUSTOM = "custom",
 }
