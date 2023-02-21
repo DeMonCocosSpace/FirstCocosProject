@@ -128,24 +128,30 @@ export namespace Loading {
 }
 
 export namespace Alert {
-    export function showAlert(content: string) {
-        const pf = cc.instantiate(ResLoader.getInstance().getPrefab(CommonSkin.Priority.AlertView));
-        var alert = pf.getComponent(AlertView);
-        alert
-            .build(
-                content,
-                function () {
-                    cc.log("用户点击了ok");
-                },
-                function () {
-                    cc.log("用户点击了cancel");
-                },
-                function () {
-                    cc.log("close");
-                }
-            )
-            .show();
-        CocosUtils.getInstance().getSceneCanvas().addChild(pf, UILayer.ALERT);
+    let alertUI: cc.Node = null;
+    export function showAlert(content: string): Promise<Boolean> {
+        return new Promise<Boolean>((reslove, reject) => {
+            let node = alertUI;
+            if (!cc.isValid(node)) {
+                node = cc.instantiate(
+                    ResLoader.getInstance().getPrefab(CommonSkin.Priority.AlertView)
+                );
+                CocosUtils.getInstance().getSceneCanvas().addChild(node, UILayer.ALERT);
+                alertUI = node;
+            }
+            var alert = node.getComponent(AlertView);
+            alert
+                .build(
+                    content,
+                    function () {
+                        reslove(true);
+                    },
+                    function () {
+                        reslove(false);
+                    }
+                )
+                .show();
+        });
     }
 }
 

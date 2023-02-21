@@ -14,15 +14,13 @@ export default class AlertView extends cc.Component {
 
     private okcallback: () => void;
     private cancelcallback: () => void;
-    private closecallback: () => void;
 
     start() {}
 
-    build(tip: string, okcallback, cancelcallback, closecallback) {
+    build(tip: string, okcallback, cancelcallback) {
         this.setTips(tip);
         this.okcallback = okcallback;
         this.cancelcallback = cancelcallback;
-        this.closecallback = closecallback;
         return this;
     }
 

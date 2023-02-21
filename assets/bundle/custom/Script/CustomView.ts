@@ -1,6 +1,6 @@
 import ResLoader from "../../../main/core/bd/ResLoader";
 import { Log } from "../../../main/core/Log";
-import { Alert, Loading } from "../../common/Script/commpent/UIMgr";
+import { Alert, Loading, Toast } from "../../common/Script/commpent/UIMgr";
 import CustomSkin from "./conf/CustomSkin";
 import ProgressView from "./ProgressView";
 
@@ -20,7 +20,11 @@ export default class CustomView extends cc.Component {
     }
 
     showAlert() {
-        Alert.showAlert("Hello Cocos~");
+        Alert.showAlert(
+            "Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~Hello Cocos~"
+        ).then((res) => {
+            Toast.show("showAlert=" + res);
+        });
     }
 
     @Log.method

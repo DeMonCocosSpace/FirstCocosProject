@@ -6,5 +6,10 @@ export let HttpResAnt = {
             type: cc.Prefab,
         },
     },
-    unpriority: {},
+    unpriority: {
+        UserItem: <IResDescribe>{
+            resPath: "skin/final/prefab/UserItem",
+            type: cc.Prefab,
+        },
+    },
 };
