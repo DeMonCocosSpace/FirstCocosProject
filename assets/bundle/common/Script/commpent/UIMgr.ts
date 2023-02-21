@@ -2,9 +2,9 @@ import ResLoader from "../../../../main/core/bd/ResLoader";
 import { Log } from "../../../../main/core/Log";
 import CocosUtils from "../../../../main/core/utils/CocosUtils";
 import { TimeUtils } from "../../../../main/core/utils/TimeUtils";
-import Login from "../../../login/Script/Login";
 import AlertView from "../AlertView";
 import CommonSkin from "../conf/CommonSkin";
+import ToastView from "../ToastView";
 
 export let UILayer = cc.Enum({
     /** 普通 */
@@ -146,5 +146,18 @@ export namespace Alert {
             )
             .show();
         CocosUtils.getInstance().getSceneCanvas().addChild(pf, UILayer.ALERT);
+    }
+}
+
+export namespace Toast {
+    let toastUI: cc.Node = null;
+    export function show(msg: string) {
+        let node = toastUI;
+        if (!cc.isValid(node)) {
+            node = cc.instantiate(ResLoader.getInstance().getPrefab(CommonSkin.Priority.ToastView));
+            CocosUtils.getInstance().getSceneCanvas().addChild(node, UILayer.TOAST);
+            toastUI = node;
+        }
+        node.getComponent(ToastView).addToast(msg);
     }
 }

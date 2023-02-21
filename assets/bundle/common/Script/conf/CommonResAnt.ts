@@ -16,6 +16,10 @@ export let CommonResAnt = {
             resPath: "skin/ant/prefab/LoadingView",
             type: cc.Prefab,
         },
+        ToastView: <IResDescribe>{
+            resPath: "skin/ant/prefab/toast/ToastView",
+            type: cc.Prefab,
+        },
     },
     unpriority: {},
     loadOnDemand: {

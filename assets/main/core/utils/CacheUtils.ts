@@ -8,6 +8,14 @@ export default class CacheUtils {
         return this.navItemIndex;
     }
 
+    public setAccountInfo(info: any) {
+        this.accountInfo = info;
+    }
+
+    public getAccountInfo(): any {
+        return this.accountInfo;
+    }
+
     public initDataCache() {
         this.setNavItemIndex(DEFALUT_NAVITEM_INDEX);
     }
@@ -24,4 +32,6 @@ export default class CacheUtils {
 
     /** 记录大厅导航item索引 默认为"0"*/
     private navItemIndex: number = DEFALUT_NAVITEM_INDEX;
+
+    private accountInfo: any = null;
 }

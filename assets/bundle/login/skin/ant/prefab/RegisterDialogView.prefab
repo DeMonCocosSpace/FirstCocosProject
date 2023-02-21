@@ -302,9 +302,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 72,
-      "g": 72,
-      "b": 72,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
@@ -3043,6 +3043,15 @@
       "__id__": 1
     },
     "_enabled": true,
+    "etAccount": {
+      "__id__": 40
+    },
+    "etPassword": {
+      "__id__": 55
+    },
+    "etAgain": {
+      "__id__": 70
+    },
     "_id": ""
   },
   {

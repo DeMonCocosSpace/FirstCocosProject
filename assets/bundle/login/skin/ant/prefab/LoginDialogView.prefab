@@ -305,9 +305,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 105,
-      "g": 105,
-      "b": 105,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
@@ -2241,7 +2241,7 @@
       "__id__": 54
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 59
@@ -2518,7 +2518,7 @@
     "_N$target": {
       "__id__": 55
     },
-    "_N$isChecked": true,
+    "_N$isChecked": false,
     "toggleGroup": null,
     "checkMark": {
       "__id__": 59

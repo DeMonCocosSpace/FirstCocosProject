@@ -16,6 +16,10 @@ export let CommonResCar = {
             resPath: "skin/car/prefab/LoadingView",
             type: cc.Prefab,
         },
+        ToastView: <IResDescribe>{
+            resPath: "skin/car/prefab/toast/ToastView",
+            type: cc.Prefab,
+        },
     },
     unpriority: {},
     loadOnDemand: {
