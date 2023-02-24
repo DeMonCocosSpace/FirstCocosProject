@@ -1,5 +1,5 @@
 import BasePrefabView from "../../../main/core/ui/BasePrefabView";
-import HttpUtils from "../../../main/core/utils/HttpUtils";
+import HttpUtils from "../../../main/core/http/HttpUtils";
 import { Toast } from "../../common/Script/commpent/UIMgr";
 import Http from "../../http/Script/Http";
 
@@ -37,10 +37,12 @@ export default class RegisterDialogView extends BasePrefabView {
             password: password,
         };
 
-        HttpUtils.post("1.1/users", json).then((json) => {
-            Toast.show("Register succeed~");
-            this.hide();
-        });
+        HttpUtils.getHttp()
+            .post("1.1/users", json)
+            .then((json) => {
+                Toast.show("Register succeed~");
+                this.hide();
+            });
     }
 
     onClickClose() {

@@ -2,6 +2,7 @@ import BundleCenter from "../core/bd/BundleCenter";
 import { BundleName } from "../core/conf/BundleName";
 import Flavor from "../core/conf/Flavor";
 import { SkinType } from "../core/conf/SkinType";
+import HttpUtils, { HTTP } from "../core/http/HttpUtils";
 import AudioManager from "../core/media/AudioManager";
 import StorageManager from "../core/storage/StorageManager";
 import CacheUtils from "../core/utils/CacheUtils";
@@ -32,6 +33,7 @@ export default class Launcher extends cc.Component {
         StorageManager.getInstance().initPrefix("project_");
         AudioManager.getInstance().init();
 
+        HttpUtils.setMode(HTTP.HTTPS);
         this.toLogin();
     }
 

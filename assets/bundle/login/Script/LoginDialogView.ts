@@ -2,7 +2,7 @@ import BundleCenter from "../../../main/core/bd/BundleCenter";
 import { BundleName } from "../../../main/core/conf/BundleName";
 import StorageManager from "../../../main/core/storage/StorageManager";
 import CacheUtils from "../../../main/core/utils/CacheUtils";
-import HttpUtils from "../../../main/core/utils/HttpUtils";
+import HttpUtils from "../../../main/core/http/HttpUtils";
 import { Toast } from "../../common/Script/commpent/UIMgr";
 
 const { ccclass, property } = cc._decorator;
@@ -42,15 +42,17 @@ export default class LoginDialogView extends cc.Component {
             username: username,
             password: password,
         };
-        HttpUtils.post("1.1/login", json).then((json) => {
-            Toast.show("Login succeed~");
-            CacheUtils.getInstance().setAccountInfo(json);
-            if (this.cbSave.isChecked) {
-                StorageManager.getInstance().setItem("account_info", JSON.stringify(json));
-            }
-            this.hide();
-            BundleCenter.getInstance().launchSence(BundleName.PLAZA);
-        });
+        HttpUtils.getHttp()
+            .post("1.1/login", json)
+            .then((json) => {
+                Toast.show("Login succeed~");
+                CacheUtils.getInstance().setAccountInfo(json);
+                if (this.cbSave.isChecked) {
+                    StorageManager.getInstance().setItem("account_info", JSON.stringify(json));
+                }
+                this.hide();
+                BundleCenter.getInstance().launchSence(BundleName.PLAZA);
+            });
     }
     onClickRegister() {
         window["LoginView"].showRegister();

@@ -6,7 +6,7 @@
 // window["lodash"] = lodash;
 // export { numeral, urlParser, lodash, decimal };
 
-const https = require("https");
+import https = require("https");
 
 import lodash = require("lodash");
 window["lodash"] = lodash;
