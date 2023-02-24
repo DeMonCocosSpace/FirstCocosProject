@@ -33,7 +33,7 @@ export default class Launcher extends cc.Component {
         StorageManager.getInstance().initPrefix("project_");
         AudioManager.getInstance().init();
 
-        HttpUtils.setMode(HTTP.HTTPS);
+        HttpUtils.setMode(HTTP.XHR);
         this.toLogin();
     }
 
