@@ -20,6 +20,10 @@ export let CommonResCar = {
             resPath: "skin/car/prefab/toast/ToastView",
             type: cc.Prefab,
         },
+        CheckBoxView: <IResDescribe>{
+            resPath: "skin/car/prefab/CheckBoxView",
+            type: cc.Prefab,
+        },
     },
     unpriority: {},
     loadOnDemand: {

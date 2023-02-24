@@ -1,6 +1,8 @@
 import ResLoader from "../../../main/core/bd/ResLoader";
-import { https } from "../../../main/core/NpmExport";
 import HttpUtils, { HTTP } from "../../../main/core/http/HttpUtils";
+import StorageManager from "../../../main/core/storage/StorageManager";
+import CheckBoxView from "../../common/Script/CheckBoxView";
+import CommonSkin from "../../common/Script/conf/CommonSkin";
 import HttpSkin from "./conf/HttpSkin";
 import UserItem from "./UserItem";
 
@@ -10,16 +12,31 @@ const { ccclass, property } = cc._decorator;
 export default class HttpView extends cc.Component {
     @property(cc.Node)
     layout: cc.Node = null;
-    protected onLoad(): void {}
+    @property(cc.Node)
+    toggles: cc.Node = null;
+
+    protected onLoad(): void {
+        const httpways = ["fecth", "https", "XHR"];
+        httpways.forEach((element, index) => {
+            const node = cc.instantiate(
+                ResLoader.getInstance().getPrefab(CommonSkin.Priority.CheckBoxView)
+            );
+            this.toggles.addChild(node);
+            const ctrl: CheckBoxView = node.getComponent(CheckBoxView);
+            ctrl.init(element, (v: string) => {
+                const indexOf = httpways.indexOf(v);
+                HttpUtils.setMode(indexOf);
+                StorageManager.getInstance().setNumber("Http_Way", indexOf);
+            });
+            ctrl.setCheck(index == StorageManager.getInstance().getNumber("Http_Way", HTTP.FETCH));
+        });
+    }
 
     clickLookup() {
         HttpUtils.getHttp()
-            .get("1.1/users")
+            .get<UserList>("1.1/users")
             .then((result) => {
-                //this.label.string = JSON.stringify(result);
-
-                const results = result["results"];
-                results.forEach((element) => {
+                result.results.forEach((element) => {
                     ResLoader.getInstance().loadPrefab(
                         HttpSkin.UnPriority.UserItem,
                         (prefab: cc.Prefab) => {
@@ -29,7 +46,8 @@ export default class HttpView extends cc.Component {
                         }
                     );
                 });
-            });
+            })
+            .catch((error) => {});
     }
 
     clickAdd() {}

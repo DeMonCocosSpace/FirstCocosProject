@@ -11,23 +11,27 @@ export const HTTP = cc.Enum({
 export default class HttpUtils {
     private static mode = 0;
 
+    private static http: IHttp = null;
+
     public static setMode(mode: number) {
         this.mode = mode;
+        this.http = null; //重置
     }
 
     public static getHttp(): IHttp {
-        let http: IHttp = null;
-        switch (this.mode) {
-            case HTTP.HTTPS:
-                http = new HttpsHttp();
-                break;
-            case HTTP.XHR:
-                http = new XHRHttp();
-                break;
-            default:
-                http = new FetchHttp();
-                break;
+        if (this.http == null) {
+            switch (this.mode) {
+                case HTTP.HTTPS:
+                    this.http = new HttpsHttp();
+                    break;
+                case HTTP.XHR:
+                    this.http = new XHRHttp();
+                    break;
+                default:
+                    this.http = new FetchHttp();
+                    break;
+            }
         }
-        return http;
+        return this.http;
     }
 }

@@ -1,3 +1,9 @@
+export enum ApiErrorCode {
+    TIMEOUT = 10000,
+    HTTP_ERROR = 20000,
+    OFFLINE = 30000,
+    SDK_QUERY_FAILED = 40000,
+}
 export abstract class IHttp {
     protected base_url: string = "https://rhs8b3vn.lc-cn-n1-shared.com/";
 
@@ -7,7 +13,7 @@ export abstract class IHttp {
         "Content-Type": "application/json",
     };
 
-    public abstract get(url: string): Promise<any>;
+    public abstract get<T extends any>(url: string): Promise<T>;
 
-    public abstract post(url: string, body: any): Promise<any>;
+    public abstract post<T extends any>(url: string, body: any): Promise<T>;
 }

@@ -27,10 +27,6 @@ type TIResDescribe =
     | IResDescribe[]
     | { [index: string]: IResDescribe | TIResDescribe };
 
-type TProgressCallback = (total: number, current: number) => void;
-
-type TFailed = () => void;
-
 declare interface IAudio {
     url: string;
     id: number;
@@ -45,3 +41,18 @@ declare interface IAudio {
     /** 停止播放 */
     stop?: () => void;
 }
+
+declare interface HttpResult<T extends any> {
+    code: number;
+    error: string;
+    result: T;
+}
+
+declare interface HttpError {
+    code: number;
+    error: any | string;
+}
+
+type TProgressCallback = (total: number, current: number) => void;
+
+type TFailed = () => void;

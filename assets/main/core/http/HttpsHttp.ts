@@ -1,13 +1,13 @@
 import { IncomingMessage, RequestOptions } from "http";
 import { Loading, Toast } from "../../../bundle/common/Script/commpent/UIMgr";
 import { https } from "../NpmExport";
-import { IHttp } from "./IHttp";
+import { ApiErrorCode, IHttp } from "./IHttp";
 
 export default class HttpsHttp extends IHttp {
     @Loading.applyLoading
-    public get(url: string): Promise<any> {
+    public get<T extends any>(url: string): Promise<T> {
         const self = this;
-        return new Promise<any>((resolve, reject) => {
+        return new Promise<T>((resolve, reject) => {
             const options: RequestOptions = {
                 path: self.base_url + url,
                 headers: self.header,
@@ -19,30 +19,42 @@ export default class HttpsHttp extends IHttp {
                     return (data += d);
                 });
                 response.on("end", () => {
-                    let json = {};
                     try {
-                        json = JSON.parse(data);
+                        const json = JSON.parse(data);
+                        if (response.statusCode >= 200 && response.statusCode < 300) {
+                            cc.log("get resolve: " + JSON.stringify(json));
+                            resolve(json);
+                        } else {
+                            cc.log("get reject: " + JSON.stringify(json));
+                            const httpError: HttpError = json;
+                            Toast.show(json["error"]);
+                            reject(httpError);
+                        }
                     } catch (error) {
                         cc.log("get JSON.parse: " + error);
-                        reject(error);
-                    }
-                    if (response.statusCode >= 200 && response.statusCode < 300) {
-                        cc.log("get resolve: " + JSON.stringify(json));
-                        resolve(json);
-                    } else {
-                        Toast.show(json["error"]);
-                        cc.log("get reject: " + JSON.stringify(json));
-                        reject(json);
+                        const httpError: HttpError = {
+                            code: ApiErrorCode.HTTP_ERROR,
+                            error: error,
+                        };
+                        reject(httpError);
                     }
                 });
                 response.on("error", (error) => {
                     cc.log("get error: " + error);
-                    reject(error);
+                    const httpError: HttpError = {
+                        code: ApiErrorCode.HTTP_ERROR,
+                        error: error,
+                    };
+                    reject(httpError);
                 });
             });
             req.on("error", (error) => {
                 cc.log("get error: " + error);
-                reject(error);
+                const httpError: HttpError = {
+                    code: ApiErrorCode.HTTP_ERROR,
+                    error: error,
+                };
+                reject(httpError);
             });
             req.end();
         });
@@ -64,30 +76,42 @@ export default class HttpsHttp extends IHttp {
                     return (data += d);
                 });
                 response.on("end", () => {
-                    let json = {};
                     try {
-                        json = JSON.parse(data);
+                        const json = JSON.parse(data);
+                        if (response.statusCode >= 200 && response.statusCode < 300) {
+                            cc.log("post resolve: " + JSON.stringify(json));
+                            resolve(json);
+                        } else {
+                            cc.log("post reject: " + JSON.stringify(json));
+                            const httpError: HttpError = json;
+                            Toast.show(httpError.error);
+                            reject(httpError);
+                        }
                     } catch (error) {
                         cc.log("post JSON.parse: " + error);
-                        reject(error);
-                    }
-                    if (response.statusCode >= 200 && response.statusCode < 300) {
-                        cc.log("post resolve: " + JSON.stringify(json));
-                        resolve(json);
-                    } else {
-                        Toast.show(json["error"]);
-                        cc.log("post reject: " + JSON.stringify(json));
-                        reject(json);
+                        const httpError: HttpError = {
+                            code: ApiErrorCode.HTTP_ERROR,
+                            error: error,
+                        };
+                        reject(httpError);
                     }
                 });
                 response.on("error", (error) => {
                     cc.log("post error: " + error);
-                    reject(error);
+                    const httpError: HttpError = {
+                        code: ApiErrorCode.HTTP_ERROR,
+                        error: error,
+                    };
+                    reject(httpError);
                 });
             });
             req.on("error", (error) => {
                 cc.log("post error: " + error);
-                reject(error);
+                const httpError: HttpError = {
+                    code: ApiErrorCode.HTTP_ERROR,
+                    error: error,
+                };
+                reject(httpError);
             });
             req.write(JSON.stringify(body));
             req.end();

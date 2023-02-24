@@ -9,10 +9,13 @@ export default class UserItem extends cc.Component {
     @property(cc.Label)
     time: cc.Label = null;
 
-    init(element: any) {
-        this.id.string = element["objectId"];
-        this.username.string = element["username"];
-        this.time.string = element["updatedAt"];
+    init(element: UserResult) {
+        // this.id.string = element["objectId"];
+        // this.username.string = element["username"];
+        // this.time.string = element["updatedAt"];
+        this.id.string = element.objectId;
+        this.username.string = element.username;
+        this.time.string = element.updatedAt;
     }
 
     onEdit() {}

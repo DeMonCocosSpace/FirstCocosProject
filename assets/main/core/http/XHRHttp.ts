@@ -1,16 +1,16 @@
 import { Loading, Toast } from "../../../bundle/common/Script/commpent/UIMgr";
-import { IHttp } from "./IHttp";
+import { ApiErrorCode, IHttp } from "./IHttp";
 
 export default class extends IHttp {
     private xhr: XMLHttpRequest = null;
 
     @Loading.applyLoading
-    public get(url: string): Promise<any> {
+    public get<T extends any>(url: string): Promise<T> {
         if (this.xhr == null) {
             this.xhr = new XMLHttpRequest();
         }
         const self = this;
-        return new Promise((resolve, reject) => {
+        return new Promise<T>((resolve, reject) => {
             self.xhr.open("GET", self.base_url + url, true);
             self.xhr.onreadystatechange = () => {
                 if (self.xhr.readyState === 4) {
@@ -20,19 +20,28 @@ export default class extends IHttp {
                         cc.log("get " + url + ": resolve=" + JSON.stringify(json));
                         resolve(json);
                     } else {
-                        Toast.show(json["error"]);
-                        cc.log("get " + url + ": reject=" + JSON.stringify(json));
-                        reject(json);
+                        const httpError: HttpError = json;
+                        Toast.show(httpError.error);
+                        cc.log("get reject: " + JSON.stringify(json));
+                        reject(httpError);
                     }
                 }
             };
             self.xhr.ontimeout = (event) => {
                 cc.log("get " + url + ": ontimeout");
-                reject("ontimeout");
+                const httpError: HttpError = {
+                    code: ApiErrorCode.TIMEOUT,
+                    error: "ontimeout",
+                };
+                reject(httpError);
             };
             self.xhr.onerror = (event) => {
                 cc.log("get " + url + ": onerror");
-                reject("onerror");
+                const httpError: HttpError = {
+                    code: ApiErrorCode.HTTP_ERROR,
+                    error: "onerror",
+                };
+                reject(httpError);
             };
 
             self.xhr.setRequestHeader("X-LC-Id", self.header["X-LC-Id"]);
@@ -45,12 +54,12 @@ export default class extends IHttp {
     }
 
     @Loading.applyLoading
-    public post(url: string, body: any): Promise<any> {
+    public post<T extends any>(url: string, body: any): Promise<T> {
         if (this.xhr == null) {
             this.xhr = new XMLHttpRequest();
         }
         const self = this;
-        return new Promise((resolve, reject) => {
+        return new Promise<T>((resolve, reject) => {
             self.xhr.open("POST", self.base_url + url, true);
             self.xhr.onreadystatechange = () => {
                 if (self.xhr.readyState === 4) {
@@ -60,21 +69,29 @@ export default class extends IHttp {
                         cc.log("post " + url + ": resolve=" + JSON.stringify(json));
                         resolve(json);
                     } else {
-                        Toast.show(json["error"]);
-                        cc.log("post " + url + ": reject=" + JSON.stringify(json));
-                        reject(json);
+                        const httpError: HttpError = json;
+                        Toast.show(httpError.error);
+                        cc.log("post reject: " + JSON.stringify(json));
+                        reject(httpError);
                     }
                 }
             };
             self.xhr.ontimeout = (event) => {
                 cc.log("post " + url + ": ontimeout");
-                reject("ontimeout");
+                const httpError: HttpError = {
+                    code: ApiErrorCode.TIMEOUT,
+                    error: "ontimeout",
+                };
+                reject(httpError);
             };
             self.xhr.onerror = (event) => {
                 cc.log("post " + url + ": onerror");
-                reject("onerror");
+                const httpError: HttpError = {
+                    code: ApiErrorCode.HTTP_ERROR,
+                    error: "onerror",
+                };
+                reject(httpError);
             };
-
             self.xhr.setRequestHeader("X-LC-Id", self.header["X-LC-Id"]);
             self.xhr.setRequestHeader("X-LC-Key", self.header["X-LC-Key"]);
             self.xhr.setRequestHeader("content-type", self.header["Content-Type"]);
