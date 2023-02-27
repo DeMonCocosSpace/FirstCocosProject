@@ -7,6 +7,10 @@ export default class CheckBoxView extends cc.Component {
     @property(cc.Toggle)
     toggle: cc.Toggle = null;
 
+    onLoad() {
+        this.toggle.uncheck();
+    }
+
     private callback: (v: string) => void = null;
 
     public init(text: string, callback?: (v: string) => void) {
@@ -20,6 +24,7 @@ export default class CheckBoxView extends cc.Component {
     }
 
     public setCheck(isCheck: boolean) {
+        cc.log("CheckBoxView isCheck=" + isCheck);
         isCheck ? this.toggle.check() : this.toggle.uncheck();
     }
 }

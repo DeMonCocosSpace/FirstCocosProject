@@ -70,7 +70,7 @@ export default class HttpsHttp extends IHttp {
                 headers: self.header,
             };
             const req = https.request(options, (response: IncomingMessage) => {
-                cc.log("post " + url + ": " + response.statusCode);
+                cc.log("delete " + url + ": " + response.statusCode);
                 let data = "";
                 response.on("data", (d) => {
                     return (data += d);
@@ -114,6 +114,119 @@ export default class HttpsHttp extends IHttp {
                 reject(httpError);
             });
             req.write(JSON.stringify(body));
+            req.end();
+        });
+    }
+    @Loading.applyLoading
+    public put<T extends any>(url: string, id: string, body: any): Promise<T> {
+        const self = this;
+        return new Promise<any>((resolve, reject) => {
+            const options: RequestOptions = {
+                method: "PUT",
+                path: self.base_url + url + `/${id}`,
+                headers: self.header,
+            };
+            const req = https.request(options, (response: IncomingMessage) => {
+                cc.log("put " + url + ": " + response.statusCode);
+                let data = "";
+                response.on("data", (d) => {
+                    return (data += d);
+                });
+                response.on("end", () => {
+                    try {
+                        const json = JSON.parse(data);
+                        if (response.statusCode >= 200 && response.statusCode < 300) {
+                            cc.log("put resolve: " + JSON.stringify(json));
+                            resolve(json);
+                        } else {
+                            cc.log("put reject: " + JSON.stringify(json));
+                            const httpError: HttpError = json;
+                            Toast.show(httpError.error);
+                            reject(httpError);
+                        }
+                    } catch (error) {
+                        cc.log("put JSON.parse: " + error);
+                        const httpError: HttpError = {
+                            code: ApiErrorCode.HTTP_ERROR,
+                            error: error,
+                        };
+                        reject(httpError);
+                    }
+                });
+                response.on("error", (error) => {
+                    cc.log("put error: " + error);
+                    const httpError: HttpError = {
+                        code: ApiErrorCode.HTTP_ERROR,
+                        error: error,
+                    };
+                    reject(httpError);
+                });
+            });
+            req.on("error", (error) => {
+                cc.log("put error: " + error);
+                const httpError: HttpError = {
+                    code: ApiErrorCode.HTTP_ERROR,
+                    error: error,
+                };
+                reject(httpError);
+            });
+            req.write(JSON.stringify(body));
+            req.end();
+        });
+    }
+    @Loading.applyLoading
+    public delete<T extends any>(url: string, id: string): Promise<T> {
+        const self = this;
+        return new Promise<any>((resolve, reject) => {
+            const options: RequestOptions = {
+                method: "DELETE",
+                path: self.base_url + url + `/${id}`,
+                headers: self.header,
+            };
+            const req = https.request(options, (response: IncomingMessage) => {
+                cc.log("post " + url + ": " + response.statusCode);
+                let data = "";
+                response.on("data", (d) => {
+                    return (data += d);
+                });
+                response.on("end", () => {
+                    try {
+                        const json = JSON.parse(data);
+                        if (response.statusCode >= 200 && response.statusCode < 300) {
+                            cc.log("delete resolve: " + JSON.stringify(json));
+                            resolve(json);
+                        } else {
+                            cc.log("delete reject: " + JSON.stringify(json));
+                            const httpError: HttpError = json;
+                            Toast.show(httpError.error);
+                            reject(httpError);
+                        }
+                    } catch (error) {
+                        cc.log("delete JSON.parse: " + error);
+                        const httpError: HttpError = {
+                            code: ApiErrorCode.HTTP_ERROR,
+                            error: error,
+                        };
+                        reject(httpError);
+                    }
+                });
+                response.on("error", (error) => {
+                    cc.log("delete error: " + error);
+                    const httpError: HttpError = {
+                        code: ApiErrorCode.HTTP_ERROR,
+                        error: error,
+                    };
+                    reject(httpError);
+                });
+            });
+            req.on("error", (error) => {
+                cc.log("delete error: " + error);
+                const httpError: HttpError = {
+                    code: ApiErrorCode.HTTP_ERROR,
+                    error: error,
+                };
+                reject(httpError);
+            });
             req.end();
         });
     }

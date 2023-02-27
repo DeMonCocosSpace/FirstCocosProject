@@ -1,5 +1,5 @@
 import ResLoader from "../../../main/core/bd/ResLoader";
-import Listener from "../../../main/core/Listener";
+import Listener from "../../../main/core/event/Listener";
 import EnumController from "../../../main/core/ui/EnumController";
 import HallSkin from "./conf/HallSkin";
 import HallListenEvent from "./event/HallListenEvent";

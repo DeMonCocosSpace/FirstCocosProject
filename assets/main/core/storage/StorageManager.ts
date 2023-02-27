@@ -41,7 +41,7 @@ export default class StorageManager {
         return this.removeItem(this.prefix + key);
     }
 
-    public getItem(key: string, def: string): string {
+    public getItem(key: string, def: string = ""): string {
         const result = cc.sys.localStorage.getItem(key);
         if (result == null) {
             return def;

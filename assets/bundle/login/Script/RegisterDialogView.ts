@@ -38,7 +38,7 @@ export default class RegisterDialogView extends BasePrefabView {
         };
 
         HttpUtils.getHttp()
-            .post("1.1/users", json)
+            .post("users", json)
             .then((json) => {
                 Toast.show("Register succeed~");
                 this.hide();

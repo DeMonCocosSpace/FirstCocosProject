@@ -2,6 +2,7 @@ import ResLoader from "../../../../main/core/bd/ResLoader";
 import { Log } from "../../../../main/core/Log";
 import CocosUtils from "../../../../main/core/utils/CocosUtils";
 import { TimeUtils } from "../../../../main/core/utils/TimeUtils";
+import AlertEditView from "../AlertEditView ";
 import AlertView from "../AlertView";
 import CommonSkin from "../conf/CommonSkin";
 import ToastView from "../ToastView";
@@ -86,13 +87,13 @@ export namespace Loading {
         });
     }
 
-    declare type PromiseDescriptor = <T>(
+    export function applyLoading<T = any>(
+        backCatch: boolean
+    ): (
         target: Object | Promise<T> | boolean,
         propertyKey?: string | symbol,
         descriptor?: TypedPropertyDescriptor<(...args: any[]) => Promise<T>>
     ) => TypedPropertyDescriptor<(...args: any[]) => Promise<T>>;
-
-    export function applyLoading(backCatch: boolean): PromiseDescriptor;
     export function applyLoading<T>(target: Promise<T>): Promise<T>;
     export function applyLoading<T>(
         target: Object,
@@ -103,7 +104,14 @@ export namespace Loading {
         target: Object | Promise<T> | boolean,
         propertyKey?: string | symbol | number,
         descriptor?: TypedPropertyDescriptor<(...args: any[]) => Promise<T>>
-    ): TypedPropertyDescriptor<(...args: any[]) => Promise<T>> | Promise<T> | PromiseDescriptor {
+    ):
+        | TypedPropertyDescriptor<(...args: any[]) => Promise<T>>
+        | Promise<T>
+        | ((
+              target: Object | Promise<T> | boolean,
+              propertyKey?: string | symbol,
+              descriptor?: TypedPropertyDescriptor<(...args: any[]) => Promise<T>>
+          ) => TypedPropertyDescriptor<(...args: any[]) => Promise<T>>) {
         const backCatch = typeof target === "boolean" ? target : false;
 
         function decorator(
@@ -118,7 +126,9 @@ export namespace Loading {
             };
             return descriptor as TypedPropertyDescriptor<(...args: any[]) => Promise<T>>;
         }
-
+        if (typeof target === "boolean") {
+            return decorator;
+        }
         if (target instanceof Promise) {
             return asyncLoading(target, backCatch);
         } else {
@@ -143,11 +153,37 @@ export namespace Alert {
             alert
                 .build(
                     content,
-                    function () {
+                    () => {
                         reslove(true);
                     },
-                    function () {
+                    () => {
                         reslove(false);
+                    }
+                )
+                .show();
+        });
+    }
+
+    let alertEditUI: cc.Node = null;
+    export function showEditAlert(content: string = ""): Promise<string> {
+        return new Promise<string>((reslove, reject) => {
+            let node = alertEditUI;
+            if (!cc.isValid(node)) {
+                node = cc.instantiate(
+                    ResLoader.getInstance().getPrefab(CommonSkin.Priority.AlertEditView)
+                );
+                CocosUtils.getInstance().getSceneCanvas().addChild(node, UILayer.ALERT);
+                alertEditUI = node;
+            }
+            var alert = node.getComponent(AlertEditView);
+            alert
+                .build(
+                    content,
+                    (conent: string) => {
+                        reslove(conent);
+                    },
+                    () => {
+                        reject();
                     }
                 )
                 .show();

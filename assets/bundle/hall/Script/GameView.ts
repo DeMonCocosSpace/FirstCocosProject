@@ -1,7 +1,7 @@
 import ResLoader from "../../../main/core/bd/ResLoader";
 import GameConfig from "../../../main/core/conf/GameConfig";
 import { GameType } from "../../../main/core/conf/GameType";
-import Listener from "../../../main/core/Listener";
+import Listener from "../../../main/core/event/Listener";
 import CacheUtils from "../../../main/core/utils/CacheUtils";
 import { Utils } from "../../../main/core/utils/Utils";
 import HallSkin from "./conf/HallSkin";

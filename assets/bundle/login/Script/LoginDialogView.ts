@@ -43,7 +43,7 @@ export default class LoginDialogView extends cc.Component {
             password: password,
         };
         HttpUtils.getHttp()
-            .post("1.1/login", json)
+            .post("login", json)
             .then((json) => {
                 Toast.show("Login succeed~");
                 CacheUtils.getInstance().setAccountInfo(json);

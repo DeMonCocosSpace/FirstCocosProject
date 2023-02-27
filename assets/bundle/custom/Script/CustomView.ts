@@ -64,7 +64,7 @@ export default class CustomView extends cc.Component {
         });
     }
 
-    @Loading.applyLoading
+    @Loading.applyLoading(true)
     async loading3() {
         cc.log("PlazaBtnView loading3");
         return this.loading2();
