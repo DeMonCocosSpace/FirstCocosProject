@@ -3,7 +3,7 @@ import Listener from "../../../main/core/event/Listener";
 import HttpUtils, { HTTP } from "../../../main/core/http/HttpUtils";
 import StorageManager from "../../../main/core/storage/StorageManager";
 import CheckBoxView from "../../common/Script/CheckBoxView";
-import { Alert } from "../../common/Script/commpent/UIMgr";
+import { Alert, Toast } from "../../common/Script/commpent/UIMgr";
 import CommonSkin from "../../common/Script/conf/CommonSkin";
 import HttpSkin from "./conf/HttpSkin";
 import HttpEvent from "./enevt/HttpEvent";
@@ -42,6 +42,8 @@ export default class HttpView extends cc.Component {
             });
             ctrl.setCheck(index == StorageManager.getInstance().getNumber("Http_Way", HTTP.FETCH));
         });
+
+        this.clickLookup();
     }
 
     clickLookup() {
@@ -73,7 +75,9 @@ export default class HttpView extends cc.Component {
                         this.addOne(result);
                     });
             })
-            .catch(() => {});
+            .catch((error) => {
+                Toast.show(error);
+            });
     }
 
     private addOne(result: PostResult) {
@@ -96,7 +100,6 @@ export default class HttpView extends cc.Component {
     onEditSucceed(uuid: string, result: PostResult) {
         const node = this.layout.getChildByUuid(uuid);
         if (node) {
-            result["pubUser"] = this.username;
             const ctrl = node.getComponent(UserItem);
             ctrl.init(result);
         }

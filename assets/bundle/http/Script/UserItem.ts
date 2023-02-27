@@ -1,6 +1,6 @@
 import Listener from "../../../main/core/event/Listener";
 import HttpUtils from "../../../main/core/http/HttpUtils";
-import { Alert } from "../../common/Script/commpent/UIMgr";
+import { Alert, Toast } from "../../common/Script/commpent/UIMgr";
 import HttpEvent from "./enevt/HttpEvent";
 
 const { ccclass, property } = cc._decorator;
@@ -23,7 +23,7 @@ export default class UserItem extends cc.Component {
         this.id.string = element.objectId;
         this.content.string = element.content;
         this.pubUser.string = element.pubUser;
-        this.time.string = element.updatedAt;
+        this.time.string = new Date(element.updatedAt).toFormat();
     }
 
     onEdit() {
@@ -35,10 +35,13 @@ export default class UserItem extends cc.Component {
                     })
                     .then((result) => {
                         result["content"] = text;
+                        result["pubUser"] = this.element.pubUser;
                         Listener.send(HttpEvent.EDIT_SUCCEED, this.node.uuid, result);
                     });
             })
-            .catch(() => {});
+            .catch((error) => {
+                Toast.show(error);
+            });
     }
 
     onDelete() {

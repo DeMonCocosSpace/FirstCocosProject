@@ -179,11 +179,17 @@ export namespace Alert {
             alert
                 .build(
                     content,
-                    (conent: string) => {
-                        reslove(conent);
+                    (text: string) => {
+                        if (text.isEmpty()) {
+                            reject("content is Empty~");
+                        } else if (content === text) {
+                            reject("content is Equal~");
+                        } else {
+                            reslove(text);
+                        }
                     },
                     () => {
-                        reject();
+                        reject("cancel~");
                     }
                 )
                 .show();
