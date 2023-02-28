@@ -1,12 +1,5 @@
-// Learn TypeScript:
-//  - https://docs.cocos.com/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
-
-import ResLoader from "../../../main/core/bd/ResLoader";
-import CocosUtils from "../../../main/core/utils/CocosUtils";
+import { ResLoader } from "../../../main/core/bd/ResLoader";
+import { CocosUtils } from "../../../main/core/utils/CocosUtils";
 import AnimDialogView from "./AnimDialogView";
 
 const { ccclass, property } = cc._decorator;

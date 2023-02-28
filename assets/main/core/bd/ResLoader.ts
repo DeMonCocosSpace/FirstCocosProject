@@ -1,4 +1,4 @@
-export default class ResLoader {
+export class ResLoader {
     private bundles = <cc.AssetManager.Bundle>{};
 
     private constructor() {}

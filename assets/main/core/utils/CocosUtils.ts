@@ -1,7 +1,7 @@
 import CommonSkin from "../../../bundle/common/Script/conf/CommonSkin";
-import ResLoader from "../bd/ResLoader";
+import { ResLoader } from "../bd/ResLoader";
 
-export default class CocosUtils {
+export class CocosUtils {
     private constructor() {}
 
     private static _instance = null;

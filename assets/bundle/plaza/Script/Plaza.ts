@@ -1,4 +1,4 @@
-import ResLoader from "../../../main/core/bd/ResLoader";
+import { ResLoader } from "../../../main/core/bd/ResLoader";
 import { PlazaConf } from "./conf/PlazaConf";
 import CommonSkin from "../../common/Script/conf/CommonSkin";
 import PlazaSkin from "./conf/PlazaSkin";

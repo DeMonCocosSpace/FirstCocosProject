@@ -1,4 +1,4 @@
-import ResLoader from "../../../main/core/bd/ResLoader";
+import { ResLoader } from "../../../main/core/bd/ResLoader";
 import { GameType } from "../../../main/core/conf/GameType";
 import { Utils } from "../../../main/core/utils/Utils";
 import { Loading } from "../../common/Script/commpent/UIMgr";

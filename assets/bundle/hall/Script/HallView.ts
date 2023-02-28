@@ -1,6 +1,6 @@
-import CocosUtils from "../../../main/core/utils/CocosUtils";
+import { CocosUtils } from "../../../main/core/utils/CocosUtils";
 import BasePrefabView from "../../../main/core/ui/BasePrefabView";
-import ResLoader from "../../../main/core/bd/ResLoader";
+import { ResLoader } from "../../../main/core/bd/ResLoader";
 import HallSkin from "./conf/HallSkin";
 import AudioManager from "../../../main/core/media/AudioManager";
 

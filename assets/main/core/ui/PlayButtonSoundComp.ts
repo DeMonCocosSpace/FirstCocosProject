@@ -1,4 +1,4 @@
-import ResLoader from "../bd/ResLoader";
+import { ResLoader } from "../bd/ResLoader";
 import AudioManager from "../media/AudioManager";
 
 const { ccclass, executeInEditMode, menu, property } = cc._decorator;

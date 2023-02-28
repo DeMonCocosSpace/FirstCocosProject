@@ -1,4 +1,4 @@
-import ResLoader from "./bd/ResLoader";
+import { ResLoader } from "./bd/ResLoader";
 
 type EventCallfunc = (trackEntry: sp.spine.TrackEntry, event: cc.Event) => void;
 type EventListener = {

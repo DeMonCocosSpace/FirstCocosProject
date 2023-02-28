@@ -1,4 +1,4 @@
-import ResLoader from "../../../main/core/bd/ResLoader";
+import { ResLoader } from "../../../main/core/bd/ResLoader";
 import AudioManager from "../../../main/core/media/AudioManager";
 import HallSkin from "./conf/HallSkin";
 

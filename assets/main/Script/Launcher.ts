@@ -6,6 +6,7 @@ import HttpUtils, { HTTP } from "../core/http/HttpUtils";
 import AudioManager from "../core/media/AudioManager";
 import StorageManager from "../core/storage/StorageManager";
 import CacheUtils from "../core/utils/CacheUtils";
+import { DependManager } from "../core/depend/DependManager";
 
 const { ccclass, property } = cc._decorator;
 
@@ -28,7 +29,7 @@ export default class Launcher extends cc.Component {
         }
 
         this.progress.progress = 0;
-
+        DependManager.getInstance().init();
         CacheUtils.getInstance().initDataCache();
         StorageManager.getInstance().initPrefix("project_");
         AudioManager.getInstance().init();

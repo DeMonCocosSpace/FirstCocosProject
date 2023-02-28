@@ -1,4 +1,4 @@
-import ResLoader from "../../../main/core/bd/ResLoader";
+import { ResLoader } from "../../../main/core/bd/ResLoader";
 import LoginSkin from "./conf/LoginSkin";
 
 const { ccclass, property } = cc._decorator;

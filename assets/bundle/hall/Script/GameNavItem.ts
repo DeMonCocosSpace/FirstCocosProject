@@ -1,4 +1,4 @@
-import ResLoader from "../../../main/core/bd/ResLoader";
+import { ResLoader } from "../../../main/core/bd/ResLoader";
 import Listener from "../../../main/core/event/Listener";
 import EnumController from "../../../main/core/ui/EnumController";
 import HallSkin from "./conf/HallSkin";

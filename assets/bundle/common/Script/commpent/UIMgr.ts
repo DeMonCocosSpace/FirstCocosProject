@@ -1,6 +1,6 @@
-import ResLoader from "../../../../main/core/bd/ResLoader";
-import { Log } from "../../../../main/core/Log";
-import CocosUtils from "../../../../main/core/utils/CocosUtils";
+import { ResLoader } from "../../../../main/core/bd/ResLoader";
+import { PopupUtil } from "../../../../main/core/ui/popup/PopupUtil";
+import { CocosUtils } from "../../../../main/core/utils/CocosUtils";
 import { TimeUtils } from "../../../../main/core/utils/TimeUtils";
 import AlertEditView from "../AlertEditView ";
 import AlertView from "../AlertView";
@@ -146,7 +146,7 @@ export namespace Alert {
                 node = cc.instantiate(
                     ResLoader.getInstance().getPrefab(CommonSkin.Priority.AlertView)
                 );
-                CocosUtils.getInstance().getSceneCanvas().addChild(node, UILayer.ALERT);
+                CommonDepend.CocosUtils.getSceneCanvas().addChild(node, UILayer.ALERT);
                 alertUI = node;
             }
             var alert = node.getComponent(AlertView);
@@ -207,5 +207,26 @@ export namespace Toast {
             toastUI = node;
         }
         node.getComponent(ToastView).addToast(msg);
+    }
+}
+
+export namespace UI {
+    /**
+     * 显示UI
+     */
+    export function showUI(resDesc: IResDescribe, options?: PopupUtil.IShowOptions) {
+        return PopupUtil.show(resDesc, options);
+    }
+
+    export function showUISync(resDesc: IResDescribe, options?: PopupUtil.IShowOptions) {
+        return PopupUtil.showSync(resDesc, options);
+    }
+
+    export function close(resDesc: IResDescribe, options?: PopupUtil.IHideOptions) {
+        return PopupUtil.close(resDesc, options);
+    }
+
+    export function destroy(resDesc: IResDescribe) {
+        return PopupUtil.destroy(resDesc);
     }
 }

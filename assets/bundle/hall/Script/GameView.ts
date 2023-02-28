@@ -1,4 +1,4 @@
-import ResLoader from "../../../main/core/bd/ResLoader";
+import { ResLoader } from "../../../main/core/bd/ResLoader";
 import GameConfig from "../../../main/core/conf/GameConfig";
 import { GameType } from "../../../main/core/conf/GameType";
 import Listener from "../../../main/core/event/Listener";

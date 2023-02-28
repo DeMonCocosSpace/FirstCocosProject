@@ -1,10 +1,10 @@
 import lodash = require("lodash");
 import { resolve } from "path";
-import CocosUtils from "../utils/CocosUtils";
+import { CocosUtils } from "../utils/CocosUtils";
 import { BundleDepend } from "../conf/bd_depend/BundleDepend";
 import { BundleName } from "../conf/BundleName";
 import BundleSkinCenter from "./bd_skin/BundleSkinCenter";
-import ResLoader from "./ResLoader";
+import { ResLoader } from "./ResLoader";
 import { Log } from "../Log";
 import { Loading } from "../../../bundle/common/Script/commpent/UIMgr";
 

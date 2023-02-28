@@ -1,4 +1,4 @@
-import ResLoader from "../../../main/core/bd/ResLoader";
+import { ResLoader } from "../../../main/core/bd/ResLoader";
 import { Log } from "../../../main/core/Log";
 import { Alert, Loading, Toast } from "../../common/Script/commpent/UIMgr";
 import CustomSkin from "./conf/CustomSkin";

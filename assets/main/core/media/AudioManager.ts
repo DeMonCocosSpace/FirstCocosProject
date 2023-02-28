@@ -1,4 +1,4 @@
-import ResLoader from "../bd/ResLoader";
+import { ResLoader } from "../bd/ResLoader";
 import { lodash } from "../NpmExport";
 import StorageManager from "../storage/StorageManager";
 

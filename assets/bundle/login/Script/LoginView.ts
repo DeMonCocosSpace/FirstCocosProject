@@ -1,5 +1,5 @@
 import BundleCenter from "../../../main/core/bd/BundleCenter";
-import ResLoader from "../../../main/core/bd/ResLoader";
+import { ResLoader } from "../../../main/core/bd/ResLoader";
 import { BundleName } from "../../../main/core/conf/BundleName";
 import { Toast } from "../../common/Script/commpent/UIMgr";
 import LoginSkin from "./conf/LoginSkin";

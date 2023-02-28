@@ -1,4 +1,4 @@
-import ResLoader from "../../../main/core/bd/ResLoader";
+import { ResLoader } from "../../../main/core/bd/ResLoader";
 import Listener from "../../../main/core/event/Listener";
 import HttpUtils, { HTTP } from "../../../main/core/http/HttpUtils";
 import StorageManager from "../../../main/core/storage/StorageManager";

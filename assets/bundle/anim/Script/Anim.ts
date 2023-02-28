@@ -1,5 +1,5 @@
-import ResLoader from "../../../main/core/bd/ResLoader";
-import CocosUtils from "../../../main/core/utils/CocosUtils";
+import { ResLoader } from "../../../main/core/bd/ResLoader";
+import { CocosUtils } from "../../../main/core/utils/CocosUtils";
 import AnimBtnView from "./AnimBtnView";
 import AnimSkin from "./conf/AnimSkin";
 
