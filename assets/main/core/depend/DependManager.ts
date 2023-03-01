@@ -1,3 +1,4 @@
+import { ResLoader } from "../bd/ResLoader";
 import { CocosUtils } from "../utils/CocosUtils";
 
 export class DependManager {
@@ -15,7 +16,7 @@ export class DependManager {
     public init() {
         let depend: CommonDependInterface = {
             CocosUtils: CocosUtils.getInstance(),
-            ResLoader: CocosUtils.getInstance(),
+            ResLoader: ResLoader.getInstance(),
         };
         CommonDepend = depend;
     }

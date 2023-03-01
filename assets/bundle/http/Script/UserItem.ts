@@ -50,7 +50,7 @@ export default class UserItem extends cc.Component {
                 HttpUtils.getHttp()
                     .delete<PostResult>("classes/Post", this.element.objectId)
                     .then((result) => {
-                        Listener.send(HttpEvent.DELETE_SUCCEED, this.node.uuid);
+                        Listener.send(HttpEvent.DELETE_SUCCEED, this.node.uuid, result);
                     });
             }
         });

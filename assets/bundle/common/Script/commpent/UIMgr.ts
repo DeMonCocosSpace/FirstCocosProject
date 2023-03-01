@@ -2,8 +2,6 @@ import { ResLoader } from "../../../../main/core/bd/ResLoader";
 import { PopupUtil } from "../../../../main/core/ui/popup/PopupUtil";
 import { CocosUtils } from "../../../../main/core/utils/CocosUtils";
 import { TimeUtils } from "../../../../main/core/utils/TimeUtils";
-import AlertEditView from "../AlertEditView ";
-import AlertView from "../AlertView";
 import CommonSkin from "../conf/CommonSkin";
 import ToastView from "../ToastView";
 
@@ -138,61 +136,33 @@ export namespace Loading {
 }
 
 export namespace Alert {
-    let alertUI: cc.Node = null;
     export function showAlert(content: string): Promise<Boolean> {
         return new Promise<Boolean>((reslove, reject) => {
-            let node = alertUI;
-            if (!cc.isValid(node)) {
-                node = cc.instantiate(
-                    ResLoader.getInstance().getPrefab(CommonSkin.Priority.AlertView)
-                );
-                CommonDepend.CocosUtils.getSceneCanvas().addChild(node, UILayer.ALERT);
-                alertUI = node;
-            }
-            var alert = node.getComponent(AlertView);
-            alert
-                .build(
-                    content,
-                    () => {
-                        reslove(true);
-                    },
-                    () => {
-                        reslove(false);
-                    }
-                )
-                .show();
+            UI.showUISync(CommonSkin.Priority.AlertView, {
+                args: [content],
+                zIndex: UILayer.ALERT,
+            }).onClose((result: boolean) => {
+                reslove(result);
+            });
         });
     }
 
-    let alertEditUI: cc.Node = null;
     export function showEditAlert(content: string = ""): Promise<string> {
         return new Promise<string>((reslove, reject) => {
-            let node = alertEditUI;
-            if (!cc.isValid(node)) {
-                node = cc.instantiate(
-                    ResLoader.getInstance().getPrefab(CommonSkin.Priority.AlertEditView)
-                );
-                CocosUtils.getInstance().getSceneCanvas().addChild(node, UILayer.ALERT);
-                alertEditUI = node;
-            }
-            var alert = node.getComponent(AlertEditView);
-            alert
-                .build(
-                    content,
-                    (text: string) => {
-                        if (text.isEmpty()) {
-                            reject("content is Empty~");
-                        } else if (content === text) {
-                            reject("content is Equal~");
-                        } else {
-                            reslove(text);
-                        }
-                    },
-                    () => {
-                        reject("cancel~");
+            UI.showUISync(CommonSkin.Priority.AlertEditView, {
+                args: [content],
+                zIndex: UILayer.ALERT,
+            }).onClose((text: string) => {
+                if (text) {
+                    if (text.isEmpty()) {
+                        reject("content is Empty~");
+                    } else if (content === text) {
+                        reject("content is Equal~");
+                    } else {
+                        reslove(text);
                     }
-                )
-                .show();
+                }
+            });
         });
     }
 }

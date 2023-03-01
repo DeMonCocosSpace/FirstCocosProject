@@ -3,5 +3,5 @@ interface String {
 }
 
 String.prototype.isEmpty = function (): boolean {
-    return this == null || this.length == 0;
+    return this == undefined || this == null || this.length == 0;
 };

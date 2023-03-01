@@ -1,6 +1,7 @@
 import { ResLoader } from "../../../main/core/bd/ResLoader";
 import Listener from "../../../main/core/event/Listener";
 import HttpUtils, { HTTP } from "../../../main/core/http/HttpUtils";
+import { lodash } from "../../../main/core/NpmExport";
 import StorageManager from "../../../main/core/storage/StorageManager";
 import CheckBoxView from "../../common/Script/CheckBoxView";
 import { Alert, Toast } from "../../common/Script/commpent/UIMgr";
@@ -19,6 +20,8 @@ export default class HttpView extends cc.Component {
     layout: cc.Node = null;
     @property(cc.Node)
     toggles: cc.Node = null;
+
+    private list: PostResult[] = new Array();
 
     private username: string = "";
     protected onLoad(): void {
@@ -51,10 +54,8 @@ export default class HttpView extends cc.Component {
             .get<PostList>("classes/Post")
             .then((result) => {
                 this.layout.removeAllChildren();
-                const list = result.results.reverse();
-                list.forEach((element) => {
-                    this.addOne(element);
-                });
+                this.list = result.results.reverse();
+                this.addAll();
             })
             .catch((error) => {});
     }
@@ -72,12 +73,22 @@ export default class HttpView extends cc.Component {
                         result["content"] = str;
                         result["pubUser"] = this.username;
                         result["updatedAt"] = result.createdAt;
-                        this.addOne(result);
+                        //this.addOne(result);
+                        this.list.unshift(result);
+                        this.addAll();
                     });
             })
             .catch((error) => {
                 Toast.show(error);
             });
+    }
+
+    private addAll() {
+        // this.layout.removeAllChildren();
+        this.layout.destroyAllChildren();
+        this.list.forEach((element) => {
+            this.addOne(element);
+        });
     }
 
     private addOne(result: PostResult) {
@@ -98,6 +109,9 @@ export default class HttpView extends cc.Component {
     }
 
     onEditSucceed(uuid: string, result: PostResult) {
+        this.list = this.list.map((element) => {
+            return element.objectId == result.objectId ? result : element;
+        });
         const node = this.layout.getChildByUuid(uuid);
         if (node) {
             const ctrl = node.getComponent(UserItem);
@@ -105,7 +119,10 @@ export default class HttpView extends cc.Component {
         }
     }
 
-    onDeleteSucceed(uuid: string) {
+    onDeleteSucceed(uuid: string, result: PostResult) {
+        lodash(this.list).remove((element) => {
+            return element.objectId == result.objectId;
+        });
         const node = this.layout.getChildByUuid(uuid);
         if (node) {
             this.layout.removeChild(node);
