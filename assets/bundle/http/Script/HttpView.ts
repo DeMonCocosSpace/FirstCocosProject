@@ -3,6 +3,7 @@ import Listener from "../../../main/core/event/Listener";
 import HttpUtils, { HTTP } from "../../../main/core/http/HttpUtils";
 import { lodash } from "../../../main/core/NpmExport";
 import StorageManager from "../../../main/core/storage/StorageManager";
+import EnumController from "../../../main/core/ui/EnumController";
 import CheckBoxView from "../../common/Script/CheckBoxView";
 import { Alert, Toast } from "../../common/Script/commpent/UIMgr";
 import CommonSkin from "../../common/Script/conf/CommonSkin";
@@ -86,16 +87,19 @@ export default class HttpView extends cc.Component {
     private addAll() {
         // this.layout.removeAllChildren();
         this.layout.destroyAllChildren();
-        this.list.forEach((element) => {
-            this.addOne(element);
+        this.list.forEach((element, index) => {
+            this.addOne(element, index);
         });
     }
 
-    private addOne(result: PostResult) {
+    private addOne(result: PostResult, index: number) {
         ResLoader.getInstance().loadPrefab(HttpSkin.UnPriority.UserItem, (prefab: cc.Prefab) => {
             const node = cc.instantiate(prefab);
             this.layout.addChild(node);
             node.getComponent(UserItem).init(result);
+
+            index = index < 3 ? index : 3;
+            node.getComponent(EnumController).show4Name(`${index}`);
         });
     }
 
