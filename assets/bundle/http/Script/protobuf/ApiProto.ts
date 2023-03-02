@@ -4,6 +4,8 @@
  * source: int/http/hall/api.proto
  * git: https://github.com/thesayyn/protoc-gen-ts */
 
+import { pb_1 } from "../../../../main/core/NpmExport";
+
 /*
 此处请修改为Creator NpmExport路径
 请注意路径的层级
