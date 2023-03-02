@@ -1,13 +1,7 @@
-// const numeral = require("numeral");
-// const urlParser = require("url-parse");
-// const decimal = require("decimal");
-
-// import lodash = require("lodash");
-// window["lodash"] = lodash;
-// export { numeral, urlParser, lodash, decimal };
+import * as pb_1 from "google-protobuf";
 
 import https = require("https");
 
 import lodash = require("lodash");
 window["lodash"] = lodash;
-export { lodash, https };
+export { lodash, https, pb_1 };

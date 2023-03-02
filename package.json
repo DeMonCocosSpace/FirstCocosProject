@@ -1,9 +1,14 @@
 {
+  "name": "First",
+   "version": "2.4.9",
+  "lockfileVersion": 3,
+  "requires": true,
   "dependencies": {
-    "@types/lodash": "^4.14.191",
-    "@types/node": "^18.11.18"
+    "google-protobuf": "^3.21.2",
+    "lodash": "^4.14.191"
   },
   "devDependencies": {
+    "@types/google-protobuf": "^3.15.6",
     "@types/lodash": "^4.14.191",
     "@types/node": "^18.11.18"
   }
