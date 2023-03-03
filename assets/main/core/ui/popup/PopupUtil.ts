@@ -4,9 +4,8 @@ export namespace PopupUtil {
     export interface IShowOptions {
         parent?: cc.Node;
         args?: any[];
-
+        position?: cc.Vec2;
         zIndex?: number;
-
         new?: boolean;
     }
 
@@ -113,8 +112,10 @@ export namespace PopupUtil {
             cc.warn("[PopupUtil] popup set parent failed!, parent is isValid");
             return null;
         }
+        if (options?.position) {
+            popupNode.setPosition(options?.position);
+        }
         parent.addChild?.(popupNode, options?.zIndex ?? 0);
-
         const popup = popupNode.getComponent(BasePopup);
         popup?.onConstruct?.();
 

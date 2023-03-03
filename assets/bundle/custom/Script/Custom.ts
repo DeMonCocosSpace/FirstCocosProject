@@ -1,4 +1,5 @@
 import { ResLoader } from "../../../main/core/bd/ResLoader";
+import { UI } from "../../common/Script/commpent/UIMgr";
 import CustomSkin from "./conf/CustomSkin";
 
 const { ccclass, property } = cc._decorator;
@@ -6,9 +7,6 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class Custom extends cc.Component {
     protected onLoad(): void {
-        const view = cc.instantiate(
-            ResLoader.getInstance().getPrefab(CustomSkin.Priority.CustomView)
-        );
-        this.node.addChild(view);
+        UI.showUISync(CustomSkin.Priority.CustomView);
     }
 }

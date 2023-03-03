@@ -1,22 +1,20 @@
 import { ResLoader } from "../../../main/core/bd/ResLoader";
 import { Log } from "../../../main/core/Log";
-import { Alert, Loading, Toast } from "../../common/Script/commpent/UIMgr";
+import PopUpViewBase from "../../../main/core/ui/popup/PopUpViewBase";
+import { Alert, Loading, Toast, UI } from "../../common/Script/commpent/UIMgr";
 import CustomSkin from "./conf/CustomSkin";
 import ProgressView from "./ProgressView";
 
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class CustomView extends cc.Component {
+export default class CustomView extends PopUpViewBase {
     private progress: ProgressView = null;
 
     start() {}
 
     protected onLoad(): void {
-        const node = cc.instantiate(
-            ResLoader.getInstance().getPrefab(CustomSkin.Priority.BottomMenuView)
-        );
-        this.node.addChild(node);
+        UI.showUISync(CustomSkin.Priority.BottomMenuView);
     }
 
     showAlert() {
