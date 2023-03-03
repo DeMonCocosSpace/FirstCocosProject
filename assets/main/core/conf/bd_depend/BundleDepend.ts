@@ -16,6 +16,7 @@ export namespace BundleDepend {
         [BundleName.ANIM]: [BundleName.COMMON],
         [BundleName.HALL]: [BundleName.COMMON],
         [BundleName.HTTP]: [BundleName.COMMON],
+        [BundleName.TEST]: [BundleName.COMMON],
         [BundleName.CUSTOM]: [BundleName.COMMON],
     };
 

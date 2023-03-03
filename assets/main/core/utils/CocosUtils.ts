@@ -21,6 +21,13 @@ export class CocosUtils {
         bg.spriteFrame = ResLoader.getInstance().getSpriteFrame(CommonSkin.Priority.btnSkin);
     }
 
+    public setNodeBg(bg: cc.Node) {
+        const sp = bg.getComponent(cc.Sprite);
+        if (sp) {
+            sp.spriteFrame = ResLoader.getInstance().getSpriteFrame(CommonSkin.Priority.bgSkin);
+        }
+    }
+
     public setBg(bg: cc.Sprite) {
         bg.spriteFrame = ResLoader.getInstance().getSpriteFrame(CommonSkin.Priority.bgSkin);
     }

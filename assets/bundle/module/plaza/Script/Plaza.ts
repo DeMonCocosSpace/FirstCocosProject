@@ -1,35 +1,35 @@
 import { ResLoader } from "../../../../main/core/bd/ResLoader";
 import { PlazaConf } from "./conf/PlazaConf";
 import CommonSkin from "../../../common/Script/conf/CommonSkin";
-import PlazaSkin from "./conf/PlazaSkin";
-import PlazaBtnView from "./PlazaBtnView";
+import BtnView from "../../../common/Script/BtnView";
+import BundleCenter from "../../../../main/core/bd/BundleCenter";
+import { CocosUtils } from "../../../../main/core/utils/CocosUtils";
 
 const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class Plaza extends cc.Component {
-    @property(cc.Layout)
-    layout: cc.Layout = null;
+    @property(cc.Node)
+    layout: cc.Node = null;
 
-    @property(cc.ScrollView)
-    scrollView: cc.ScrollView = null;
-
-    private bgScrollView: cc.Sprite = null;
+    @property(cc.Node)
+    scrollView: cc.Node = null;
 
     onLoad() {
-        this.bgScrollView = this.scrollView.getComponent(cc.Sprite);
-
-        this.bgScrollView.spriteFrame = ResLoader.getInstance().getSpriteFrame(
-            CommonSkin.Priority.bgSkin
-        );
-
+        CocosUtils.getInstance().setNodeBg(this.scrollView);
         PlazaConf.forEach((value, i, _) => {
             const pf = cc.instantiate(
-                ResLoader.getInstance().getPrefab(PlazaSkin.Priority.PlazaBtnView)
+                ResLoader.getInstance().getPrefab(CommonSkin.Priority.BtnView)
             );
-            const ctrl = pf.getComponent(PlazaBtnView);
-            ctrl.init(value);
-            this.layout.node.addChild(pf);
+            const ctrl = pf.getComponent(BtnView);
+            ctrl.init({
+                label: value.title,
+                data: value.bundle,
+                callback: () => {
+                    BundleCenter.getInstance().launchSence(value.bundle);
+                },
+            });
+            this.layout.addChild(pf);
         });
     }
 

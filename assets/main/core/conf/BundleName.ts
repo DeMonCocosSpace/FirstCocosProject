@@ -5,5 +5,6 @@ export enum BundleName {
     ANIM = "anim",
     HALL = "hall",
     HTTP = "http",
+    TEST = "test",
     CUSTOM = "custom",
 }

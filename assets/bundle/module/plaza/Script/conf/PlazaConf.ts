@@ -17,4 +17,8 @@ export let PlazaConf = [
         bundle: BundleName.HTTP,
         title: "Http",
     },
+    {
+        bundle: BundleName.TEST,
+        title: "Test",
+    },
 ];

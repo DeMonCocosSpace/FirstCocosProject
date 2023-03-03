@@ -1,11 +1,11 @@
 import { CocosUtils } from "../../../../main/core/utils/CocosUtils";
 import BasePrefabView from "../../../../main/core/ui/BasePrefabView";
+import PopUpViewBase from "../../../../main/core/ui/popup/PopUpViewBase";
 
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class FrameView extends BasePrefabView {
-    // LIFE-CYCLE CALLBACKS:
+export default class FrameView extends PopUpViewBase {
     @property(cc.Node)
     effect: cc.Node = null;
     @property(cc.Button)
@@ -14,8 +14,6 @@ export default class FrameView extends BasePrefabView {
     private anim: cc.Animation = null;
 
     onLoad() {
-        this.hide();
-
         CocosUtils.getInstance().setBtn(this.play);
         CocosUtils.getInstance().setBg(this.node.getComponent(cc.Sprite));
 
@@ -25,5 +23,4 @@ export default class FrameView extends BasePrefabView {
     playEffect() {
         this.anim.play();
     }
-    // update (dt) {}
 }

@@ -1,9 +1,9 @@
-import BasePrefabView from "../../../../main/core/ui/BasePrefabView";
+import PopUpViewBase from "../../../../main/core/ui/popup/PopUpViewBase";
 
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class MonsterView extends BasePrefabView {
+export default class MonsterView extends PopUpViewBase {
     @property(cc.Node)
     monster: cc.Node = null;
 
@@ -17,7 +17,6 @@ export default class MonsterView extends BasePrefabView {
     private tweenAction: cc.Tween = null;
 
     onLoad() {
-        this.hide();
         this.anim = this.monster.getComponent(cc.Animation);
         this.node.on(cc.Node.EventType.TOUCH_START, this.getPos, this);
     }

@@ -1,11 +1,6 @@
 export let AnimResCar = {
     launchScene: "Anim",
-    priority: {
-        AnimBtnView: <IResDescribe>{
-            resPath: "skin/car/prefab/AnimBtnView",
-            type: cc.Prefab,
-        },
-    },
+    priority: {},
     unpriority: {
         AnimDialogView: <IResDescribe>{
             resPath: "skin/car/prefab/AnimDialogView",

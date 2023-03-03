@@ -28,6 +28,10 @@ export let CommonResCar = {
             resPath: "skin/car/prefab/CheckBoxView",
             type: cc.Prefab,
         },
+        BtnView: <IResDescribe>{
+            resPath: "skin/car/prefab/BtnView",
+            type: cc.Prefab,
+        },
     },
     unpriority: {},
     loadOnDemand: {

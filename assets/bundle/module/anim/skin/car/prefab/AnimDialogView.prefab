@@ -959,7 +959,7 @@
     },
     "component": "",
     "_componentId": "a3944AZmNFC3bsks3QRN6+9",
-    "handler": "hideView",
+    "handler": "close",
     "customEventData": ""
   },
   {

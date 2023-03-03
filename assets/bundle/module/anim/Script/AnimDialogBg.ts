@@ -14,8 +14,6 @@ export default class AnimDialogBg extends cc.Component {
     //需要单独脚本注册帧事件函数
     hidePlayEnd() {
         cc.log("DialogBg hidePlayEnd");
-        let dialog = this.node.parent.getComponent(AnimDialogView);
-        dialog.hidePlayEnd();
     }
 
     // update (dt) {}

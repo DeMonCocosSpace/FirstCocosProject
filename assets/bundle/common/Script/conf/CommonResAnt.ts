@@ -28,6 +28,10 @@ export let CommonResAnt = {
             resPath: "skin/ant/prefab/CheckBoxView",
             type: cc.Prefab,
         },
+        BtnView: <IResDescribe>{
+            resPath: "skin/ant/prefab/BtnView",
+            type: cc.Prefab,
+        },
     },
     unpriority: {},
     loadOnDemand: {

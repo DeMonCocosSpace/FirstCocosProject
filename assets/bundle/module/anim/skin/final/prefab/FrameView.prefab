@@ -403,7 +403,7 @@
     },
     "component": "",
     "_componentId": "5ba1aUQvMZGB6CoEqIs0Gz5",
-    "handler": "goback",
+    "handler": "close",
     "customEventData": ""
   },
   {
