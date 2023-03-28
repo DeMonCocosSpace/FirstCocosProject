@@ -2,19 +2,19 @@ import { ResLoader } from "../../../../main/core/bd/ResLoader";
 import { Log } from "../../../../main/core/Log";
 import PopUpViewBase from "../../../../main/core/ui/popup/PopUpViewBase";
 import { Alert, Loading, Toast, UI } from "../../../common/Script/commpent/UIMgr";
-import CustomSkin from "./conf/CustomSkin";
+import UiSkin from "./conf/UISkin";
 import ProgressView from "./ProgressView";
 
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class CustomView extends PopUpViewBase {
+export default class UiView extends PopUpViewBase {
     private progress: ProgressView = null;
 
     start() {}
 
     protected onLoad(): void {
-        UI.showUISync(CustomSkin.Priority.BottomMenuView);
+        UI.showUISync(UiSkin.Priority.BottomMenuView);
     }
 
     showAlert() {
@@ -27,7 +27,7 @@ export default class CustomView extends PopUpViewBase {
 
     @Log.method
     showProgress() {
-        ResLoader.getInstance().loadPrefab(CustomSkin.UnPriority.ProgressVew, (pf: cc.Prefab) => {
+        ResLoader.getInstance().loadPrefab(UiSkin.UnPriority.ProgressVew, (pf: cc.Prefab) => {
             const node = cc.instantiate(pf);
             node.y = -100;
             this.node.addChild(node);

@@ -2,8 +2,8 @@ import { BundleName } from "../../../../../main/core/conf/BundleName";
 
 export let PlazaConf = [
     {
-        bundle: BundleName.CUSTOM,
-        title: "Custom",
+        bundle: BundleName.UI,
+        title: "UI",
     },
     {
         bundle: BundleName.ANIM,
