@@ -1,0 +1,15 @@
+{
+    "name": "skeleton-rename",
+    "version": "0.0.1",
+    "description": "骨骼动画资源改名插件",
+    "author": "DeMon",
+    "main": "test/main.js",
+    "main-menu": {},
+    "panel": {
+        "main": "panel/index.js",
+        "type": "dockable",
+        "title": "骨骼动画资源改名",
+        "width": 800,
+        "height": 300
+    }
+}
