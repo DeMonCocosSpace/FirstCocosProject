@@ -110,7 +110,7 @@ Editor.Panel.extend({
                     this.$label.innerText = "修改完成~";
                     Editor.info("修改完成,1s后关闭界面~");
                     setTimeout(() => {
-                        Editor.Panel.close("skeleton-rename");
+                        Editor.Panel.close("easy-skeleton-rename");
                     }, 1000);
                 });
             } else {
