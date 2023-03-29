@@ -22,10 +22,12 @@ Editor.Panel.extend({
     // html template for panel
     template: `
     <div>骨骼动画json路径: <span id="path">--</span></div>
+    <br/>
+    <div style="color:red;">改名前请确认此骨骼动画是否被引用，避免造成场景,预制体打不开~</span></div>
     <hr />
-    <div>修改后的文件名: <ui-input id="edit" placeholder="修改后的文件名"/></ui-input></div>
+    <div>修改后的文件名: <br/><br/> <ui-input style="width:400;" id="edit" placeholder="修改后的文件名"/></ui-input></div>
     <hr />
-    <div>State: <span id="label">--</span></div>
+    <div>State: <br/> <span id="label">--</span></div>
     <hr />
     <ui-button id="btn">确定</ui-button>
   `,
@@ -41,15 +43,16 @@ Editor.Panel.extend({
     ready() {
         this.$btn.addEventListener("confirm", () => {
             const newFileName = this.$edit.value;
+            //检查
             if (newFileName == originFileName) {
                 this.$label.innerText = "无须更改~";
                 Editor.warn("文件名与当前一致，无须更改~");
                 return;
             }
-            //昵称校验
-            if (!this.isValid(newFileName)) {
+            //检查昵称校验
+            if (newFileName.length == 0 || !this.isValid(newFileName)) {
                 this.$label.innerText = "文件名不符合规范~";
-                Editor.warn("文件名不符合规范，只能数字、字母、下划线组成~");
+                Editor.warn("文件名不符合规范，不能为空，且只能由数字、字母、下划线组成，~");
                 return;
             }
             this.$label.innerText = "开始~";
@@ -58,6 +61,15 @@ Editor.Panel.extend({
             const currfileDir = path.join(Editor.Project.path, assetsPathToDirPath(fileDir));
             Editor.info("文件夹的绝对路径: " + currfileDir);
             const files = fs.readdirSync(currfileDir);
+            //检查文件夹内是否存在同名文件
+            const sameNameFiles = files.filter((value) => {
+                return Path.basenameNoExt(value) == newFileName;
+            });
+            if (sameNameFiles.length > 0) {
+                this.$label.innerText = "文件文件夹内存在同名文件~";
+                Editor.warn("文件夹内存在同名文件~");
+                return;
+            }
             const reallFiles = files.filter((value) => {
                 return !value.endsWith(".meta") && value.startsWith(originFileName);
             });
@@ -108,10 +120,8 @@ Editor.Panel.extend({
                         Editor.error("资源刷新失败", err);
                     }
                     this.$label.innerText = "修改完成~";
-                    Editor.info("修改完成,1s后关闭界面~");
-                    setTimeout(() => {
-                        Editor.Panel.close("easy-skeleton-rename");
-                    }, 1000);
+                    Editor.info("修改完成,关闭界面~");
+                    Editor.Panel.close("easy-skeleton-rename");
                 });
             } else {
                 Editor.warn("骨骼动画资源数量异常~");

@@ -24,14 +24,5 @@ module.exports = {
             Editor.info("当前选择文件: " + selectPath);
             Editor.Panel.open("easy-skeleton-rename", selectPath);
         },
-        /**
-         * 编辑器选中事件回调
-         * @param {Electron.IpcMainEvent} event
-         * @param {string} type 类型
-         * @param {string[]} uuids uuids
-         */
-        "selection:selected"(event, type, uuids) {
-            Editor.log("Hello easy-skeleton-rename! selection:selected " + uuids);
-        },
     },
 };
