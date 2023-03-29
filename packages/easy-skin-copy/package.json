@@ -1,0 +1,15 @@
+{
+    "name": "easy-skin-copy",
+    "version": "0.0.3",
+    "description": "用于拷贝皮肤资源，普通拷贝会有UUID引用问题，本插件解决拷贝UUID引用问题",
+    "author": "Zero",
+    "main": "main.js",
+    "main-menu": {},
+    "panel": {
+        "main": "panel/index.js",
+        "type": "dockable",
+        "title": "皮肤拷贝",
+        "width": 400,
+        "height": 300
+    }
+}

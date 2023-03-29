@@ -40,9 +40,16 @@ Editor.Panel.extend({
     // method executed when template and styles are successfully loaded and initialized
     ready() {
         this.$btn.addEventListener("confirm", () => {
-            if (this.$edit.value == originFileName) {
+            const newFileName = this.$edit.value;
+            if (newFileName == originFileName) {
                 this.$label.innerText = "无须更改~";
                 Editor.warn("文件名与当前一致，无须更改~");
+                return;
+            }
+            //昵称校验
+            if (!this.isValid(newFileName)) {
+                this.$label.innerText = "文件名不符合规范~";
+                Editor.warn("文件名不符合规范，只能数字、字母、下划线组成~");
                 return;
             }
             this.$label.innerText = "开始~";
@@ -54,7 +61,6 @@ Editor.Panel.extend({
             const reallFiles = files.filter((value) => {
                 return !value.endsWith(".meta") && value.startsWith(originFileName);
             });
-            Editor.info("骨骼动画资源: " + reallFiles);
             //检查图集，json，png
             if (
                 reallFiles.indexOf(originFileName + ".json") != -1 &&
@@ -62,7 +68,6 @@ Editor.Panel.extend({
                 reallFiles.indexOf(originFileName + ".png") != -1
             ) {
                 Editor.info("初步校验通过~骨骼动画资源: " + reallFiles);
-                const newFileName = this.$edit.value;
                 fs.rename(
                     currfileDir + "/" + originFileName + ".png",
                     currfileDir + "/" + newFileName + ".png",
@@ -102,7 +107,11 @@ Editor.Panel.extend({
                     if (err) {
                         Editor.error("资源刷新失败", err);
                     }
-                    this.$label.innerText = "修改成功~";
+                    this.$label.innerText = "修改完成~";
+                    Editor.info("修改完成,1s后关闭界面~");
+                    setTimeout(() => {
+                        Editor.Panel.close("skeleton-rename");
+                    }, 1000);
                 });
             } else {
                 Editor.warn("骨骼动画资源数量异常~");
@@ -116,6 +125,9 @@ Editor.Panel.extend({
         this.$path.innerText = argv;
         originFileName = Path.basenameNoExt(filePath);
         this.$edit.value = originFileName;
+    },
+    isValid(str) {
+        return /^\w+$/.test(str);
     },
     // register your ipc messages here
     messages: {},

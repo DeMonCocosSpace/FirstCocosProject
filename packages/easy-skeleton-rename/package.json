@@ -1,9 +1,9 @@
 {
-    "name": "skeleton-rename",
+    "name": "easy-skeleton-rename",
     "version": "0.0.1",
-    "description": "骨骼动画资源改名插件",
+    "description": "骨骼动画资源改名插件，印度印尼子皮肤使用骨骼动画名称需要一致时，使用此插件更方便一键改名～",
     "author": "DeMon",
-    "main": "test/main.js",
+    "main": "main.js",
     "main-menu": {},
     "panel": {
         "main": "panel/index.js",

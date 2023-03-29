@@ -1,6 +1,8 @@
 "use strict";
-
+const path = require("path");
+const fs = require("fs");
 let isSelectAsset = false;
+
 const assetsPathToDirPath = function (resPath) {
     const reg = /^(db):\/\/(\S*)/;
     const dbPaths = resPath.match(reg);
@@ -26,6 +28,7 @@ function hook_function(param1, param2, param3) {
 
 module.exports = {
     load() {
+        Editor.log("load");
         // 当 package 被正确加载的时候执行
         this.registerClickMenu();
     },
@@ -34,12 +37,11 @@ module.exports = {
         // 当 package 被正确卸载的时候执行
     },
 
-    messages: {
-        "say-hello"() {
-            Editor.log("Hello World~");
-        },
+    messages: {},
+    isFile(strPath) {
+        const stat = fs.statSync(strPath);
+        return stat.isFile();
     },
-
     registerClickMenu() {
         // 扩展右键菜单
         let ipc_listen_o = new Editor.IpcListener();
@@ -76,28 +78,46 @@ module.exports = {
                 return;
             }
 
-            let template = [
-                {
-                    type: "separator",
-                },
+            let templates = [];
 
-                {
+            //Editor.info("选择的文件路径:" + selectedUrl);
+
+            // skin 绝对 路径
+            const currSkinDirPath = path.join(
+                Editor.Project.path,
+                assetsPathToDirPath(selectedUrl)
+            );
+            //Editor.info("选择的文件绝对路径:" + currSkinDirPath);
+
+            //皮肤拷贝插件, 选择的必须是文件夹
+            if (!self.isFile(currSkinDirPath)) {
+                templates.push({
+                    type: "separator",
+                });
+                templates.push({
+                    label: "皮肤拷贝",
+                    click: () => {
+                        //Editor.Ipc.sendToPanel('unpack-textureatlas.unpack', null);
+                        Editor.Ipc.sendToMain("easy-skin-copy:say-hello");
+                    },
+                });
+            }
+
+            //骨骼动画资源改名插件, 必须选择的是骨骼资源的json文件
+            if (selectedUrl.endsWith(".json")) {
+                templates.push({
+                    type: "separator",
+                });
+                templates.push({
                     label: "骨骼动画资源改名",
                     click: () => {
                         //Editor.Ipc.sendToPanel('unpack-textureatlas.unpack', null);
-
-                        const currentSelection = Editor.Selection.curSelection("asset");
-
-                        if (!currentSelection || currentSelection.length == 0) {
-                            Editor.warn("选择文件异常～");
-                            return;
-                        }
-                        const selectPath = Editor.assetdb.uuidToUrl(currentSelection);
-                        Editor.log("当前选择文件: " + selectPath);
+                        Editor.Ipc.sendToMain("easy-skeleton-rename:say-hello");
                     },
-                },
-            ];
-            v_as[0].push(...template);
+                });
+            }
+
+            v_as[0].push(...templates);
         });
     },
 };

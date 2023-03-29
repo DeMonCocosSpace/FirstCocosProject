@@ -1,0 +1,8 @@
+{
+    "name": "easy-hook-menu",
+    "version": "0.0.1",
+    "description": "hook修改鼠标右键菜单，方便多个插件扩展鼠标右键菜单，防止冲突~",
+    "author": "DeMon",
+    "main": "main.js",
+    "main-menu": {}
+}
