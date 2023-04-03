@@ -10,11 +10,14 @@ export interface BtnData {
 export default class BtnView extends cc.Component {
     @property(cc.Label)
     label: cc.Label = null;
+    @property(cc.Layout)
+    layout: cc.Layout = null;
 
     private data: BtnData;
     init(data: BtnData) {
         this.data = data;
         this.label.string = data.label;
+        //this.layout.updateLayout();
     }
 
     onClick() {

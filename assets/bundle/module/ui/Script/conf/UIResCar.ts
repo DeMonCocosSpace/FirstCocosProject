@@ -9,13 +9,9 @@ export let UIResCar = {
             resPath: "skin/car/prefab/BottomMenuView",
             type: cc.Prefab,
         },
-        paopao: <IResDescribe>{
-            resPath: "skin/car/texture/paopao",
-            type: cc.SpriteFrame,
-        },
-        flower: <IResDescribe>{
-            resPath: "skin/car/texture/flower",
-            type: cc.SpriteFrame,
+        GraphicsView: <IResDescribe>{
+            resPath: "skin/final/prefab/GraphicsView",
+            type: cc.Prefab,
         },
     },
     unpriority: {

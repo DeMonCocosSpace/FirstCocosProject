@@ -14,6 +14,7 @@ export default class FrameView extends PopUpViewBase {
     private anim: cc.Animation = null;
 
     onLoad() {
+        this.hasBack = true;
         CocosUtils.getInstance().setBtn(this.play);
         CocosUtils.getInstance().setBg(this.node.getComponent(cc.Sprite));
 

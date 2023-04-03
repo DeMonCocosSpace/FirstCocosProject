@@ -52,6 +52,13 @@ declare interface IAudio {
     stop?: () => void;
 }
 
+declare interface TWidget {
+    top?: number;
+    bottom?: number;
+    left?: number;
+    right?: number;
+}
+
 declare interface HttpResult<T extends any> {
     code: number;
     error: string;

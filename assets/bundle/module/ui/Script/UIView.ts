@@ -2,6 +2,7 @@ import { ResLoader } from "../../../../main/core/bd/ResLoader";
 import { Log } from "../../../../main/core/Log";
 import PopUpViewBase from "../../../../main/core/ui/popup/PopUpViewBase";
 import { Alert, Loading, Toast, UI } from "../../../common/Script/commpent/UIMgr";
+import UISkin from "./conf/UISkin";
 import UiSkin from "./conf/UISkin";
 import ProgressView from "./ProgressView";
 
@@ -28,8 +29,8 @@ export default class UiView extends PopUpViewBase {
     @Log.method
     showProgress() {
         ResLoader.getInstance().loadPrefab(UiSkin.UnPriority.ProgressVew, (pf: cc.Prefab) => {
-            const node = cc.instantiate(pf);
-            node.y = -100;
+            const node: cc.Node = cc.instantiate(pf);
+            UI.setWidget(node, { bottom: 100 });
             this.node.addChild(node);
             this.progress = node.getComponent(ProgressView);
             this.progress.finishCallback = () => {
@@ -66,6 +67,10 @@ export default class UiView extends PopUpViewBase {
     async loading3() {
         cc.log("PlazaBtnView loading3");
         return this.loading2();
+    }
+
+    clickGraphics() {
+        UI.showUISync(UISkin.Priority.GraphicsView);
     }
 
     protected update(dt: number): void {

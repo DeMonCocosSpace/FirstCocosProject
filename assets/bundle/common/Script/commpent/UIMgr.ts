@@ -181,6 +181,21 @@ export namespace Toast {
 }
 
 export namespace UI {
+    export function setWidget(node: cc.Node, data: TWidget) {
+        if (node.getComponent(cc.Widget) != null) {
+            return;
+        }
+        const widget = node.addComponent(cc.Widget);
+        widget.isAlignLeft = data.left != null;
+        widget.left = data.left ?? 0;
+        widget.isAlignRight = data.right != null;
+        widget.right = data.right ?? 0;
+        widget.isAlignTop = data.top != null;
+        widget.top = data.top ?? 0;
+        widget.isAlignBottom = data.bottom != null;
+        widget.bottom = data.bottom ?? 0;
+        widget.alignMode = cc.Widget.AlignMode.ON_WINDOW_RESIZE;
+    }
     /**
      * 显示UI
      */

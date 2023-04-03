@@ -17,6 +17,7 @@ export default class MonsterView extends PopUpViewBase {
     private tweenAction: cc.Tween = null;
 
     onLoad() {
+        this.hasBack = true;
         this.anim = this.monster.getComponent(cc.Animation);
         this.node.on(cc.Node.EventType.TOUCH_START, this.getPos, this);
     }
@@ -59,7 +60,7 @@ export default class MonsterView extends PopUpViewBase {
                 this.playAnim(start, end);
             }, this)
             //.then(cc.tween().to(1, { scale: 1.2 }))
-            .then(cc.tween().to(time, { position: end }))
+            .then(cc.tween().to(time, { position: end }, { easing: "smooth" }))
             //.then(cc.tween().to(1, { scale: 1 }))
             .call(() => {
                 console.log("tweenMove Finish");

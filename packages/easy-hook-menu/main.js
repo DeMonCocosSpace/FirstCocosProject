@@ -4,8 +4,9 @@ const fs = require("fs");
 let isSelectAsset = false;
 
 const assetsPathToDirPath = function (resPath) {
-    const reg = /^(db):\/\/(\S*)/;
+    const reg = /^(db):\/\/(.*)/;
     const dbPaths = resPath.match(reg);
+    Editor.info("选择的文件路径:" + dbPaths);
     if (!dbPaths) return null;
     return dbPaths[2];
 };
@@ -80,17 +81,17 @@ module.exports = {
 
             let templates = [];
 
-            //Editor.info("选择的文件路径:" + selectedUrl);
-
+            Editor.info("选择的文件路径:" + selectedUrl);
+            Editor.info("选择的文件路径:" + assetsPathToDirPath(selectedUrl));
             // skin 绝对 路径
             const currSkinDirPath = path.join(
                 Editor.Project.path,
                 assetsPathToDirPath(selectedUrl)
             );
-            //Editor.info("选择的文件绝对路径:" + currSkinDirPath);
+            Editor.info("选择的文件绝对路径:" + currSkinDirPath);
 
             //皮肤拷贝插件, 选择的必须是文件夹
-            if (!self.isFile(currSkinDirPath)) {
+            if (fs.existsSync(currSkinDirPath) && !self.isFile(currSkinDirPath)) {
                 templates.push({
                     type: "separator",
                 });

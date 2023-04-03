@@ -9,13 +9,9 @@ export let UIResAnt = {
             resPath: "skin/ant/prefab/BottomMenuView",
             type: cc.Prefab,
         },
-        paopao: <IResDescribe>{
-            resPath: "skin/ant/texture/paopao",
-            type: cc.SpriteFrame,
-        },
-        flower: <IResDescribe>{
-            resPath: "skin/ant/texture/snow",
-            type: cc.SpriteFrame,
+        GraphicsView: <IResDescribe>{
+            resPath: "skin/final/prefab/GraphicsView",
+            type: cc.Prefab,
         },
     },
     unpriority: {
