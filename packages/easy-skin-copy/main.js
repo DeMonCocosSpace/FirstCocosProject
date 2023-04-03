@@ -5,7 +5,7 @@ const fs = require("fs");
 const { dialog } = require("electron");
 
 const assetsPathToDirPath = function (resPath) {
-    const reg = /^(db):\/\/(\S*)/;
+    const reg = /^(db):\/\/(.*)/;
     const dbPaths = resPath.match(reg);
     if (!dbPaths) return null;
     return dbPaths[2];
