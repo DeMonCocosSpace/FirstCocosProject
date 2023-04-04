@@ -30,17 +30,17 @@
         "__id__": 15
       },
       {
-        "__id__": 16
-      },
-      {
         "__id__": 17
       },
       {
         "__id__": 18
+      },
+      {
+        "__id__": 19
       }
     ],
     "_prefab": {
-      "__id__": 19
+      "__id__": 20
     },
     "_opacity": 255,
     "_color": {
@@ -52,7 +52,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 143.47,
+      "width": 158,
       "height": 720
     },
     "_anchorPoint": {
@@ -64,7 +64,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        337.93375,
+        337.93375000000015,
         360,
         0,
         0,
@@ -131,7 +131,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -42.735,
+        -50,
         0,
         0,
         0,
@@ -472,7 +472,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 75.47,
+      "width": 90,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -524,13 +524,13 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "http",
-    "_N$string": "http",
+    "_string": "贝塞尔",
+    "_N$string": "贝塞尔",
     "_fontSize": 30,
     "_lineHeight": 40,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "db5ff939-9be4-401f-92bc-389ae8cbf220"
+      "__uuid__": "338e2eaa-22bb-4f55-9ef1-7aa1953f4223"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -628,8 +628,22 @@
     "checkMark": {
       "__id__": 8
     },
-    "checkEvents": [],
+    "checkEvents": [
+      {
+        "__id__": 16
+      }
+    ],
     "_id": ""
+  },
+  {
+    "__type__": "cc.ClickEvent",
+    "target": {
+      "__id__": 1
+    },
+    "component": "",
+    "_componentId": "a6f5d+Yx4dCoLH16Hc37Sv1",
+    "handler": "onToggle",
+    "customEventData": ""
   },
   {
     "__type__": "cc.Layout",
@@ -641,7 +655,7 @@
     "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 143.47,
+      "width": 158,
       "height": 720
     },
     "_resize": 1,
@@ -690,8 +704,8 @@
     "alignMode": 1,
     "_target": null,
     "_alignFlags": 45,
-    "_left": 266.19874999999996,
-    "_right": 870.33125,
+    "_left": 258.93375000000015,
+    "_right": 863.0662499999999,
     "_top": 0,
     "_bottom": 0,
     "_verticalCenter": 0,

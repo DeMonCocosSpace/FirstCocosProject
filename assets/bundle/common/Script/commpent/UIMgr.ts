@@ -181,6 +181,13 @@ export namespace Toast {
 }
 
 export namespace UI {
+    export function isVec2Equal(point1: cc.Vec2, point2: cc.Vec2) {
+        if (point1.x == point2.x && point2.y == point1.y) {
+            return true;
+        }
+        return false;
+    }
+
     export function setWidget(node: cc.Node, data: TWidget) {
         if (node.getComponent(cc.Widget) != null) {
             return;

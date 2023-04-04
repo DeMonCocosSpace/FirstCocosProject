@@ -1,7 +1,7 @@
 import { ResLoader } from "../../../../main/core/bd/ResLoader";
-import HttpUtils, { HTTP } from "../../../../main/core/http/HttpUtils";
 import PopUpViewBase from "../../../../main/core/ui/popup/PopUpViewBase";
-import CheckBoxView from "../../../common/Script/CheckBoxView";
+import CheckGroupView from "../../../common/Script/CheckGroupView";
+import { UI } from "../../../common/Script/commpent/UIMgr";
 import CommonSkin from "../../../common/Script/conf/CommonSkin";
 
 const { ccclass, property } = cc._decorator;
@@ -10,108 +10,297 @@ const { ccclass, property } = cc._decorator;
 export default class GraphicsView extends PopUpViewBase {
     @property(cc.Graphics)
     graphics: cc.Graphics = null;
-    @property(cc.Node)
-    toggles: cc.Node = null;
 
-    private _needPoint = 0;
+    private startPointColor = cc.Color.GREEN;
+    private endPointColor = cc.Color.RED;
+
+    private lineClolor = cc.Color.BLUE;
+    private lineWidth: number = 5;
+    private _currentIndex = 0;
+
     private _points: cc.Vec2[] = [];
+
+    private startPoint: cc.Vec2 = null;
+    private endPoint: cc.Vec2 = null;
 
     onLoad() {
         this.hasBack = true;
 
+        this.graphics.lineWidth = this.lineWidth;
+        this.graphics.strokeColor = this.lineClolor;
+
         const ways = ["线条", "矩形", "圆形", "椭圆", "曲线", "二次贝塞尔", "三次贝塞尔"];
-        ways.forEach((element, index) => {
-            const node = cc.instantiate(
-                ResLoader.getInstance().getPrefab(CommonSkin.Priority.CheckBoxView)
-            );
-            this.toggles.addChild(node);
-            const ctrl: CheckBoxView = node.getComponent(CheckBoxView);
-            ctrl.init(element, (v: string) => {});
-            ctrl.setCheck(index == 0);
+        const node = cc.instantiate(
+            ResLoader.getInstance().getPrefab(CommonSkin.Priority.CheckGroupView)
+        );
+        UI.setWidget(node, { left: 120, top: 20 });
+        this.node.addChild(node);
+        const ctrl: CheckGroupView = node.getComponent(CheckGroupView);
+        ctrl.init(ways, (index, v) => {
+            CC_DEBUG && cc.log("GraphicsView " + v);
+            this._currentIndex = index;
+            this.reset();
         });
-        this.node.parent.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
 
-        //cc.debug.setDisplayStats(false);
-        let p1: cc.Vec2 = cc.v2(-cc.winSize.width, 0);
-        let p2: cc.Vec2 = cc.v2(200, 200);
-        let p3: cc.Vec2 = cc.v2(400, 150);
-        let p4: cc.Vec2 = cc.v2(500, 200);
-        this.drawPoint(p1);
-        this.drawPoint(p2);
-        this.drawPoint(p3);
-        this.drawPoint(p4);
-        this.drawLine(p1, p2, cc.Color.GREEN);
-        this.drawLine(p2, p3, cc.Color.GREEN);
-        this.drawLine(p3, p4, cc.Color.GREEN);
-
-        this.drawBezierLine(p1, p2, p3, p4, cc.Color.RED);
-
-        // let posArr:Array<cc.Vec2> = [cc.v2(353,383),cc.v2(670,266)
-        //     ,cc.v2(403,128)
-        //     ,cc.v2(148,369)
-        //     ,cc.v2(400,513)
-        //     ,cc.v2(564,503)
-        //     ,cc.v2(582,378)
-        //     ,cc.v2(682,878),cc.v2(182,878)]
-
-        let posArr1: Array<cc.Vec2> = [
-            cc.v2(-150, 80),
-            cc.v2(1, 80),
-            cc.v2(48, 92),
-            cc.v2(167, 159),
-            cc.v2(309, 271),
-            cc.v2(421, 394),
-            cc.v2(514, 498),
-            cc.v2(597, 572),
-            cc.v2(658, 590),
-            cc.v2(745, 550),
-            cc.v2(802, 465),
-            cc.v2(841, 320),
-            cc.v2(866, 266),
-            cc.v2(951, 163),
-            cc.v2(1054, 133),
-            cc.v2(1228, 126),
-            cc.v2(1278, 128),
-            cc.v2(1430, 128),
-        ];
-
-        let self = this;
-        this.scheduleOnce(() => {
-            self.drawSelfBzierLine([p1, p2, p3, p4]);
-            self.drawSelfBzierLine(posArr1);
-        }, 2);
+        this.node.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
     }
 
-    onTouchEnd(event) {
-        var touchLoc = event.getLocation();
-        CC_DEBUG && cc.log("GraphicsView " + touchLoc);
-
-        this._points.push(touchLoc);
-        if (this._points.length >= this._needPoint) {
+    private reset() {
+        this._points = [];
+        this.startPoint = null;
+        this.endPoint = null;
+        this.graphics.clear();
+        switch (this._currentIndex) {
+            case 1:
+            case 2:
+                this.node.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
+                break;
+            default:
+                this.node.off(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
+                break;
         }
     }
 
-    /**在pos点处画画半径为6像素的黄点*/
-    drawPoint(pos: cc.Vec2): void {
-        let r: number = 6;
-        //this.graphics.clear();
-        this.graphics.circle(pos.x, pos.y, r);
+    onTouchStart(event) {
+        var touchLoc: cc.Vec2 = this.node.convertToNodeSpaceAR(event.getLocation());
+        CC_DEBUG && cc.log("GraphicsView satrt point=" + touchLoc);
+        this.drawPoint(touchLoc, this.startPointColor);
+        this.startPoint = touchLoc;
+    }
 
-        this.graphics.fillColor = cc.Color.YELLOW;
+    onTouchEnd(event) {
+        var touchLoc: cc.Vec2 = this.node.convertToNodeSpaceAR(event.getLocation());
+
+        if (this.endPoint == null) {
+            this.endPoint = touchLoc;
+        } else {
+            if (UI.isVec2Equal(touchLoc, this.endPoint)) {
+                return;
+            }
+            this.endPoint = touchLoc;
+        }
+        CC_DEBUG && cc.log("GraphicsView end point=" + touchLoc);
+        this.drawPoint(touchLoc, this.endPointColor);
+        this._points.push(touchLoc);
+
+        switch (this._currentIndex) {
+            case 0:
+                this.dealLine();
+                break;
+            case 1:
+                this.dealRect();
+                break;
+            case 2:
+                this.dealCircle();
+                break;
+            case 3:
+                this.dealEllipse();
+                break;
+            case 4:
+                break;
+            case 5:
+                this.dealQuadraticCurve();
+                break;
+            case 6:
+                this.dealBezierCurve();
+                break;
+            default:
+                break;
+        }
+    }
+
+    dealBezierCurve() {
+        if (this._points.length < 4) return;
+        const ponits = this._points.slice(this._points.length - 4, this._points.length);
+
+        //辅助线
+        this.drawGuideLine(ponits[0], ponits[1]);
+        this.drawGuideLine(ponits[1], ponits[2]);
+        this.drawGuideLine(ponits[2], ponits[3]);
+
+        this.drawBezierCurve(ponits[0], ponits[1], ponits[2], ponits[3]);
+    }
+
+    drawBezierCurve(
+        point: cc.Vec2,
+        point1: cc.Vec2,
+        point2: cc.Vec2,
+        point3: cc.Vec2,
+        lineWidth: number = this.lineWidth,
+        lineClolor: cc.Color = this.lineClolor
+    ) {
+        this.graphics.lineWidth = lineWidth;
+        this.graphics.strokeColor = lineClolor;
+        this.graphics.moveTo(point.x, point.y);
+        this.graphics.bezierCurveTo(point1.x, point1.y, point2.x, point2.y, point3.x, point3.y);
+        this.graphics.stroke();
+    }
+
+    dealQuadraticCurve() {
+        if (this._points.length < 3) return;
+        const ponits = this._points.slice(this._points.length - 3, this._points.length);
+
+        //辅助线
+        this.drawGuideLine(ponits[0], ponits[1]);
+        this.drawGuideLine(ponits[1], ponits[2]);
+
+        this.drawQuadraticCurve(ponits[0], ponits[1], ponits[2]);
+    }
+
+    drawQuadraticCurve(
+        point: cc.Vec2,
+        point1: cc.Vec2,
+        point2: cc.Vec2,
+        lineWidth: number = this.lineWidth,
+        lineClolor: cc.Color = this.lineClolor
+    ) {
+        this.graphics.lineWidth = lineWidth;
+        this.graphics.strokeColor = lineClolor;
+        this.graphics.moveTo(point.x, point.y);
+        this.graphics.quadraticCurveTo(point1.x, point1.y, point2.x, point2.y);
+        this.graphics.stroke();
+    }
+
+    //画椭圆,第一个点为椭圆中心,第二个点横坐标为x半径，第三个点的y距离作为y半径
+    dealEllipse() {
+        if (this._points.length < 3) return;
+        const ponits = this._points.slice(this._points.length - 3, this._points.length);
+
+        const x = Math.abs(ponits[1].x - ponits[0].x);
+        const y = Math.abs(ponits[2].y - ponits[0].y);
+
+        //辅助线
+        this.drawGuideLine(ponits[0], new cc.Vec2(ponits[1].x, ponits[0].y));
+        this.drawGuideLine(ponits[1], new cc.Vec2(ponits[1].x, ponits[0].y));
+        this.drawGuideLine(ponits[0], new cc.Vec2(ponits[0].x, ponits[2].y));
+        this.drawGuideLine(ponits[2], new cc.Vec2(ponits[0].x, ponits[2].y));
+
+        this.drawEllipse(ponits[0], x, y);
+    }
+
+    drawEllipse(
+        point: cc.Vec2,
+        x: number,
+        y: number,
+        lineWidth: number = this.lineWidth,
+        lineClolor: cc.Color = this.lineClolor
+    ) {
+        this.graphics.lineWidth = lineWidth;
+        this.graphics.strokeColor = lineClolor;
+        this.graphics.ellipse(point.x, point.y, x, y);
+        this.graphics.stroke();
+    }
+
+    //画圆，起点作为圆心，终点距离为半径
+    dealCircle() {
+        if (UI.isVec2Equal(this.startPoint, this.endPoint)) {
+            return;
+        }
+        //辅助线
+        this.drawGuideLine(this.startPoint, this.endPoint);
+
+        const r = this.startPoint.sub(this.endPoint).mag();
+        this.drawCircle(this.startPoint, r);
+    }
+
+    drawCircle(
+        point: cc.Vec2,
+        r: number,
+        lineWidth: number = this.lineWidth,
+        lineClolor: cc.Color = this.lineClolor
+    ) {
+        this.graphics.lineWidth = lineWidth;
+        this.graphics.strokeColor = lineClolor;
+        this.graphics.circle(point.x, point.y, r);
+        this.graphics.stroke();
+    }
+
+    //画矩形，起始点作为对角线
+    dealRect() {
+        if (UI.isVec2Equal(this.startPoint, this.endPoint)) {
+            return;
+        }
+
+        //辅助线
+        this.drawGuideLine(this.startPoint, this.endPoint);
+
+        let point: cc.Vec2 = null;
+        const w = Math.abs(this.endPoint.x - this.startPoint.x);
+        const h = Math.abs(this.endPoint.y - this.startPoint.y);
+
+        if (this.endPoint.x > this.startPoint.x) {
+            if (this.endPoint.y > this.startPoint.y) {
+                point = this.startPoint;
+            } else {
+                point = cc.v2(this.startPoint.x, this.endPoint.y);
+            }
+        } else {
+            if (this.endPoint.y > this.startPoint.y) {
+                point = cc.v2(this.endPoint.x, this.startPoint.y);
+            } else {
+                point = this.endPoint;
+            }
+        }
+        this.drawRect(point.x, point.y, w, h);
+    }
+
+    drawRect(
+        x: number,
+        y: number,
+        w: number,
+        h: number,
+        lineWidth: number = this.lineWidth,
+        lineClolor: cc.Color = this.lineClolor
+    ) {
+        this.graphics.lineWidth = lineWidth;
+        this.graphics.strokeColor = lineClolor;
+        this.graphics.rect(x, y, w, h);
+        this.graphics.stroke();
+    }
+
+    dealLine() {
+        if (this._points.length < 2) return;
+        const ponits = this._points.slice(this._points.length - 2, this._points.length);
+        this.drawLine(ponits[0], ponits[1]);
+    }
+
+    /**在pos点处画画半径为6像素的点*/
+    drawPoint(pos: cc.Vec2, col: cc.Color = cc.Color.RED): void {
+        let r: number = 5;
+        this.graphics.circle(pos.x, pos.y, r);
+        this.graphics.fillColor = col;
         this.graphics.fill();
     }
 
+    /**
+     * 画辅助线
+     */
+    drawGuideLine(
+        p1: cc.Vec2,
+        p2: cc.Vec2,
+        lineWidth: number = 2,
+        lineClolor: cc.Color = cc.Color.BLACK
+    ): void {
+        this.graphics.lineWidth = lineWidth;
+        this.graphics.strokeColor = lineClolor;
+        this.graphics.moveTo(p1.x, p1.y);
+        this.graphics.lineTo(p2.x, p2.y);
+        this.graphics.stroke();
+    }
     /**
      * 画一条指定起始点和颜色的直线
      * @param p1 起点
      * @param p2 终点
      * @param col 颜色
      */
-    drawLine(p1: cc.Vec2, p2: cc.Vec2, col: cc.Color): void {
-        let lineWidth: number = 3;
-
+    drawLine(
+        p1: cc.Vec2,
+        p2: cc.Vec2,
+        lineWidth: number = this.lineWidth,
+        lineClolor: cc.Color = this.lineClolor
+    ): void {
         this.graphics.lineWidth = lineWidth;
-        this.graphics.strokeColor = col;
+        this.graphics.strokeColor = lineClolor;
         this.graphics.moveTo(p1.x, p1.y);
         this.graphics.lineTo(p2.x, p2.y);
         this.graphics.stroke();
@@ -126,11 +315,6 @@ export default class GraphicsView extends PopUpViewBase {
      * @param col 颜色
      */
     drawBezierLine(p0: cc.Vec2, p1: cc.Vec2, p2: cc.Vec2, p3: cc.Vec2, col: cc.Color): void {
-        let lineWidth: number = 3;
-
-        //this.graphics.clear();
-        this.graphics.lineWidth = lineWidth;
-        this.graphics.strokeColor = col;
         this.graphics.moveTo(p0.x, p0.y);
         this.graphics.bezierCurveTo(p1.x, p1.y, p2.x, p2.y, p3.x, p3.y);
         this.graphics.stroke();
@@ -154,7 +338,7 @@ export default class GraphicsView extends PopUpViewBase {
             let p1: cc.Vec2 = posArr[index];
             let p2: cc.Vec2 = posArr[index + 1];
 
-            this.drawLine(p1, p2, cc.Color.ORANGE);
+            this.drawLine(p1, p2);
         }
     }
 

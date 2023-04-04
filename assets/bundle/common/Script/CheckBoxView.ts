@@ -7,24 +7,29 @@ export default class CheckBoxView extends cc.Component {
     @property(cc.Toggle)
     toggle: cc.Toggle = null;
 
+    public text = "";
+
     onLoad() {
         this.toggle.uncheck();
     }
 
-    private callback: (v: string) => void = null;
+    private callback?: (v: string) => void = null;
 
     public init(text: string, callback?: (v: string) => void) {
+        this.text = text;
         this.label.string = text;
         this.callback = callback;
-        this.node.on("click", this.click, this);
     }
 
-    private click() {
-        this.callback?.(this.label.string);
+    onToggle(toggle: cc.Toggle) {
+        this.callback?.(this.text);
+    }
+
+    public setLabelColor(color: cc.Color) {
+        this.label.node.color = color;
     }
 
     public setCheck(isCheck: boolean) {
-        cc.log("CheckBoxView isCheck=" + isCheck);
         isCheck ? this.toggle.check() : this.toggle.uncheck();
     }
 }
