@@ -2,10 +2,12 @@
   "title": "FirstCocos",
   "packageName": "org.cocos2d.demo",
   "startScene": "667c8f29-65ae-4dff-9a3d-cd7d5aa997b3",
-  "excludeScenes": [],
+  "excludeScenes": [
+    "c8ce4527-fc46-4a2d-9403-d20147b9f684"
+  ],
   "orientation": {
-    "landscapeRight": true,
-    "landscapeLeft": true,
+    "landscapeRight": false,
+    "landscapeLeft": false,
     "portrait": false,
     "upsideDown": false
   },
@@ -16,7 +18,7 @@
   "mainIsRemote": false,
   "optimizeHotUpdate": false,
   "md5Cache": true,
-  "nativeMd5Cache": true,
+  "nativeMd5Cache": false,
   "encryptJs": true,
   "xxteaKey": "5ca413d0-735f-45",
   "zipCompressJs": true,

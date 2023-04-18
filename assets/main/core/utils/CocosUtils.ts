@@ -1,6 +1,3 @@
-import CommonSkin from "../../../bundle/common/Script/conf/CommonSkin";
-import { ResLoader } from "../bd/ResLoader";
-
 export class CocosUtils {
     private constructor() {}
 
@@ -15,22 +12,6 @@ export class CocosUtils {
 
     public static currentSence = null;
     public static lastSence = null;
-
-    public setBtn(btn: cc.Button) {
-        const bg = btn.getComponent(cc.Sprite);
-        bg.spriteFrame = ResLoader.getInstance().getSpriteFrame(CommonSkin.Priority.btnSkin);
-    }
-
-    public setNodeBg(bg: cc.Node) {
-        const sp = bg.getComponent(cc.Sprite);
-        if (sp) {
-            sp.spriteFrame = ResLoader.getInstance().getSpriteFrame(CommonSkin.Priority.bgSkin);
-        }
-    }
-
-    public setBg(bg: cc.Sprite) {
-        bg.spriteFrame = ResLoader.getInstance().getSpriteFrame(CommonSkin.Priority.bgSkin);
-    }
 
     //获取当前的Canvas
     public getSceneCanvas() {

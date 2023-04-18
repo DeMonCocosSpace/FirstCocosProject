@@ -181,6 +181,22 @@ export namespace Toast {
 }
 
 export namespace UI {
+    export function setBtn(btn: cc.Button) {
+        const bg = btn.getComponent(cc.Sprite);
+        bg.spriteFrame = ResLoader.getInstance().getSpriteFrame(CommonSkin.Priority.btnSkin);
+    }
+
+    export function setNodeBg(bg: cc.Node) {
+        const sp = bg.getComponent(cc.Sprite);
+        if (sp) {
+            sp.spriteFrame = ResLoader.getInstance().getSpriteFrame(CommonSkin.Priority.bgSkin);
+        }
+    }
+
+    export function setBg(bg: cc.Sprite) {
+        bg.spriteFrame = ResLoader.getInstance().getSpriteFrame(CommonSkin.Priority.bgSkin);
+    }
+
     export function isVec2Equal(point1: cc.Vec2, point2: cc.Vec2) {
         if (point1.x == point2.x && point2.y == point1.y) {
             return true;

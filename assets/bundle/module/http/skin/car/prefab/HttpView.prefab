@@ -2086,16 +2086,6 @@
     "_id": ""
   },
   {
-    "__type__": "0f083jtYUVE2LXapqXPtP3X",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "_id": ""
-  },
-  {
     "__type__": "15581zra7JDhZWITiBqQQ1P",
     "_name": "",
     "_objFlags": 0,
@@ -2130,6 +2120,16 @@
     "_isAbsVerticalCenter": true,
     "_originalWidth": 1280,
     "_originalHeight": 720,
+    "_id": ""
+  },
+  {
+    "__type__": "12d39dSgfpJ3ZD68HSngiNO",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
     "_id": ""
   },
   {

@@ -1,5 +1,6 @@
 import { ResLoader } from "../../../../main/core/bd/ResLoader";
 import PopUpViewBase from "../../../../main/core/ui/popup/PopUpViewBase";
+import { LineUtils } from "../../../../main/core/utils/LineUtils";
 import CheckGroupView from "../../../common/Script/CheckGroupView";
 import { UI } from "../../../common/Script/commpent/UIMgr";
 import CommonSkin from "../../../common/Script/conf/CommonSkin";
@@ -97,6 +98,7 @@ export default class GraphicsView extends PopUpViewBase {
                 this.dealEllipse();
                 break;
             case 4:
+                this.dealArc();
                 break;
             case 5:
                 this.dealQuadraticCurve();
@@ -107,6 +109,49 @@ export default class GraphicsView extends PopUpViewBase {
             default:
                 break;
         }
+    }
+
+    dealArc() {
+        if (this._points.length < 3) return;
+        const ponits = this._points.slice(this._points.length - 3, this._points.length);
+        //辅助线
+        this.drawGuideLine(ponits[0], ponits[1]);
+        this.drawGuideLine(ponits[0], ponits[2]);
+
+        //第1个点到第2个点到距离为半径
+        const r1 = ponits[0].sub(ponits[1]).mag();
+        //第1个点到第3个点到距离为半径
+        const r2 = ponits[0].sub(ponits[2]).mag();
+        //选小的作为半径
+        const r = r1 > r2 ? r2 : r1;
+        const sAngle = LineUtils.getXRadian(ponits[0], ponits[1]);
+        const eAngle = LineUtils.getXRadian(ponits[0], ponits[2]);
+        CC_DEBUG && cc.log("GraphicsView " + sAngle + " " + eAngle);
+
+        CC_DEBUG &&
+            cc.log(
+                "GraphicsView " +
+                    LineUtils.getXAngle(ponits[0], ponits[1]) +
+                    " " +
+                    LineUtils.getXAngle(ponits[0], ponits[2])
+            );
+        this.drawArc(ponits[0], r, sAngle, eAngle, false);
+    }
+
+    drawArc(
+        point: cc.Vec2,
+        r: number,
+        sAngle: number,
+        eAngle: number,
+        counterclockwise: boolean,
+        lineWidth: number = this.lineWidth,
+        lineClolor: cc.Color = this.lineClolor
+    ) {
+        this.graphics.lineWidth = lineWidth;
+        this.graphics.strokeColor = lineClolor;
+
+        this.graphics.arc(point.x, point.y, r, sAngle, eAngle, counterclockwise);
+        this.graphics.stroke();
     }
 
     dealBezierCurve() {

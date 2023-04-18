@@ -1,6 +1,5 @@
-import { CocosUtils } from "../../../../main/core/utils/CocosUtils";
-import BasePrefabView from "../../../../main/core/ui/BasePrefabView";
 import PopUpViewBase from "../../../../main/core/ui/popup/PopUpViewBase";
+import { UI } from "../../../common/Script/commpent/UIMgr";
 
 const { ccclass, property } = cc._decorator;
 
@@ -15,8 +14,8 @@ export default class FrameView extends PopUpViewBase {
 
     onLoad() {
         this.hasBack = true;
-        CocosUtils.getInstance().setBtn(this.play);
-        CocosUtils.getInstance().setBg(this.node.getComponent(cc.Sprite));
+        UI.setBtn(this.play);
+        UI.setBg(this.node.getComponent(cc.Sprite));
 
         this.anim = this.effect.getComponent(cc.Animation);
     }

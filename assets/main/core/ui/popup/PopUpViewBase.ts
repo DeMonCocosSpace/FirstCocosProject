@@ -1,7 +1,3 @@
-import BtnView from "../../../../bundle/common/Script/BtnView";
-import { UI } from "../../../../bundle/common/Script/commpent/UIMgr";
-import CommonSkin from "../../../../bundle/common/Script/conf/CommonSkin";
-import { ResLoader } from "../../bd/ResLoader";
 import { PlayButtonSoundUtils } from "../../utils/PlayButtonSoundUtils";
 import { PopupUtil } from "./PopupUtil";
 
@@ -17,9 +13,6 @@ export default class PopUpViewBase extends PopupUtil.BasePopup {
 
     public onConstruct(): void {
         PlayButtonSoundUtils.getInstance().buttonPlaySoundHandle(this.node);
-        if (this._hasBack) {
-            this.showBack();
-        }
     }
 
     public init(...args: any[]): void {}
@@ -69,19 +62,5 @@ export default class PopUpViewBase extends PopupUtil.BasePopup {
         swallowNode.height = cc.winSize.height;
         swallowNode.addComponent(cc.BlockInputEvents);
         this.node.addChild(swallowNode, 10);
-    }
-
-    protected showBack() {
-        const pf = cc.instantiate(ResLoader.getInstance().getPrefab(CommonSkin.Priority.BtnView));
-        const ctrl = pf.getComponent(BtnView);
-        ctrl.init({
-            label: "<--",
-            callback: () => {
-                this.close();
-            },
-        });
-        this.node.addChild(pf);
-        ctrl.layout.updateLayout();
-        UI.setWidget(pf, { top: 25, left: 25 });
     }
 }

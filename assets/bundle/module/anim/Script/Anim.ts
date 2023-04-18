@@ -1,5 +1,4 @@
 import { ResLoader } from "../../../../main/core/bd/ResLoader";
-import { CocosUtils } from "../../../../main/core/utils/CocosUtils";
 import BtnView from "../../../common/Script/BtnView";
 import { UI } from "../../../common/Script/commpent/UIMgr";
 import CommonSkin from "../../../common/Script/conf/CommonSkin";
@@ -31,7 +30,7 @@ export default class Anim extends cc.Component {
                 title: "动作系统",
             },
         ];
-        CocosUtils.getInstance().setBg(this.bg);
+        UI.setBg(this.bg);
 
         this.AnimConf.forEach((value, i, _) => {
             const pf = cc.instantiate(

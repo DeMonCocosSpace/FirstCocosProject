@@ -3,6 +3,7 @@ import BasePrefabView from "../../../../main/core/ui/BasePrefabView";
 import { ResLoader } from "../../../../main/core/bd/ResLoader";
 import HallSkin from "./conf/HallSkin";
 import AudioManager from "../../../../main/core/media/AudioManager";
+import { UI } from "../../../common/Script/commpent/UIMgr";
 
 const { ccclass, property } = cc._decorator;
 
@@ -15,7 +16,7 @@ export default class HallView extends BasePrefabView {
     vip: cc.Node = null;
 
     onLoad() {
-        CocosUtils.getInstance().setBg(this.bg);
+        UI.setBg(this.bg);
 
         cc.tween(this.vip)
             .repeatForever(

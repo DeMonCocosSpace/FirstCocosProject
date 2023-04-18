@@ -1,5 +1,5 @@
-import CommonSkin from "../../../bundle/common/Script/conf/CommonSkin";
-import { ResLoader } from "../bd/ResLoader";
+import CommonSkin from "../../../common/Script/conf/CommonSkin";
+import { ResLoader } from "../../../../main/core/bd/ResLoader";
 
 const { ccclass, property, menu } = cc._decorator;
 

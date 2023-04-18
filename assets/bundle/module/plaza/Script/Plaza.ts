@@ -3,7 +3,7 @@ import { PlazaConf } from "./conf/PlazaConf";
 import CommonSkin from "../../../common/Script/conf/CommonSkin";
 import BtnView from "../../../common/Script/BtnView";
 import BundleCenter from "../../../../main/core/bd/BundleCenter";
-import { CocosUtils } from "../../../../main/core/utils/CocosUtils";
+import { UI } from "../../../common/Script/commpent/UIMgr";
 
 const { ccclass, property } = cc._decorator;
 
@@ -16,7 +16,7 @@ export default class Plaza extends cc.Component {
     scrollView: cc.Node = null;
 
     onLoad() {
-        CocosUtils.getInstance().setNodeBg(this.scrollView);
+        UI.setNodeBg(this.scrollView);
         PlazaConf.forEach((value, i, _) => {
             const pf = cc.instantiate(
                 ResLoader.getInstance().getPrefab(CommonSkin.Priority.BtnView)

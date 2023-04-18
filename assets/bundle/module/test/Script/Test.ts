@@ -1,6 +1,6 @@
 import { ResLoader } from "../../../../main/core/bd/ResLoader";
-import { CocosUtils } from "../../../../main/core/utils/CocosUtils";
 import BtnView from "../../../common/Script/BtnView";
+import { UI } from "../../../common/Script/commpent/UIMgr";
 import CommonSkin from "../../../common/Script/conf/CommonSkin";
 import { ApiProto } from "./ApiProto";
 
@@ -34,7 +34,7 @@ export default class Test extends cc.Component {
                 title: "ReturnType",
             },
         ];
-        CocosUtils.getInstance().setBg(this.bg);
+        UI.setBg(this.bg);
 
         this.testConf.forEach((value, i, _) => {
             const pf = cc.instantiate(
